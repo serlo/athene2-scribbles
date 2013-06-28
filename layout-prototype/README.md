@@ -7,8 +7,11 @@ requirements
 * [yeoman](http://yeoman.io)
 * [npm](http://node.js)
 
-    npm install
-    bower install
+
+    `npm install`
+    `bower install`
+
+
     
 starting dev environment
 
