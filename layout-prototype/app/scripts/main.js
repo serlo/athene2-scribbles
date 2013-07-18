@@ -15,7 +15,7 @@ require.config({
     }
 });
 
-require(['app', 'jquery', 'bootstrap'], function (app, $) {
+require(['jquery', 'app', 'bootstrap'], function ($, app) {
     'use strict';
     // use app here
     app.start();

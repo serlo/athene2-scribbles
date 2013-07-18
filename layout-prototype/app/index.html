@@ -2,678 +2,870 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-    </head>
-    <body>
-        <header id="header" class="container">
-            <div class="row">
-                <div class="span12">
-                    <div id="serlo-menu" class="navbar navbar-inverse">
-                        <nav class="navbar-inner">
-                            <ul class="nav">
-                                <li><a href="#blog">Blog</a></li>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#participate">Participate</a></li>
-                                <li><a href="#support">Support</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span3">
-                    <h1>Serlo</h1>
-                    <h4>Die freie Lernseite</h4>
-                </div>
-            </div>
-            <div id="subject-nav" class="nav">
-                <div class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mathe<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Mathe</a></li>
-                        <li><a href="#">Physik</a></li>
-                        <li><a href="#">Weitere Fächer</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-        <div id="main" class="container">
-            <div class="row">
-                <aside class="span2">
-                    <nav id="sidebar-nav">
-                        <ul class="nav">
-                            <li class="search">
-                                <input class="input-search" placeholder="Suche" /><i class="icon-search"></i>
-                                <div class="subnav">
-                                    <div class="row-fluid">
-                                        <div class="span12">
-                                            <p>Suche zum Beispiel nach <em>Nullstellen</em>, <em>Euklidische Theorie</em>, <em>Abituraufgaben</em> oder deinem <em>Bundesland</em></p>
-                                        </div>
-                                    </div>
-                                </div>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr-custom.built.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="container">
+        <div class="row">
+            <div class="span12">
+                <div id="serlo-menu" class="navbar">
+                    <nav class="navbar-inner">
+                        <ul class="nav pull-left">
+                            <li><a href="#home"><i class="icon-home"></i></a>
                             </li>
-                            <li class="active">
-                                <a href="#">Themen</a>
-                                <ul class="nav nav-second">
-                                    <li><a href="#">Arithmetik und Rechnen</a></li>
-                                    <li><a href="#">Primfaktorenzerlegung</a></li>
-                                </ul>
-                                <div class="subnav">
-                                    <div class="row-fluid">
-                                        <div class="span6">
-                                            <h5>Arithmetik und Rechnen</h5>
-                                            <ul>
-                                                <li><a href="#">Grundrechenarten</a></li>
-                                                <li><a href="#">Bruchrechnen und Dezimalzahlen</a></li>
-                                                <li><a href="#">Zahlenstrahl und Zahlengerade <span class="badge">17</span></a></li>
-                                                <li><a href="#">Runden und Abschätzen <span class="badge">38</span></a></li>
-                                                <li><a href="#">Große Zahlen <span class="badge">46</span></a></li>
-                                                <li><a href="#">Prozent- und Zinsrechnung</a></li>
-                                                <li><a href="#">Proportionalität und Dreisatz</a></li>
-                                                <li><a href="#">Einheiten und Maßstab</a></li>
-                                                <li><a href="#">kgV und ggT <span class="badge">13</span></a></li>
-                                                <li><a href="#">Primfaktorzerlegung <span class="badge">10</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="span6">
-                                            <h5>Analysis</h5>
-                                            <ul>
-                                                <li><a href="#">Funktionen</a></li>
-                                                <li><a href="#">Ableitung</a></li>
-                                                <li><a href="#">Integral</a></li>
-                                                <li><a href="#">Kurvendiskussion</a></li>
-                                                <li><a href="#">exponentielles Wachstum</a></li>
-                                                <li><a href="#">Extremwertaufgaben <span class="badge">23</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row-fluid">
-                                        <div class="span6">
-                                            <h5>Terme und Gleichungen</h5>
-                                            <ul>
-                                                <li><a href="#">Potenzen und Wurzeln</a></li>
-                                                <li><a href="#">Rechnen mit Logarithmen und Exponentialfunktionen <span class="badge">12</span></a></li>
-                                                <li><a href="#">Terme und Variablen</a></li>
-                                                <li><a href="#">Gleichungssysteme</a></li>
-                                                <li><a href="#">Gleichungen</a></li>
-                                                <li><a href="#">Ungleichungen</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="span6">
-                                            <h5>Stochastik</h5>
-                                            <ul>
-                                                <li><a href="#">Grundbegriffe</a></li>
-                                                <li><a href="#">Vierfeldertafel <span class="badge">6</span></a></li>
-                                                <li><a href="#">Baumdiagramm <span class="badge">13</span></a></li>
-                                                <li><a href="#">Kombinatorik <span class="badge">80</span></a></li>
-                                                <li><a href="#">Wahrscheinlichkeit</a></li>
-                                                <li><a href="#">Binominalverteilung</a></li>
-                                                <li><a href="#">Hypothesentest <span class="badge">7</span></a></li>
-                                                <li><a href="#">Statistik</a></li>
-                                                <li><a href="#">Zufallsgrößen</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row-fluid">
-                                        <div class="span6">
-                                            <h5>Geometrie</h5>
-                                            <ul>
-                                                <li><a href="#">Figuren in der Ebene</a></li>
-                                                <li><a href="#">Räumliche Figuren</a></li>
-                                                <li><a href="#">Ortslinien und Ortsbereiche <span class="badge">5</span></a></li>
-                                                <li><a href="#">Winkel und Geraden <span class="badge">9</span></a></li>
-                                                <li><a href="#">Konstruktionen mit Zirkel und Lineal <span class="badge">15</span></a></li>
-                                                <li><a href="#">Analytische Geometrie</a></li>
-                                                <li><a href="#">Vektorrechnung</a></li>
-                                                <li><a href="#">Koordinatensystem</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="span6">
-                                            <h5>Sonstiges</h5>
-                                            <ul>
-                                                <li><a href="#">Berechnung von Determinanten <span class="badge">7</span></a></li>
-                                                <li><a href="#">Historisches</a></li>
-                                                <li><a href="#">Knobelaufgaben <span class="badge">17</span></a></li>
-                                                <li><a href="#">Diagramme <span class="badge">10</span></a></li>
-                                                <li><a href="#">Formeln berechen <span class="badge">10</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                            <li><a href="#blog">Blog</a>
                             </li>
-                            <li><a href="#">Lehrplan</a></li>
-                            <li><a href="#">Prüfungen</a>
-                                <div class="subnav">
-                                    <div class="row-fluid">
-                                        <div class="span6">
-                                            <h5>Geometrie</h5>
-                                            <ul>
-                                                <li><a href="#">Figuren in der Ebene</a></li>
-                                                <li><a href="#">Räumliche Figuren</a></li>
-                                                <li><a href="#">Ortslinien und Ortsbereiche <span class="badge">5</span></a></li>
-                                                <li><a href="#">Winkel und Geraden <span class="badge">9</span></a></li>
-                                                <li><a href="#">Konstruktionen mit Zirkel und Lineal <span class="badge">15</span></a></li>
-                                                <li><a href="#">Analytische Geometrie</a></li>
-                                                <li><a href="#">Vektorrechnung</a></li>
-                                                <li><a href="#">Koordinatensystem</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="span6">
-                                            <h5>Sonstiges</h5>
-                                            <ul>
-                                                <li><a href="#">Berechnung von Determinanten <span class="badge">7</span></a></li>
-                                                <li><a href="#">Historisches</a></li>
-                                                <li><a href="#">Knobelaufgaben <span class="badge">17</span></a></li>
-                                                <li><a href="#">Diagramme <span class="badge">10</span></a></li>
-                                                <li><a href="#">Formeln berechen <span class="badge">10</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                            <li><a href="#about">About</a>
+                            </li>
+                            <li><a href="#participate">Participate</a>
+                            </li>
+                            <li><a href="#support">Support</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li><a href="#blog">Register</a>
+                            </li>
+                            <li><a href="#about"><i class="icon-user"></i> Login</a>
                             </li>
                         </ul>
                     </nav>
-                </aside>
-                <div class="span10">
-                    <div class="content-inner">
-                        <div id="content" class="row-fluid">
-                            <div class="span10">
-                                <h2>Aufgaben zur Primfaktorenzerlegung</h2>
-                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                            <div class="span2">
-                                <div class="btn-group">
-
-                                </div>
-                            </div>
-                        </div>  
-                        <div class="row-fluid exercise">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>1.</strong> Zerlege die Zahl in Primfaktoren</p>
-                                </div>
+                </div>
+            </div>
+        </div>
+        <div id="serlo-logo">
+            <img width="110" height="143" src="images/logo1.svg" onerror="this.onerror=null; this.src='images/logo1.png'">
+        </div>
+        <div id="subject-nav" class="row">
+            <div class="span3">
+                <div class="dropdown">
+                    <h1 class="dropdown-toggle" data-toggle="dropdown" href="#">Mathe<b class="caret"></b></h1>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li><a href="#">Physik</a>
+                        </li>
+                        <li><a href="#">Biologie</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span3 offset6">
+                <p><strong>Serlo</strong>
+                    <br />Die freie Lernplattform</p>
+            </div>
+        </div>
+    </header>
+    <div id="page" class="container">
+        <aside id="navigation">
+            <div id="navigation-container">
+                <div id="navigation-toggle" class="layout-toggle">
+                    <i class="icon-list"></i>
+                </div>
+                <div id="search-content">
+                    <input class="input-search" placeholder="Suche" /><i class="icon-search"></i>
+                    <ul id="search-results" class="nav">
+                        <li><a href="#">Ergebnis oans</a>
+                        </li>
+                        <li><a href="#">Ergebnis zwoa</a>
+                        </li>
+                        <li><a href="#">Ergebnis drei</a>
+                        </li>
+                        <li><a href="#">Ergebnis vier</a>
+                        </li>
+                        <li><a href="#">...</a>
+                        </li>
+                    </ul>
+                    <div id="search-help">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <p>Suche zum Beispiel nach <em>Nullstellen</em>, <em>Euklidische Theorie</em>, <em>Abituraufgaben</em> oder
+                                    deinem <em>Bundesland</em>
+                                </p>
                             </div>
                         </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
+                    </div>
+                </div>
+                <div id="navigation-content">
+                    <ul id="main-nav" class="nav">
+                        <li><a href="#">Alle Themen</a>
+                            <ul class="nav nav-second">
+                                <li><a href="#">Arithmetik und Rechnen</a></li>
+                                <li><a href="#">Primfaktorenzerlegung</a></li>
+                            </ul>
+                            <div class="subnav">
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <div class="mask">
+                                            <div class="title"></div>
+                                            <div class="mover">
+                                                <ul class="first-level">
+                                                    <li>
+                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Arithmetik und Rechnen</a>
+                                                        <ul>
+                                                            <li>
+                                                                <i class="icon-right-circle"></i>&nbsp;<a href="#">Grundrechenarten</a>
+                                                                <ul>
+                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Additionsübungen <span class="badge">(12)</span></a></li>
+                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Subtraktionsübungen <span class="badge">(7)</span></a></li>
+                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Multiplikationsübungen <span class="badge">(10)</span></a></li>
+                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Divisionsübungen <span class="badge">(11)</span></a></li>
+                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gemischte Aufgaben zu den Grundrechenarten <span class="badge">(34)</span></a></li>
+                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gemischte Aufgaben mit negativen Zahlen <span class="badge">(73)</span></a></li>
+                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Sachaufgaben zu den Grundrechenarten <span class="badge">(68)</span></a></li>
+                                                                </ul>
+                                                                <div class="info">
+                                                                    <header>
+                                                                        <img src="#" width="120" height="120" />
+                                                                        <h3>Grundrechenarten</h3>
+                                                                    </header>
+                                                                    <section>
+                                                                        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                                                        <ul>
+                                                                            <li>Nam liber tempor cum soluta</li>
+                                                                            <li>nobis eleifend option congue</li>
+                                                                            <li>nihil imperdiet doming id quod</li>
+                                                                            <li>mazim placerat facer possim assum.</li>
+                                                                        </ul>
+                                                                    </section>
+                                                                </div>
+                                                            </li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Bruchrechnen und Dezimalzahlen</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Zahlenstrahl und Zahlengerade <span class="badge">17</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Runden und Abschätzen <span class="badge">38</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Große Zahlen <span class="badge">46</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Prozent- und Zinsrechnung</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Proportionalität und Dreisatz</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Einheiten und Maßstab</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">kgV und ggT <span class="badge">13</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Primfaktorzerlegung <span class="badge">10</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Analysis</a>
+                                                        <ul>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Funktionen</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Ableitung</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Integral</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Kurvendiskussion</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">exponentielles Wachstum</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Extremwertaufgaben <span class="badge">23</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Terme und Gleichungen</a>
+                                                        <ul>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Potenzen und Wurzeln</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Rechnen mit Logarithmen und Exponentialfunktionen <span class="badge">12</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Terme und Variablen</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gleichungssysteme</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gleichungen</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Ungleichungen</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Stochastik</a>
+                                                        <ul>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Grundbegriffe</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Vierfeldertafel <span class="badge">6</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Baumdiagramm <span class="badge">13</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Kombinatorik <span class="badge">80</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Wahrscheinlichkeit</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Binominalverteilung</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Hypothesentest <span class="badge">7</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Statistik</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Zufallsgrößen</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Geometrie</a>
+                                                        <ul>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Figuren in der Ebene</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Räumliche Figuren</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Ortslinien und Ortsbereiche <span class="badge">5</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Winkel und Geraden <span class="badge">9</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Konstruktionen mit Zirkel und Lineal <span class="badge">15</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Analytische Geometrie</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Vektorrechnung</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Koordinatensystem</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Sonstiges</a>
+                                                        <ul>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Berechnung von Determinanten <span class="badge">7</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Historisches</a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Knobelaufgaben <span class="badge">17</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Diagramme <span class="badge">10</span></a></li>
+                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Formeln berechen <span class="badge">10</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div id="subnav-info"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </li>
+                        <li><a href="#">Lehrplan deiner Schule</a>
+                        </li>
+                        <li><a href="#">Lernpfad</a>
+                        </li>
+                        <li><a href="#">Prüfungsvorbereitung</a>
+                        </li>
+                        <li><a href="#">Graphen zeichnen</a>
+                        </li>
+                        <li><a href="#">Mathewelt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <div id="main">
+            <div id="main-container">
+                <div id="content">
+                    <div id="content-container" class="layout-inner">
+                        <!-- <h1>Content</h1>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p><p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p> -->
+
+                        <div class="content-controls pull-right btn-group">
+                            <button class="btn btn-default btn-mini"><i class="icon-pencil"></i>
+                            </button>
+                            <button class="btn btn-default btn-mini"><i class="icon-cog"></i>
+                            </button>
+                            <button class="btn btn-default btn-mini"><i class="icon-star"></i>
+                            </button>
+                            <button class="btn btn-default btn-mini"><i class="icon-info"></i>
+                            </button>
                         </div>
-                        <div class="row-fluid exercise second-level">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>a)</strong> 36</p>
+                        <div class="article">
+                            <h1 id="pagetitle">Ableitung berechnen</h1>
+                            <div class="content">
+                                <table border="0" cellpadding="5" rules="all" style="width:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong><strong>Konstante Funktion&nbsp;&nbsp;</strong> 
+                                                <br>
+                                                </strong>
+                                            </td>
+                                            <td valign="top">
+                                                <img align="middle">
+                                            </td>
+                                            <td valign="top">
+                                                <img align="middle">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>Potenzfunktion&nbsp; </strong><a href="/math/wiki/article/view/potenzfunktion"
+                                                class="frontbox button">Artikel zum Thema</a>
+                                            </td>
+                                            <td valign="top">
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                            <td valign="top">
+                                                <p align="center" class="Wirisformula" style="text-align:left;" title="Double click to edit">
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>Hyperbelfunktion&nbsp; </strong><a href="/math/wiki/article/view/gebrochenrationale-funktionen"
+                                                class="frontbox button">Artikel zum Thema</a>
+                                            </td>
+                                            <td colspan="1" rowspan="1">
+                                                <img align="middle">
+                                            </td>
+                                            <td colspan="1" rowspan="1">
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>Wurzelfunktion&nbsp; </strong><a href="/math/wiki/article/view/wurzelfunktion"
+                                                class="frontbox button">Artikel zum Thema</a>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>e-Funktion&nbsp; </strong><a href="/math/wiki/article/view/e-funktion"
+                                                class="frontbox button">Artikel zum Thema</a>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <img align="middle">
+                                            </td>
+                                            <td>
+                                                <p>&nbsp;
+                                                    <img align="middle">&nbsp;&nbsp;</p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>Exponentialfunktion </strong>&nbsp;<a href="/math/wiki/article/view/exponentialfunktion"
+                                                class="frontbox button">Artikel zum Thema</a>
+                                            </td>
+                                            <td>
+                                                <img align="middle">
+                                            </td>
+                                            <td>
+                                                <img align="middle">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>ln-funktion</strong>&nbsp; <a href="/math/wiki/article/view/ln-funktion"
+                                                class="frontbox button">Artikel zum Thema</a>
+                                            </td>
+                                            <td colspan="1" rowspan="1">
+                                                <img align="middle">
+                                            </td>
+                                            <td colspan="1" rowspan="1">
+                                                <img align="middle">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>Allgemeine Logarithmusfunktion</strong><strong></strong>
+                                            </td>
+                                            <td>
+                                                <img align="middle">
+                                            </td>
+                                            <td>
+                                                <img align="middle">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width:40%;"><strong>Trignonometrische Funktionen&nbsp;&nbsp; </strong><a href="/math/wiki/article/view/sinusfunktion-und-kosinusfunktion"
+                                                class="frontbox button">Artikel zum Thema</a>
+                                            </td>
+                                            <td colspan="1" rowspan="1">
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                            <td colspan="1" rowspan="1">
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p></p>
+                                <h1>Ableitungsregeln</h1>
+                                <table border="0" cellpadding="5" rules="all" style="width:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="1" rowspan="1">
+                                                <p><a href="/math/wiki/article/view/summenregel" class="frontbox">Summenregel</a>
+                                                </p>
+                                            </td>
+                                            <td colspan="1" rowspan="1">
+                                                <img align="middle">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1" rowspan="1">&nbsp;<a href="/math/wiki/article/view/produktregel" class="frontbox">Produktregel</a>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                                <p>
+                                                    <img align="middle">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1" rowspan="1" valign="bottom"><a href="/math/wiki/article/view/quotientenregel" class="frontbox">Quotientenregel</a>
+                                            </td>
+                                            <td colspan="1" rowspan="1" valign="bottom">&nbsp;
+                                                <img align="middle">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><a href="/math/wiki/article/view/kettenregel" class="frontbox">Kettenregel</a>
+                                            </td>
+                                            <td valign="top">
+                                                <img align="middle">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><a href="/math/wiki/article/view/umkehrfunktion" class="frontbox">Ableitung der Umkehrfunktion</a>
+                                            </td>
+                                            <td valign="top">
+                                                <p><strong><img align="middle" ></strong>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <h1>Beispielaufgaben</h1>
+                                <p></p>
+                                <div class="spoiler">
+                                    <div class="head">
+                                        <div class="icon">
+                                            <img src="http://www.serlo.org/images/spoiler_down.png">
+                                        </div>
+                                        <div class="title">
+                                            <a href="javascript:return false;">Beispiele</a>
+                                        </div>
+                                    </div>
+                                    <div class="content" style="display: none;">
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="217" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die Ableitung folgender Funktionen mit Brüchen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=ce8a7286074f46e3d43978a29fdb12c5.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="218" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die Ableitung folgender Funktionen mit Brüchen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=606b35e1e33de5c7fd0a4076ea183ca8.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="2313" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die erste Ableitung folgender Funktionen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=151c5176152bebd9f7acffc6bca88c62.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="2314" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die erste Ableitung folgender Funktionen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=92acca53ae09dc605ea2b4a4c40c918e.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="156" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die Ableitung folgender e-Funktionen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=a06e6661a69ad2ccfa515690eb1d4b63.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="151" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die Ableitung folgender e-Funktionen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=ddd64a1fc9010f8f040248ba84d695c4.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="153" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die Ableitung folgender e-Funktionen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=d2dbe7c1cd7bf71f6c022fd3b0d43803.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="112" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die Ableitung folgender ln-Funktionen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=fec3241071a43b0c396bcfaa1c159dd4.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                        <div class="exercise" data-showcomments="0" data-id="109" data-license=""
+                                        data-disableprivs="1">
+                                            <div class="group">
+                                                <p>Bilde die Ableitung folgender ln-Funktionen.</p>
+                                            </div>
+                                            <div class="privileges">
+                                                <div class="button solution_trigger solution_status_4">Lösung</div>
+                                                <div class="button menu">▼
+                                                    <div class="box" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content has_group">
+                                                <p>
+                                                    <img class="Wirisformula" title="Double click to edit" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=6c8351cf688d6f613dd15d83095d227b.png">
+                                                </p>
+                                            </div>
+                                            <div></div>
+                                            <div class="clear"></div>
+                                            <div class="hint" style="display: none;">
+                                                <div class="hint_image">
+                                                    
+                                                </div>
+                                                <div class="hint_inner"></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="solution" style="display: none;"></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
                                 </div>
+                                <p></p>
+                                <p></p>
                             </div>
-                            <div class="span2">
-                                <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
+                            <div class="hr"></div>
+                            <div class="links">
+                                <div class="linkedfolder"><b>Anwendung:</b>
+                                    <div class="folders_inner"><a href="/math/exercises/topics/show/Analysis/Ableitung/Ableitung-bilden">Aufgaben zum Thema</a>
+                                    </div>
                                 </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
+                                <div class="folders"><b>Verwandte Artikel:</b>
+                                    <div class="folders_inner"><span class="folder"><a class="" href="/math/wiki/article/view/differenzierbarkeit">Differenzierbarkeit</a></span>
+                                        <span class="folder"><a class="" href="/math/wiki/article/view/ableitung">Ableitung</a></span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row-fluid exercise second-level">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>a)</strong> 42</p>
-                                </div>
+                            <div class="feedback_trigger">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="img"></div>
+                                            </td>
+                                            <td>
+                                                <div class="a">Fehler gefunden? Verbesserungsvorschlag?</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="span2">
-                                <div class="btn-group">
-                                    <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">Mehr</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Bearbeiten</a></li>
-                                        <li><a href="#">Lösungsvorschlag</a></li>
-                                        <li><a href="#">Melden</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
+                            <div class="feedback" style="display: none;">
+                                <input type="text" name="email" value="E-Mail" class="ereaseonclick feedback_email">
+                                <input type="text" name="subject" value="Betreff" class="ereaseonclick feedback_subject">
+                                <textarea class="feedback_content" name="content"></textarea>
+                                <input id="64" class="forced_button" type="submit" value="Absenden">
                             </div>
                         </div>
-                        <div class="row-fluid exercise">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>2.</strong> Zerlege in Primfaktoren 377208</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <div class="btn-group">
-                                    <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">Mehr</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Bearbeiten</a></li>
-                                        <li><a href="#">Lösungsvorschlag</a></li>
-                                        <li><a href="#">Melden</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-fluid exercise">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>3.</strong> Zerlege 3059 in Primfaktoren und bilde die Teilermenge T(3059).</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <div class="btn-group">
-                                    <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">Mehr</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Bearbeiten</a></li>
-                                        <li><a href="#">Lösungsvorschlag</a></li>
-                                        <li><a href="#">Melden</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-fluid exercise">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>4.</strong> Zerlege in Primfaktoren: 945252000</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <div class="btn-group">
-                                    <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">Mehr</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Bearbeiten</a></li>
-                                        <li><a href="#">Lösungsvorschlag</a></li>
-                                        <li><a href="#">Melden</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row-fluid exercise">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>5.</strong> Zerlege 11011 in Primfaktoren und bestimme die Teilermenge T(11011).</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <div class="btn-group">
-                                    <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">Mehr</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Bearbeiten</a></li>
-                                        <li><a href="#">Lösungsvorschlag</a></li>
-                                        <li><a href="#">Melden</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row-fluid exercise">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>6.</strong> Zerlege 931 in Primfaktoren und bestimme mit Hilfe dieser Primfaktoren die Teilermenge T(931).</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <div class="btn-group">
-                                    <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">Mehr</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Bearbeiten</a></li>
-                                        <li><a href="#">Lösungsvorschlag</a></li>
-                                        <li><a href="#">Melden</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-fluid exercise">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>7.</strong> Berechne die Primfaktorzerlegungen folgender Zahlen:</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row-fluid exercise second-level">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>a)</strong> 24</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <div class="present"><table border="0" style="width:100%;"><tbody><tr><td style="width:35%;">
-<h5>Primfaktorzerlegung</h5>
-</td>
-
-</tr><tr><td><img align="middle" class="Wirisformula" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=5c544792f57de4ab40a628baf13d4100.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»24«/mn»«/math»" alt="showimage.php?formula=5c544792f57de4ab40"></td>
-<td>Erster möglicher <a href="/math/wiki/article/view/primfaktorzerlegung" class="frontbox">Primfaktor</a> ist 2.</td>
-</tr><tr><td><img align="middle" class="Wirisformula" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=53cdc4690a6b6d2f3511bf214db2d997.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»24«/mn»«mo»:«/mo»«mn»2«/mn»«mo»=«/mo»«mn»12«/mn»«/math»" alt="showimage.php?formula=53cdc4690a6b6d2f35"></td>
-<td>Möglicher Primfaktor ist 2.</td>
-</tr><tr><td><img align="middle" class="Wirisformula" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=4f136e31dc50d37a0172ddadeec64f65.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»12«/mn»«mo»:«/mo»«mn»2«/mn»«mo»=«/mo»«mn»6«/mn»«/math»" alt="showimage.php?formula=4f136e31dc50d37a01"></td>
-<td>Möglicher Primfaktor 2.</td>
-</tr><tr><td><img align="middle" class="Wirisformula" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=29a7cb7229f9153e9ffd91e6d3da3647.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»6«/mn»«mo»:«/mo»«mn»2«/mn»«mo»=«/mo»«mn»3«/mn»«/math»" alt="showimage.php?formula=29a7cb7229f9153e9f"></td>
-<td></td>
-</tr><tr><td><img align="middle" class="Wirisformula" src="http://www.serlo.org/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=2846068dba9a0b6491d6db7d22a46877.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mo»§#160;«/mo»«mo»§#160;«/mo»«mo»§#8658;«/mo»«mo»§#160;«/mo»«mo»§#160;«/mo»«mn»24«/mn»«mo»=«/mo»«mn»2«/mn»«mo»§#183;«/mo»«mn»2«/mn»«mo»§#183;«/mo»«mn»2«/mn»«mo»§#183;«/mo»«mn»3«/mn»«/math»" alt="showimage.php?formula=2846068dba9a0b6491"></td>
-<td></td>
-</tr></tbody></table> <div class="privileges">
-</div>
-</div>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-fluid exercise second-level">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>b)</strong> 238</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-fluid exercise third-level">
-                            <div class="span10">
-                                <div class="inner">
-                                    <p><strong>I.</strong> 456</p>
-                                </div>
-                            </div>
-                            <div class="span2">
-                                <a class="btn btn-small btn-solution" href="#">Lösung</a>
-                            </div>
-                        </div>
-                        <div class="row-fluid solution">
-                            <div class="span12">
-                                <div class="inner">
-                                    <h5>Primfaktorenzerlegung</h5>
-                                    <p>377208 = 2 · 2 · 2 · 3 · 3 · 13 · 13 · 31</p>
-                                </div>
-                                <div class="well">
-                                    <div class="btn-group">
-                                        <a class="btn btn-small" href="#">Lösung bearbeiten</a>
-                                        <a href="#relatedArticleModal" role="button" class="btn btn-small" data-toggle="modal" data-target="#relatedArticleModal">Artikel zum Thema</a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+                <div id="sidebar">
+                    <div id="sidebar-toggle" class="layout-toggle">
+                        <i class="icon-layers"></i>
+                    </div>
+                    <div id="sidebar-content" class="layout-inner">
+                        <!-- <h5>Context Bereich</h5> -->
+                        <p><strong>Anwendung:</strong>
+                            <br /><a href="/math/exercises/topics/show/Analysis/Ableitung/Ableitung-bilden">Aufgaben zum Thema</a>
+                        </p>
+                        <p><strong>Verwandte Artikel:</strong>
+                            <br /><span class="folder"><a class="" href="/math/wiki/article/view/differenzierbarkeit">Differenzierbarkeit</a></span>
+                            <br
+                            /><span class="folder"><a class="" href="/math/wiki/article/view/ableitung">Ableitung</a></span>
+                        </p>
+                        <p>Hier sind die Ableitungen der wichtigsten Funktionen und die Ableitungsregeln
+                            aufgelistet.</p>
+                        <hr>
+                        <p><strong>Anwendung:</strong>
+                            <br /><a href="/math/exercises/topics/show/Analysis/Ableitung/Ableitung-bilden">Aufgaben zum Thema</a>
+                        </p>
+                        <p><strong>Verwandte Artikel:</strong>
+                            <br /><span class="folder"><a class="" href="/math/wiki/article/view/differenzierbarkeit">Differenzierbarkeit</a></span>
+                            <br
+                            /><span class="folder"><a class="" href="/math/wiki/article/view/ableitung">Ableitung</a></span>
+                        </p>
+                        <p>Hier sind die Ableitungen der wichtigsten Funktionen und die Ableitungsregeln
+                            aufgelistet.</p>
+                        <hr>
+                        <p><strong>Anwendung:</strong>
+                            <br /><a href="/math/exercises/topics/show/Analysis/Ableitung/Ableitung-bilden">Aufgaben zum Thema</a>
+                        </p>
+                        <p><strong>Verwandte Artikel:</strong>
+                            <br /><span class="folder"><a class="" href="/math/wiki/article/view/differenzierbarkeit">Differenzierbarkeit</a></span>
+                            <br
+                            /><span class="folder"><a class="" href="/math/wiki/article/view/ableitung">Ableitung</a></span>
+                        </p>
+                        <p>Hier sind die Ableitungen der wichtigsten Funktionen und die Ableitungsregeln
+                            aufgelistet.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <footer id="footer" class="container">
+    </div>
+    <footer id="footer">
+        <div class="container">
             <div class="row">
-                
                 <div class="span4">
                     <div class="inner">
                         <h4>Weitere Informationen</h4>
                         <ul class="nav">
-                            <li><a href="#">Über Serlo</a></li>
-                            <li><a href="#">Presse</a></li>
-                            <li><a href="#">Kontakt und Support </a></li>
-                            <li><a href="#">Nutzungsbedingungen und Urheberrecht</a></li>
-                            <li><a href="#">Impressum</a></li>
-                            <li><a href="#">Gesellschaft für freie Bildung e. V.</a></li>
+                            <li><a href="#">Über Serlo</a>
+                            </li>
+                            <li><a href="#">Presse</a>
+                            </li>
+                            <li><a href="#">Kontakt und Support </a>
+                            </li>
+                            <li><a href="#">Nutzungsbedingungen und Urheberrecht</a>
+                            </li>
+                            <li><a href="#">Impressum</a>
+                            </li>
+                            <li><a href="#">Gesellschaft für freie Bildung e. V.</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="span4">
                     <div class="inner">
                         <h4>Unterstützer</h4>
-                        <p>Hosting provided by <a href="http://ovh.de">ovh.de</a><br />
-                            <a href="#">Alle Sponsoren</a><br />
-                            <a href="#">Alle Partner</a></p>
+                        <p>Hosting provided by <a href="http://ovh.de">ovh.de</a>
+                            <br />
+                            <a href="#">Alle Sponsoren</a>
+                            <br />
+                            <a href="#">Alle Partner</a>
+                        </p>
                     </div>
                 </div>
                 <div class="span4">
                     <div class="inner">
-                        <p><a href="/"><img src="images/serlo_logo.png" alt="Serlo"></a></p>
-                        <p><br />Gesellschaft für freie Bildung e. V.</p>
+                        <p>
+                            <br />Gesellschaft für freie Bildung e. V.</p>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!--[if lt IE 7]>
+        </div>
+    </footer>
+    <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <h5>outdated</h5> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]--> 
-            <!-- Modal -->
-            <div id="relatedArticleModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">Primfaktorzerlegung</h3>
-              </div>
-              <div class="modal-body">
-                <div class="article">
+        <![endif]-->
 
-
-<div class="content">
-<h3>Vorgehensweise</h3>
-<p>Man sucht nach einer <a href="/math/wiki/article/view/primzahlen" class="frontbox">Primzahl</a>, die die Zahl teilt. Eine solche Primzahl nennt man Primteiler. Dann teilt man die Zahl durch diese und erhält einen Primfaktor und ein Ergebnis.</p>
-<p>Mit dem Ergebnis beginnt man wieder von vorne. Ist das Ergebnis bereits eine Primzahl ist man fertig.</p>
-<p>Auf diesem Weg erhält man rekursiv alle Primfaktoren.</p>
-<p>&nbsp;&nbsp;</p>
-<p>Um die Primfaktoren zu bestimmen beginnt man bei der kleinsten <a href="/math/wiki/article/view/primzahlen" class="frontbox">Primzahl</a> <img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b3815dd796c4b2d841e77fee35402a72.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»2«/mn»«/math»" alt="showimage.php?formula=b3815dd796c4b2d841">&nbsp;und geht diese in aufsteigender Reihenfolge durch. Bei geraden Zahlen kann stets&nbsp;<img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b3815dd796c4b2d841e77fee35402a72.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»2«/mn»«/math»" alt="showimage.php?formula=b3815dd796c4b2d841">&nbsp;gewählt werden.</p>
-<p>&nbsp;&nbsp;</p>
-<h4>Beispiel</h4>
-<p><span>Bestimme die Primfaktorzerlegung der Zahl&nbsp;</span><img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=17a9de7b4373e825b668207bc47a70bf.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»76«/mn»«/math»" alt="showimage.php?formula=17a9de7b4373e825b6">.</p>
-<table border="0" style="width:100%;"><tbody><tr><td style="width:30%;">
-<p><img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=17a9de7b4373e825b668207bc47a70bf.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»76«/mn»«/math»" alt="showimage.php?formula=17a9de7b4373e825b6"></p>
-</td>
-<td>
-<p>Suche einen Primteiler von&nbsp;<img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=17a9de7b4373e825b668207bc47a70bf.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»76«/mn»«/math»" alt="showimage.php?formula=17a9de7b4373e825b6">. Ein möglicher Primfaktor&nbsp;ist <img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b3815dd796c4b2d841e77fee35402a72.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»2«/mn»«/math»" alt="showimage.php?formula=b3815dd796c4b2d841">. Teile durch <img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b3815dd796c4b2d841e77fee35402a72.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»2«/mn»«/math»" alt="showimage.php?formula=b3815dd796c4b2d841">.</p>
-<p><strong>Tipp</strong>: Bei einer geraden Zahl wähle&nbsp;<img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b3815dd796c4b2d841e77fee35402a72.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»2«/mn»«/math»" alt="showimage.php?formula=b3815dd796c4b2d841">&nbsp;als Primteiler.</p>
-</td>
-</tr><tr><td><img align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»76«/mn»«mo»:«/mo»«mn»2«/mn»«mo»=«/mo»«mn»38«/mn»«/math»" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=5a1cebe8b9b6a2ec908555c7eda7945b.png" title="Double click to edit"></td>
-<td>Suche einen Primteiler von&nbsp;<img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=d5c6d22027efac037ac6932ac4140bbf.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»38«/mn»«/math»" alt="showimage.php?formula=d5c6d22027efac037a">. Ein möglicher Primfaktor&nbsp;ist <img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b3815dd796c4b2d841e77fee35402a72.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»2«/mn»«/math»" alt="showimage.php?formula=b3815dd796c4b2d841">. Teile durch <img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b3815dd796c4b2d841e77fee35402a72.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»2«/mn»«/math»" alt="showimage.php?formula=b3815dd796c4b2d841">.</td>
-</tr><tr><td colspan="1" rowspan="1"><img align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»38«/mn»«mo»:«/mo»«mn»2«/mn»«mo»=«/mo»«mn»19«/mn»«/math»" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=a5376d336623c1498484ba38c9eddeb2.png" title="Double click to edit"></td>
-<td colspan="1" rowspan="1"><img align="middle" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=48abff3b66a445aa9a62c24d893e1c90.png" data-mathml="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mn»19«/mn»«/math»" alt="showimage.php?formula=48abff3b66a445aa9a"> ist bereits eine Primzahl. Somit ist man fertig. Die Primfaktorzerlegung ist das Produkt der Primfaktoren.</td>
-</tr><tr><td colspan="1" rowspan="1"><img align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mo»§nbsp;«/mo»«mo»§nbsp;«/mo»«mo»§#8658;«/mo»«mo»§nbsp;«/mo»«mo»§nbsp;«/mo»«mn»76«/mn»«mo»=«/mo»«mn»2«/mn»«mo»§#183;«/mo»«mn»2«/mn»«mo»§#183;«/mo»«mn»19«/mn»«/math»" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=b760cb85242d1620fc1404304efbc6a6.png" title="Double click to edit"></td>
-<td colspan="1" rowspan="1">&nbsp;</td>
-</tr></tbody></table><p>&nbsp; &nbsp;</p>
-<p></p><div class="spoiler">
-<div class="head">
-<div class="icon">
-<img src="http://www.serlo.org/images/spoiler_down.png">
-</div>
-<div class="title">
-<a href="javascript:return false;">
-weitere Beispielaufgaben
-</a>
-</div>
-</div>
-<div class="content" style="display: none;"><p></p>
-<p></p><div class="exercise" data-showcomments="0" data-id="3109" data-license="" data-disableprivs="1">
-<div class="group">
-<p>Zerlege die Zahl in Primfaktoren.</p> </div>
-<div class="privileges">
-<div class="button solution_trigger solution_status_3">Lösung</div> <div class="button menu">▼<div class="box" style="display: none;"></div></div>
-</div>
-<div class="content has_group">
-<p>36</p> </div>
-<div></div>
-<div class="clear"></div>
-<div class="hint" style="display: none;">
-<div class="hint_image"><img src="/images/birne.png" alt="Hint"></div>
-<div class="hint_inner"></div>
-<div class="clear"></div>
-</div>
-<div class="solution" style="display: none;"></div>
-<div class="clear"></div>
-</div><p></p>
-<p></p><div class="exercise" data-showcomments="0" data-id="3112" data-license="" data-disableprivs="1">
-<div class="group">
-<p>Zerlege die Zahl in Primfaktoren.</p> </div>
-<div class="privileges">
-<div class="button solution_trigger solution_status_3">Lösung</div> <div class="button menu">▼<div class="box" style="display: none;"></div></div>
-</div>
-<div class="content has_group">
-<p>42</p> </div>
-<div></div>
-<div class="clear"></div>
-<div class="hint" style="display: none;">
-<div class="hint_image"><img src="/images/birne.png" alt="Hint"></div>
-<div class="hint_inner"></div>
-<div class="clear"></div>
-</div>
-<div class="solution" style="display: none;"></div>
-<div class="clear"></div>
-</div><p></p>
-<p></p></div>
-</div><p></p>
-<p>&nbsp;&nbsp;</p>
-<h2>Beispiele von Primfaktorzerlegungen</h2>
-<p><img align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mtable»«mtr»«mtd»«mn»21«/mn»«/mtd»«mtd»«mo»=«/mo»«/mtd»«mtd»«mn»3«/mn»«mo»§#183;«/mo»«mn»7«/mn»«/mtd»«/mtr»«mtr»«mtd»«mn»30«/mn»«/mtd»«mtd»«mo»=«/mo»«/mtd»«mtd»«mn»2«/mn»«mo»§#183;«/mo»«mn»3«/mn»«mo»§#183;«/mo»«mn»5«/mn»«/mtd»«/mtr»«mtr»«mtd»«mn»24«/mn»«/mtd»«mtd»«mo»=«/mo»«/mtd»«mtd»«msup»«mn»2«/mn»«mn»3«/mn»«/msup»«mo»§#183;«/mo»«mn»3«/mn»«/mtd»«/mtr»«mtr»«mtd»«mn»17«/mn»«/mtd»«mtd»«mo»=«/mo»«/mtd»«mtd»«mn»17«/mn»«/mtd»«/mtr»«mtr»«mtd»«mn»26«/mn»«/mtd»«mtd»«mo»=«/mo»«/mtd»«mtd»«mn»2«/mn»«mo»§#183;«/mo»«mn»13«/mn»«/mtd»«/mtr»«/mtable»«/math»" class="Wirisformula" src="/scripts/libs/tiny_mce/plugins/tiny_mce_wiris/integration/showimage.php?formula=a2acd98778df7a4561907ba8aa316a16.png" title="Double click to edit"></p> </div>
-<div class="hr"></div><div class="links"><div class="linkedfolder"><b>Anwendung:</b><div class="folders_inner"><a href="/math/exercises/topics/show/Arithmetik-und-Rechnen/Primfaktorzerlegung">Aufgaben zum Thema</a></div></div><div class="folders"><b>Verwandte Artikel:</b><div class="folders_inner"><span class="folder"><a class="frontbox" href="/math/wiki/article/view/primzahlen">Primzahlen</a></span></div></div></div> </div>
-              </div>
-              <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Schließen</button>
-              </div>
-            </div>
-        <!-- build:js scripts/main.js -->
-        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/main.js -->
+    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>

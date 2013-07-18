@@ -58,9 +58,9 @@ module.exports = function (grunt) {
         },
         connect: {
             options: {
-                port: 9000,
+                port: 8888,
                 // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
+                hostname: '0.0.0.0'
             },
             livereload: {
                 options: {
@@ -282,6 +282,55 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        modernizr: {
+            // [REQUIRED] Path to the build you're using for development.
+            'devFile' : 'app/bower_components/modernizr/modernizr.js',
+
+            // [REQUIRED] Path to save out the built file.
+            'outputFile' : 'app/bower_components/modernizr/modernizr-custom.built.js',
+
+            // Based on default settings on http://modernizr.com/download/
+            'extra' : {
+                'shiv' : true,
+                'printshiv' : false,
+                'load' : true,
+                'mq' : false,
+                'cssclasses' : true
+            },
+
+            // Based on default settings on http://modernizr.com/download/
+            'extensibility' : {
+                'addtest' : false,
+                'prefixed' : false,
+                'teststyles' : false,
+                'testprops' : false,
+                'testallprops' : false,
+                'hasevents' : false,
+                'prefixes' : false,
+                'domprefixes' : false
+            },
+
+            // By default, source is uglified before saving
+            'uglify' : true,
+
+            // Define any tests you want to impliticly include.
+            'tests' : [],
+
+            // By default, this task will crawl your project for references to Modernizr tests.
+            // Set to false to disable.
+            'parseFiles' : true,
+
+            // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
+            // You can override this by defining a 'files' array below.
+            'files' : ['app/styles/main.scss'],
+
+            // When parseFiles = true, matchCommunityTests = true will attempt to
+            // match user-contributed tests.
+            'matchCommunityTests' : false,
+
+            // Have custom Modernizr tests? Add paths to their location here.
+            'customTests' : []
+        },
         // Put files not handled in other tasks here
         copy: {
             dist: {
@@ -369,6 +418,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'modernizr',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',

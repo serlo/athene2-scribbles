@@ -8,34 +8,39 @@ define(['jquery'], function ($) {
 
     App.prototype.start = function() {
       $(function () {
-        $('.input-search').each(function(){
-          var subnav = $(this).parent().find('.subnav'),
-              original = subnav.html();
+        var $body = $('body'),
+            $main = $('#main'),
+            $navigationToggler = $('#navigation-toggle'),
+            $sidebarToggler = $('#sidebar-toggle'),
+            $search = $('#search-content'),
+            $searchInput = $('input', $search);
 
-          $(this).keyup(function(){
-            var val = $(this).val();
-            if(val == '') {
-              subnav.html(original);
-            } else {
-              var html = '<p>Deine Suche nach \"'+ val +'\" hat folgende Suchergebnisse erbracht:</p>';
-              html += '<div class="row-fluid"><div class="span6"><ul><li><strong>Kategorie 1</strong><li><a href="#">Ergebniss 1</a></li><li><a href="#">Ergebniss 2</a></li><li><a href="#">Ergebniss 3</a></li></ul></div><div class="span6"><ul><li><strong>Kategorie 2</strong><li><a href="#">Ergebniss 1</a></li><li><a href="#">Ergebniss 2</a></li><li><a href="#">Ergebniss 3</a></li><li><a href="#">Ergebniss 4</a></li><li><a href="#">Ergebniss 5</a></li></ul></div></div>';
-              subnav.html(html);
-            }
+        $searchInput
+          .focus(function(){
+            $(this).val('');
+            $search.removeClass('has-results').addClass('is-focus');
+          })
+          .focusout(function(){
+            $search.removeClass('has-results').removeClass('is-focus');
+          })
+          .keydown(function(){
+            $search.addClass('has-results');
+          })
 
-          });
+        $navigationToggler.click(function(){
+          $(this).parent().toggleClass('layout-toggle-active');
+          $body.removeClass('slide-left').toggleClass('slide-right');
         });
 
-        var $exercises = $('.exercise').each(function(){
-          var $self = $(this);
-
-          $('.btn-solution', $self).click(function(e){
-            e.preventDefault();
-            $exercises.not($self).removeClass('show-solution');
-            $self.toggleClass('show-solution');
-            return;
-          });
+        $sidebarToggler.click(function(){
+          $(this).parent().toggleClass('layout-toggle-active');
+          $body.removeClass('slide-right').toggleClass('slide-left');
         });
 
+        $.SerloSideMenu({
+          root: '#main-nav',
+          selector: '> li'
+        });
       });
     }
 
