@@ -5,7 +5,8 @@ require.config({
     },
     deps: [
         'libs/jquery.hoverintent.min',
-        'libs/jquery.serlo_menu'
+        'libs/jquery.serlo_menu',
+        'libs/jquery.serlo_ajax_overlay'
     ],
     shim: {
         bootstrap: {

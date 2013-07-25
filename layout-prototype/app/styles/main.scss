@@ -50,9 +50,18 @@ $navbarHeight:                    20px;
 @import 'fontello/fontello';
 
 /* BODY / HTML*/
-html,body {
+html {
   height: 100%;
   background: $grayLighter url(../images/mooning.png) 50% 0;
+}
+
+body {
+  background: none transparent;
+  perspective: 1500;
+}
+
+html, 
+body {
   @media only screen and (min-width: 880px) {
     overflow-x: hidden;
   }
@@ -135,6 +144,15 @@ $gridGutterWidthSidebar: 64px;
   position: relative;
   margin-top: 55px;
   margin-bottom: 45px;
+  
+  transform-style: preserve-3d;
+  transition: 0.45s transform 0.01s ease-in-out, 0.45s opacity 0.01s ease-in-out;
+
+  .ajax-content-active & {
+    // transform: translateX(-70%) rotateY(-12deg) translateZ(-165px);
+    transform: translateX(-35%) rotateY(4deg) translateZ(-150px);
+    opacity: 0.85;
+  }
 }
 
 #navigation {
@@ -304,6 +322,7 @@ $gridGutterWidthSidebar: 64px;
 
     box-sizing: border-box;
     border: none;
+    border-radius: 0;
     padding: 4px 24px 4px 12px;
     background: rgba($white, 0.3);
   
@@ -579,3 +598,38 @@ $gridGutterWidthSidebar: 64px;
   background: $themeColor;
 }
 
+#ajax-content-overlay {
+  position: absolute;
+  
+  right: -100%;
+  top: 177px;
+  
+  // width: 80%;
+  
+  background: $white;  
+  
+  box-shadow: 0 0 9px $grayLight;
+
+  transform: rotateY(-13deg) translateZ(200px);
+  transition: 0.45s right 0.01s ease-in-out, 0.45s transform 0.01s ease-in-out;
+
+  &.active {
+    right: 0;
+
+    transform: rotateY(0deg) translateZ(0);
+  }
+}
+
+#ajax-content-overlay-head {
+  padding: 12px 20px 0;
+}
+
+#ajax-content-overlay-inner {
+  min-height: 100%;
+  padding: 0 20px;
+}
+
+#ajax-content-overlay-footer {
+  padding: 12px 20px;
+  margin: 0;
+}

@@ -41,6 +41,8 @@ define(['jquery'], function ($) {
           root: '#main-nav',
           selector: '> li'
         });
+
+        $.SerloAjaxOverlay();
       });
     }
 
