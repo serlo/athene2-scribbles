@@ -3,6 +3,7 @@
 > v0.1.1
 
 open dist/index.html in a webkit browser (chrome or safari)
+(all ajax related stuff wont work)
 
 requirements
 
