@@ -50,21 +50,27 @@ $navbarHeight:                    20px;
 @import 'fontello/fontello';
 
 /* BODY / HTML*/
+body,html {
+  width: 100%;
+}
+
 html {
-  height: 100%;
+  // height: 100%;
   background: $grayLighter url(../images/mooning.png) 50% 0;
+  // overflow-y: scroll;
+  // overflow-x: hidden;
+  // -webkit-overflow-scroll: touch;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  // ios overfloy-x hidden fix
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   background: none transparent;
   perspective: 1500;
-}
-
-html, 
-body {
-  @media only screen and (min-width: 880px) {
-    overflow-x: hidden;
-  }
 }
 
 /* HEADER */
@@ -146,13 +152,7 @@ $gridGutterWidthSidebar: 64px;
   margin-bottom: 45px;
   
   transform-style: preserve-3d;
-  transition: 0.45s transform 0.01s ease-in-out, 0.45s opacity 0.01s ease-in-out;
-
-  .ajax-content-active & {
-    // transform: translateX(-70%) rotateY(-12deg) translateZ(-165px);
-    transform: translateX(-35%) rotateY(4deg) translateZ(-150px);
-    opacity: 0.85;
-  }
+  transition: 0.25s transform 0.01s ease-in-out, 0.25s opacity 0.25s ease-in-out;
 }
 
 #navigation {
@@ -598,26 +598,38 @@ $gridGutterWidthSidebar: 64px;
   background: $themeColor;
 }
 
+.ajax-content-active #page {
+  // transform: translateX(-70%) rotateY(-12deg) translateZ(-165px);
+  transform: translateX(-25%) translateY(-4%) translateZ(-150px);
+  opacity: 0.85;
+}
+
 #ajax-content-overlay {
   position: absolute;
   
   right: -100%;
   top: 177px;
   
-  // width: 80%;
+  width: 740px;
   
-  background: $white;  
+  background: $white;
   
   box-shadow: 0 0 9px $grayLight;
 
-  transform: rotateY(-13deg) translateZ(200px);
-  transition: 0.45s right 0.01s ease-in-out, 0.45s transform 0.01s ease-in-out;
+  transition: 0.35s right 0.01s;
 
   &.active {
     right: 0;
-
-    transform: rotateY(0deg) translateZ(0);
   }
+}
+
+#ajax-content-overlay-loader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.9);
 }
 
 #ajax-content-overlay-head {
@@ -632,4 +644,15 @@ $gridGutterWidthSidebar: 64px;
 #ajax-content-overlay-footer {
   padding: 12px 20px;
   margin: 0;
+}
+
+#ajax-content-overlay-tabs {
+
+  li {
+    max-width: 120px;
+    white-space: nowrap;
+    a {
+      overflow: hidden;
+    }
+  }
 }
