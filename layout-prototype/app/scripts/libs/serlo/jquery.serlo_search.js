@@ -5,7 +5,8 @@
 * @constructor
 * @param {Object} options Check 'defaults' in code
 */
-define(['jquery'], function($){
+(function ($, window, undefined) {
+    "use strict";
     var instance,
         KEYCODES = {
             left: 37,
@@ -163,20 +164,18 @@ define(['jquery'], function($){
     SerloSearch.prototype.onKeyUp = function (e) {
         var searchString = $(this).val();
 
-        switch(e.keyCode) {
-            case KEYCODES.left:
-            case KEYCODES.top:
-            case KEYCODES.right:
-            case KEYCODES.down:
-                return true;
-                break;
-            default:
-                e.preventDefault();
-                if(searchString !== '' || e.shift) {
-                    instance.search(searchString);
-                }
-                return false;
-                break;
+        switch (e.keyCode) {
+        case KEYCODES.left:
+        case KEYCODES.top:
+        case KEYCODES.right:
+        case KEYCODES.down:
+            return true;
+        default:
+            e.preventDefault();
+            if (searchString !== '' || e.shift) {
+                instance.search(searchString);
+            }
+            return false;
         }
     }
 
@@ -191,4 +190,4 @@ define(['jquery'], function($){
     $.SerloSearch = function (options) {
         return instance || (instance = new SerloSearch(options));
     }
-});
+})(jQuery, window);

@@ -1,4 +1,4 @@
-define(['jquery'], function(jQuery) {
+(function($, window, undefined){
     /**
      * Hashchange Event Polyfill
      */
@@ -116,5 +116,4 @@ define(['jquery'], function(jQuery) {
     };
 
     fix.init();
-    /* End of file hashchange.js */
-});
+})(jQuery, window);

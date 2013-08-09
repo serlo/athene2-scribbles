@@ -1,25 +1,30 @@
-require.config({
-    paths: {
-        jquery: '../bower_components/jquery/jquery',
-        bootstrap: 'vendor/bootstrap'
-    },
-    deps: [
-        'libs/polyfill/hashchange.polyfill',
-        'libs/thirdparty/jquery.hoverintent.min',
-        'libs/serlo/jquery.serlo_menu',
-        'libs/serlo/jquery.serlo_ajax_overlay',
-        'libs/serlo/jquery.serlo_search'
-    ],
-    shim: {
-        bootstrap: {
-            deps: ['jquery'],
-            exports: 'jquery'
-        }
-    }
-});
-
-require(['jquery', 'app', 'bootstrap'], function ($, SERLO) {
+/*global jQuery: false, window: false */
+(function ($, window, undefined) {
     'use strict';
-    // use app here
-    SERLO.start();
-});
+    $(function () {
+        var $body = $('body'),
+            $navigationToggler = $('#navigation-toggle'),
+            $sidebarToggler = $('#sidebar-toggle');
+
+        $.SerloSideMenu({
+            root: '#main-nav',
+            selector: '> li'
+        });
+
+        $.SerloAjaxOverlay();
+
+        $.SerloSearch();
+
+        /// TBD
+        $navigationToggler.click(function () {
+            $(this).parent().toggleClass('layout-toggle-active');
+            $body.removeClass('slide-left').toggleClass('slide-right');
+        });
+
+        $sidebarToggler.click(function () {
+            $(this).parent().toggleClass('layout-toggle-active');
+            $body.removeClass('slide-right').toggleClass('slide-left');
+        });
+    });
+
+})(jQuery, window);

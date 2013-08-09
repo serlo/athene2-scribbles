@@ -7,7 +7,7 @@
 * @param {Object} options Check 'defaults' in code
 */
 
-define(['jquery'], function ($) {
+(function ($, window, undefined) {
     'use strict';
     var SerloSideMenu = function (options) {
         var plugin = {
@@ -117,33 +117,32 @@ define(['jquery'], function ($) {
                 }
 
                 plugin.mouseLeaveTimeout = setTimeout((function ($self){
-                    return function() {
+                    return function () {
                         $self
                             .unbind('mouseleave')
                             .unbind('mouseenter')
                             .removeClass(plugin.options.activeClass);
                     }
                 })($(this)), plugin.options.hoverDuration);
-                
             },
 
-            onSubNavMouseEnter: function() {
+            onSubNavMouseEnter: function () {
                 var $info = $(this).siblings().filter('.info');
-                if($info.length) {
-                    $('#subnav-info').show().html($info.html())
+                if ($info.length) {
+                    $('#subnav-info').show().html($info.html());
                 } else {
                     $('#subnav-info').hide();
                 }
             },
 
-            resetSubNav: function() {
+            resetSubNav: function () {
                 $('.mover', this.$root)
                     .css('left', 0)
                     .find('.' + plugin.options.activeClass)
                     .removeClass(plugin.options.activeClass);
             },
 
-            setTitle: function(text) {
+            setTitle: function (text) {
                 plugin.$title.html('<a href="#" class="nav-back"><i class="icon-left-circle"></i> ' + text + '</a>');
             }
         };
@@ -152,4 +151,4 @@ define(['jquery'], function ($) {
     }
 
     $.SerloSideMenu = SerloSideMenu;
-});
+})(jQuery, window);
