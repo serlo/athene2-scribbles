@@ -18,9 +18,7 @@
     <script src="bower_components/modernizr/modernizr-custom.built.js"></script>
     <!-- endbuild -->
 </head>
-
 <body>
-
     <header id="header" class="container">
         <div class="row">
             <div class="span12">
@@ -41,31 +39,29 @@
                         <ul class="nav pull-right">
                             <li><a href="#blog">Register</a>
                             </li>
-                            <li><a href="#about"><i class="icon-user"></i> Login</a>
+                            <li><a href="#about" class="view-login"><i class="icon-user"></i> Login</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
-        <div id="serlo-logo">
+        <!-- <div id="serlo-logo">
             <img width="110" height="143" src="images/logo1.svg" onerror="this.onerror=null; this.src='images/logo1.png'">
-        </div>
-        <div id="subject-nav" class="row">
-            <div class="span6">
-                <div class="dropdown">
-                    <h1 class="dropdown-toggle" data-toggle="dropdown" href="#">Mathe<b class="caret"></b></h1>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <li><a href="#">Physik</a>
-                        </li>
-                        <li><a href="#">Biologie</a>
-                        </li>
-                    </ul>
+        </div> -->
+        <div class="row">
+            <div class="span12">
+                <div id="subject-nav">
+                    <h1 class="title">Serlo</h1>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mathe<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="#">Physik</a></li>
+                            <li><a href="#">Biologie</a></li>
+                        </ul>
+                    </div>
+                    <div class="slogan">die freie Lernplattform</div>
                 </div>
-            </div>
-            <div class="span3 offset3">
-                <p><strong>Serlo</strong>
-                    <br />Die freie Lernplattform</p>
             </div>
         </div>
     </header>
@@ -76,7 +72,7 @@
                     <i class="icon-list"></i>
                 </div>
                 <div id="search-content">
-                    <input class="input-search" placeholder="Suche" /><i class="icon-search"></i>
+                    <input id="search-input" class="input-search" type="search" placeholder="Suche" /><i class="icon-search"></i>
                     <ul id="search-results" class="nav">
                         <li><a href="#">Ergebnis oans</a>
                         </li>
@@ -101,10 +97,10 @@
                 </div>
                 <div id="navigation-content">
                     <ul id="main-nav" class="nav">
-                        <li><a href="#">Alle Themen</a>
+                        <li><a href="#" class="active-trail">Alle Themen</a>
                             <ul class="nav nav-second">
                                 <li><a href="#">Arithmetik und Rechnen</a></li>
-                                <li><a href="#">Primfaktorenzerlegung</a></li>
+                                <li><a href="#" class="active">Primfaktorenzerlegung</a></li>
                             </ul>
                             <div class="subnav">
                                 <div class="row-fluid">
@@ -239,18 +235,9 @@
             <div id="main-container">
                 <div id="content">
                     <div id="content-container" class="layout-inner">
-                        <!-- <h1>Content</h1>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p><p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p> -->
-
                         <div class="content-controls pull-right btn-group">
-                            <button class="btn btn-default btn-mini"><i class="icon-pencil"></i>
-                            </button>
-                            <button class="btn btn-default btn-mini"><i class="icon-cog"></i>
-                            </button>
-                            <button class="btn btn-default btn-mini"><i class="icon-star"></i>
-                            </button>
-                            <button class="btn btn-default btn-mini"><i class="icon-info"></i>
-                            </button>
+                            <button class="btn btn-default btn-small btn-edit"><i class="icon-pencil"></i></button>
+                            <button class="btn btn-default btn-small ajax-content" href="#"><i class="icon-info"></i></button>
                         </div>
                         <div class="article">
                             <h1 id="pagetitle">Ableitung berechnen</h1>
