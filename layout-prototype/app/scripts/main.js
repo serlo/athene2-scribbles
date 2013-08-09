@@ -4,9 +4,11 @@ require.config({
         bootstrap: 'vendor/bootstrap'
     },
     deps: [
-        'libs/jquery.hoverintent.min',
-        'libs/jquery.serlo_menu',
-        'libs/jquery.serlo_ajax_overlay'
+        'libs/polyfill/hashchange.polyfill',
+        'libs/thirdparty/jquery.hoverintent.min',
+        'libs/serlo/jquery.serlo_menu',
+        'libs/serlo/jquery.serlo_ajax_overlay',
+        'libs/serlo/jquery.serlo_search'
     ],
     shim: {
         bootstrap: {
@@ -16,8 +18,8 @@ require.config({
     }
 });
 
-require(['jquery', 'app', 'bootstrap'], function ($, app) {
+require(['jquery', 'app', 'bootstrap'], function ($, SERLO) {
     'use strict';
     // use app here
-    app.start();
+    SERLO.start();
 });

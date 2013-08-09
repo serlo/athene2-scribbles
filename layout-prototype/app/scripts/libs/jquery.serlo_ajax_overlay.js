@@ -31,6 +31,7 @@ define(['jquery'], function (jQuery) {;
                 context: 'body',
                 overlayActiveClass: 'ajax-content-active',
                 ajaxContentSelector: '#content-container',
+                titleSelector: '#pagetitle',
                 ajaxContentTop: 177,
                 activeTabClass: 'active',
                 tabLimit: 5,
@@ -70,16 +71,17 @@ define(['jquery'], function (jQuery) {;
 
                 this.$body = $('body');
 
-                this.$overlayHTML = $('<div id="ajax-content-overlay" class="container"><header id="ajax-content-overlay-head"><a href="#" class="btn btn-default btn-mini pull-right close-overlay">x</a><ul id="ajax-content-overlay-tabs" class="nav nav-tabs"></ul></header><div id="ajax-content-overlay-inner"></div><footer id="ajax-content-overlay-footer"><a class="btn btn-primary close-overlay"><i class="icon-left"></i>Schließen</a></footer><div id="ajax-content-overlay-loader"></div></div>');
+                this.$overlayHTML = $('<div id="ajax-content-overlay" class=""><div id="ajax-content-overlay-container"><header id="ajax-content-overlay-head"><ul id="ajax-content-overlay-tabs" class="nav nav-tabs"></ul></header><div id="ajax-content-overlay-inner"></div><footer id="ajax-content-overlay-footer"><a class="btn btn-primary close-overlay"><i class="icon-left"></i>Schließen</a></footer><div id="ajax-content-overlay-loader"></div></div></div>');
                 this.$overlayHTML.hide().appendTo(this.options.context);
 
                 this.$overlayInner = $('#ajax-content-overlay-inner');
+                this.$overlayContainer = $('#ajax-content-overlay-container');
 
                 this.$loader = $('#ajax-content-overlay-loader');
 
                 this.$tabs = $('#ajax-content-overlay-tabs');
 
-                this.$scrollEl = $('html,body');
+                this.$scrollEl = $('#ajax-content-overlay');
 
                 this.init();
             };
@@ -173,13 +175,16 @@ define(['jquery'], function (jQuery) {;
 
             tabPages = [];
 
+            this.title = $(this.options.titleSelector, this.options.context).text();
+
             $(this.options.context)
                 .addClass(this.options.overlayActiveClass);
 
             this.$overlayInner.show();
-            this.$overlayHTML.css({
-                'top': top
-            }).show().addClass('active');
+            // this.$overlayContainer.css({
+            //     top: top
+            // });
+            this.$overlayHTML.show().addClass('active');
 
             this.addPage(url, title);
 
@@ -307,6 +312,15 @@ define(['jquery'], function (jQuery) {;
                 return self;
             }
 
+            /* Add title as first Tab */
+
+            $li = $('<li>').html($('<a>')
+                            .attr('href', '#')
+                            .addClass('close-overlay')
+                            .addClass('root-tab')
+                            .html('<i class="icon-cancel"></i> ' + self.title));
+            self.$tabs.append($li);
+
             if (self.options.tabLimit > 0) {
                 i = (self.options.tabLimit > tabPages.length) ? 0 : tabPages.length - self.options.tabLimit;
             }
@@ -355,9 +369,10 @@ define(['jquery'], function (jQuery) {;
         AjaxOverlay.prototype.scrollToPageTop = function () {
             var self = this;
 
-            this.$scrollEl.animate({
-                scrollTop: self.$overlayHTML.position().top
+            self.$scrollEl.animate({
+                scrollTop: 0 //self.$overlayHTML.position().top
             });
+            console.log('SCROPP')
 
             return self;
         }
@@ -432,7 +447,7 @@ define(['jquery'], function (jQuery) {;
         * Loads this.url only if it hasnt been loaded earlier
         * and triggers the AjaxOverlay to show the pages content
         *
-        * TODO: we do not load the href because of Allowed-X-Origin
+        * TODO: remove the 'ajax-example-content.html' call
         * 
         * @method load
         * @return Returns itself for chaining
@@ -447,12 +462,12 @@ define(['jquery'], function (jQuery) {;
                 return;
             }
 
+            self.super.showLoader();
+
             call = $.ajax({
                 url: 'ajax-example-content.html' || this.url,
                 dataType: 'html'
             });
-
-            self.super.showLoader();
 
             call.success(function (data) {
                 instance.options.on.contentLoaded.call(self, data, instance);
@@ -472,6 +487,7 @@ define(['jquery'], function (jQuery) {;
             call.error(function () {
                 self.super.onError(arguments);
             });
+            
 
             return self;
         };

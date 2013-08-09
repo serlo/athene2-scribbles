@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>AjaxPage</title>
+    <title>SerloSideMenu</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -88,7 +88,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>AjaxPage Class</h1>
+                        <h1>SerloSideMenu Class</h1>
 <div class="box meta">
     
 
@@ -96,7 +96,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/libs_jquery.serlo_ajax_overlay.js.html#l427"><code>libs&#x2F;jquery.serlo_ajax_overlay.js:427</code></a>
+            Defined in: <a href="../files/libs_jquery.serlo_menu.js.html#l1"><code>libs&#x2F;jquery.serlo_menu.js:1</code></a>
         </div>
     
 
@@ -108,15 +108,16 @@
 
 
 <div class="box intro">
-    <p>Constructor for a single AjaxPage. Allows navigation inside the AjaxOverlay</p>
+    <p>Sidebar Navigation jQuery Plugin
+!!outdated</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_AjaxPage" class="method item">
-    <h3 class="name"><code>AjaxPage</code></h3>
+        <div id="method_SerloSideMenu" class="method item">
+    <h3 class="name"><code>SerloSideMenu</code></h3>
 
     
         <div class="args">
@@ -124,13 +125,7 @@
             
                 <li class="arg">
                     
-                        <code>url</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>title</code>
+                        <code>options</code>
                     
                 </li>
             
@@ -163,7 +158,7 @@
             
         
         
-        <a href="../files/libs_jquery.serlo_ajax_overlay.js.html#l427"><code>libs&#x2F;jquery.serlo_ajax_overlay.js:427</code></a>
+        <a href="../files/libs_jquery.serlo_menu.js.html#l1"><code>libs&#x2F;jquery.serlo_menu.js:1</code></a>
         
         </p>
 
@@ -185,30 +180,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">url</code>
-                        <span class="type">String</span>
+                        <code class="param-name">options</code>
+                        <span class="type">Object</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The URL</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">title</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The pages title for its tab view</p>
+                        <p>Check &#39;defaults&#39; in code</p>
 
                     </div>
 
@@ -232,8 +211,6 @@
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
         
-            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
-        
         
         
         
@@ -244,28 +221,6 @@
             <h2 class="off-left">Item Index</h2>
 
             
-                <div class="index-section methods">
-                    <h3>Methods</h3>
-
-                    <ul class="index-list methods">
-                        
-                            <li class="index-item method">
-                                <a href="#method_load">load</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_load">load</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
-            
 
             
 
@@ -274,158 +229,6 @@
             
         </div>
 
-        
-            <div id="methods" class="api-class-tabpanel">
-                <h2 class="off-left">Methods</h2>
-
-                
-                    <div id="method_load" class="method item">
-    <h3 class="name"><code>load</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/libs_serlo_jquery.serlo_ajax_overlay.js.html#l446"><code>libs&#x2F;serlo&#x2F;jquery.serlo_ajax_overlay.js:446</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Loads this.url only if it hasnt been loaded earlier
-and triggers the AjaxOverlay to show the pages content</p>
-<p>TODO: we do not load the href because of Allowed-X-Origin</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>Returns itself for chaining</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_load" class="method item">
-    <h3 class="name"><code>load</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/libs_jquery.serlo_ajax_overlay.js.html#l446"><code>libs&#x2F;jquery.serlo_ajax_overlay.js:446</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Loads this.url only if it hasnt been loaded earlier
-and triggers the AjaxOverlay to show the pages content</p>
-<p>TODO: remove the &#39;ajax-example-content.html&#39; call</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>Returns itself for chaining</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-            </div>
         
 
         

@@ -1,6 +1,38 @@
 {
     "project": {},
     "files": {
+        "libs/polyfill/hashchange.polyfill.js": {
+            "name": "libs/polyfill/hashchange.polyfill.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs/serlo/jquery.serlo_ajax_overlay.js": {
+            "name": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "modules": {},
+            "classes": {},
+            "fors": {
+                "AjaxOverlay": 1
+            },
+            "namespaces": {}
+        },
+        "libs/serlo/jquery.serlo_menu.js": {
+            "name": "libs/serlo/jquery.serlo_menu.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs/serlo/jquery.serlo_search.js": {
+            "name": "libs/serlo/jquery.serlo_search.js",
+            "modules": {},
+            "classes": {
+                "SerloSearch": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "libs/jquery.serlo_ajax_overlay.js": {
             "name": "libs/jquery.serlo_ajax_overlay.js",
             "modules": {},
@@ -11,6 +43,15 @@
             "fors": {
                 "AjaxOverlay": 1
             },
+            "namespaces": {}
+        },
+        "libs/jquery.serlo_menu.js": {
+            "name": "libs/jquery.serlo_menu.js",
+            "modules": {},
+            "classes": {
+                "SerloSideMenu": 1
+            },
+            "fors": {},
             "namespaces": {}
         }
     },
@@ -45,7 +86,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 405,
+            "line": 427,
             "description": "Constructor for a single AjaxPage. Allows navigation inside the AjaxOverlay",
             "is_constructor": 1,
             "params": [
@@ -60,12 +101,417 @@
                     "type": "String"
                 }
             ]
+        },
+        "SerloSideMenu": {
+            "name": "SerloSideMenu",
+            "shortname": "SerloSideMenu",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs/jquery.serlo_menu.js",
+            "line": 1,
+            "description": "Sidebar Navigation jQuery Plugin\n!!outdated",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Check 'defaults' in code",
+                    "type": "Object"
+                }
+            ]
+        },
+        "SerloSearch": {
+            "name": "SerloSearch",
+            "shortname": "SerloSearch",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs/serlo/jquery.serlo_search.js",
+            "line": 1,
+            "description": "Sidebar Search jQuery Plugin",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Check 'defaults' in code",
+                    "type": "Object"
+                }
+            ]
         }
     },
     "classitems": [
         {
+            "file": "libs/polyfill/hashchange.polyfill.js",
+            "line": 2,
+            "description": "Hashchange Event Polyfill",
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 89,
+            "description": "Initializes the onClick event for links in a specific context",
+            "itemtype": "method",
+            "name": "init",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "The context where to search for links. Defaults to options.context",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 107,
+            "description": "Click handler for links. Triggers the Overlay to start, saves current scroll position.",
+            "itemtype": "method",
+            "name": "onLinkClick",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "jQuery Event Object",
+                    "type": "Object"
+                }
+            ],
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 130,
+            "description": "Click handler for overlay closing links. Triggers the Overlay to hide.",
+            "itemtype": "method",
+            "name": "onCloseClick",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "jQuery Event Object",
+                    "type": "Object"
+                }
+            ],
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 144,
+            "description": "A helper function that stops Propagation of click event bubbling:\nmakes sure the overlay only gets closed, when user did not click on the overlay itself.",
+            "itemtype": "method",
+            "name": "preventOverlayClosing",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "jQuery Event Object",
+                    "type": "Object"
+                }
+            ],
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 158,
+            "description": "Opens the Overlay and loads the given href.",
+            "itemtype": "method",
+            "name": "bootAjaxContent",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The URL to load",
+                    "type": "String"
+                },
+                {
+                    "name": "title",
+                    "description": "The title of the page",
+                    "type": "String"
+                },
+                {
+                    "name": "position",
+                    "description": "Where to position the Overlay vertically. Defaults to options.ajaxContentTop",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 198,
+            "description": "Closes the overlay, unbinds clickhandler from body, scrolls the body to formerly saved scrollposition",
+            "itemtype": "method",
+            "name": "shutDownAjaxContent",
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 244,
+            "description": "AjaxPages are stored by url in var pageCache.\n\nCreates a new page, or takes the cached one,\nadds it to tabPages and triggers AjaxPage.load",
+            "itemtype": "method",
+            "name": "addPage",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "title",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 268,
+            "description": "Shows the AjaxPage by url",
+            "itemtype": "method",
+            "name": "showPage",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 290,
+            "description": "Renders tabs for all Pages that are in the tabPages array\nif options.tabLimit is -1, all tabs\nif options.tabLimit is 0, no tabs,\nelse a limited amount of tabs get rendered",
+            "itemtype": "method",
+            "name": "renderPageTabs",
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 361,
+            "description": "Tells the Overlay to scroll to the top\nGets called, when a new AjaxPage is loaded",
+            "itemtype": "method",
+            "name": "scrollToPageTop",
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 380,
+            "description": "Shows loader indicator",
+            "itemtype": "method",
+            "name": "showLoader",
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 392,
+            "description": "Hides loader indicator",
+            "itemtype": "method",
+            "name": "hideLoader",
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 404,
+            "description": "Error handler",
+            "itemtype": "method",
+            "name": "onError",
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 414,
+            "description": "The Initializing function, put into jQuery. Creates only one instance of AjaxOverlay",
+            "itemtype": "method",
+            "name": "$.SerloAjaxOverlay",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "All options described as `defaults`. (optional)",
+                    "type": "Object"
+                }
+            ],
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 446,
+            "description": "Loads this.url only if it hasnt been loaded earlier\nand triggers the AjaxOverlay to show the pages content\n\nTODO: we do not load the href because of Allowed-X-Origin",
+            "itemtype": "method",
+            "name": "load",
+            "return": {
+                "description": "Returns itself for chaining"
+            },
+            "class": "AjaxPage"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
+            "line": 497,
+            "description": "Helper function that checks if an array contains a specific element",
+            "itemtype": "method",
+            "name": "elementExistsInArray",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "A string, object, number, function, etc."
+                },
+                {
+                    "name": "array",
+                    "description": "The array to search in",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "true or false"
+            },
+            "class": "AjaxOverlay"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_search.js",
+            "line": 51,
+            "description": "Performs an GET request to options.searchUrl\nwith param options.searchParam\nset to searchString.\n\nGets overridden in the constructor",
+            "itemtype": "method",
+            "name": "search",
+            "params": [
+                {
+                    "name": "searchString",
+                    "description": "The string to search for",
+                    "type": "String"
+                }
+            ],
+            "class": "SerloSearch"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_search.js",
+            "line": 84,
+            "description": "Creates a throttled function,\nused to reduce ajax calls\n\nOptimized for the search: always uses last calls arguments",
+            "itemtype": "method",
+            "name": "throttle",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "The function to call throttled",
+                    "type": "Function"
+                },
+                {
+                    "name": "delay",
+                    "description": "The amount of throttling",
+                    "type": "Number"
+                },
+                {
+                    "name": "execAsap",
+                    "description": "Force no throttling",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "A new, throttled function",
+                "type": "Function"
+            },
+            "class": "SerloSearch"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_search.js",
+            "line": 121,
+            "description": "Handles the focus event on search input\nadds the onFocusClass to the rootSelector",
+            "itemtype": "method",
+            "name": "onFocus",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The focus event",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "false"
+            },
+            "class": "SerloSearch"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_search.js",
+            "line": 137,
+            "description": "Handles the focusout event on search input,\nremoves the onFocusClass to the rootSelector",
+            "itemtype": "method",
+            "name": "onFocusOut",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The focusout event",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "false"
+            },
+            "class": "SerloSearch"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_search.js",
+            "line": 154,
+            "description": "Handles the keyUp event on search input,\ntriggers an ajax call",
+            "itemtype": "method",
+            "name": "onKeyUp",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The keyup event",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "false"
+            },
+            "class": "SerloSearch"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_search.js",
+            "line": 183,
+            "description": "Allows only one instance",
+            "itemtype": "method",
+            "name": "$.SerloSearch",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Check 'defaults'",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The SerloSearch instance"
+            },
+            "class": "SerloSearch"
+        },
+        {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 87,
+            "line": 89,
             "description": "Initializes the onClick event for links in a specific context",
             "itemtype": "method",
             "name": "init",
@@ -83,7 +529,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 105,
+            "line": 107,
             "description": "Click handler for links. Triggers the Overlay to start, saves current scroll position.",
             "itemtype": "method",
             "name": "onLinkClick",
@@ -98,7 +544,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 128,
+            "line": 130,
             "description": "Click handler for overlay closing links. Triggers the Overlay to hide.",
             "itemtype": "method",
             "name": "onCloseClick",
@@ -113,7 +559,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 142,
+            "line": 144,
             "description": "A helper function that stops Propagation of click event bubbling:\nmakes sure the overlay only gets closed, when user did not click on the overlay itself.",
             "itemtype": "method",
             "name": "preventOverlayClosing",
@@ -128,7 +574,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 156,
+            "line": 158,
             "description": "Opens the Overlay and loads the given href.",
             "itemtype": "method",
             "name": "bootAjaxContent",
@@ -156,7 +602,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 191,
+            "line": 198,
             "description": "Closes the overlay, unbinds clickhandler from body, scrolls the body to formerly saved scrollposition",
             "itemtype": "method",
             "name": "shutDownAjaxContent",
@@ -167,7 +613,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 228,
+            "line": 244,
             "description": "AjaxPages are stored by url in var pageCache.\n\nCreates a new page, or takes the cached one,\nadds it to tabPages and triggers AjaxPage.load",
             "itemtype": "method",
             "name": "addPage",
@@ -190,7 +636,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 253,
+            "line": 268,
             "description": "Shows the AjaxPage by url",
             "itemtype": "method",
             "name": "showPage",
@@ -208,7 +654,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 275,
+            "line": 290,
             "description": "Renders tabs for all Pages that are in the tabPages array\nif options.tabLimit is -1, all tabs\nif options.tabLimit is 0, no tabs,\nelse a limited amount of tabs get rendered",
             "itemtype": "method",
             "name": "renderPageTabs",
@@ -219,7 +665,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 340,
+            "line": 361,
             "description": "Tells the Overlay to scroll to the top\nGets called, when a new AjaxPage is loaded",
             "itemtype": "method",
             "name": "scrollToPageTop",
@@ -230,7 +676,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 358,
+            "line": 380,
             "description": "Shows loader indicator",
             "itemtype": "method",
             "name": "showLoader",
@@ -241,7 +687,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 370,
+            "line": 392,
             "description": "Hides loader indicator",
             "itemtype": "method",
             "name": "hideLoader",
@@ -252,7 +698,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 382,
+            "line": 404,
             "description": "Error handler",
             "itemtype": "method",
             "name": "onError",
@@ -260,7 +706,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 392,
+            "line": 414,
             "description": "The Initializing function, put into jQuery. Creates only one instance of AjaxOverlay",
             "itemtype": "method",
             "name": "$.SerloAjaxOverlay",
@@ -275,8 +721,8 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 424,
-            "description": "Loads this.url only if it hasnt been loaded earlier\nand triggers the AjaxOverlay to show the pages content\n\nTODO: we do not load the href because of Allowed-X-Origin",
+            "line": 446,
+            "description": "Loads this.url only if it hasnt been loaded earlier\nand triggers the AjaxOverlay to show the pages content\n\nTODO: remove the 'ajax-example-content.html' call",
             "itemtype": "method",
             "name": "load",
             "return": {
@@ -286,7 +732,7 @@
         },
         {
             "file": "libs/jquery.serlo_ajax_overlay.js",
-            "line": 474,
+            "line": 497,
             "description": "Helper function that checks if an array contains a specific element",
             "itemtype": "method",
             "name": "elementExistsInArray",
@@ -307,5 +753,30 @@
             "class": "AjaxOverlay"
         }
     ],
-    "warnings": []
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " libs/serlo/jquery.serlo_search.js:84"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " libs/serlo/jquery.serlo_search.js:121"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " libs/serlo/jquery.serlo_search.js:137"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " libs/serlo/jquery.serlo_search.js:154"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " libs/serlo/jquery.serlo_search.js:183"
+        },
+        {
+            "message": "Missing item type\nHashchange Event Polyfill",
+            "line": " libs/polyfill/hashchange.polyfill.js:2"
+        }
+    ]
 }

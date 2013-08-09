@@ -1,97 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>libs/jquery.serlo_ajax_overlay.js</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
-    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
-    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
-    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
-</head>
-<body class="yui3-skin-sam">
-
-<div id="doc">
-    <div id="hd" class="yui3-g header">
-        <div class="yui3-u-3-4">
-            
-                <h1><img src="../assets/css/logo.png" title=""></h1>
-            
-        </div>
-        <div class="yui3-u-1-4 version">
-            <em>API Docs for: </em>
-        </div>
-    </div>
-    <div id="bd" class="yui3-g">
-
-        <div class="yui3-u-1-4">
-            <div id="docs-sidebar" class="sidebar apidocs">
-                <div id="api-list">
-    <h2 class="off-left">APIs</h2>
-    <div id="api-tabview" class="tabview">
-        <ul class="tabs">
-            <li><a href="#api-classes">Classes</a></li>
-            <li><a href="#api-modules">Modules</a></li>
-        </ul>
-
-        <div id="api-tabview-filter">
-            <input type="search" id="api-filter" placeholder="Type to filter APIs">
-        </div>
-
-        <div id="api-tabview-panel">
-            <ul id="api-classes" class="apis classes">
-            
-                <li><a href="../classes/AjaxOverlay.html">AjaxOverlay</a></li>
-            
-                <li><a href="../classes/AjaxPage.html">AjaxPage</a></li>
-            
-                <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
-            
-                <li><a href="../classes/SerloSideMenu.html">SerloSideMenu</a></li>
-            
-            </ul>
-
-            <ul id="api-modules" class="apis modules">
-            
-            </ul>
-        </div>
-    </div>
-</div>
-
-            </div>
-        </div>
-        <div class="yui3-u-3-4">
-                <div id="api-options">
-        Show:
-        <label for="api-show-inherited">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
-
-        <label for="api-show-protected">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
-
-        <label for="api-show-private">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </div>
-
-
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <h1 class="file-heading">File: libs/jquery.serlo_ajax_overlay.js</h1>
-
-<div class="file">
-    <pre class="code prettyprint linenums">
 /*jslint todo: true */
 /**
 * $.SerloAjaxOverlay opens links in an overlay.
@@ -108,10 +14,10 @@
 *
 * @class AjaxOverlay
 * @constructor
-* @param {Object} options Check &#x27;defaults&#x27; in code
+* @param {Object} options Check 'defaults' in code
 */
 
-define([&#x27;jquery&#x27;], function (jQuery) {;
+define(['jquery'], function (jQuery) {;
     (function ($, window, undefined) {
         var document = window.document,
             instance,
@@ -121,61 +27,61 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             pageCache = {},
             isActive = false,
             defaults = {
-                linkClass: &#x27;ajax-content&#x27;,
-                context: &#x27;body&#x27;,
-                overlayActiveClass: &#x27;ajax-content-active&#x27;,
-                ajaxContentSelector: &#x27;#content-container&#x27;,
-                titleSelector: &#x27;#pagetitle&#x27;,
+                linkClass: 'ajax-content',
+                context: 'body',
+                overlayActiveClass: 'ajax-content-active',
+                ajaxContentSelector: '#content-container',
+                titleSelector: '#pagetitle',
                 ajaxContentTop: 177,
-                activeTabClass: &#x27;active&#x27;,
+                activeTabClass: 'active',
                 tabLimit: 5,
                 on: {
                     contentLoaded: function (data, AjaxOverlayInstance) {
                         // gets called when new content is loaded
-                        // &#x27;this&#x27; is the AjaxPage instance
+                        // 'this' is the AjaxPage instance
                     },
                     contentOpened: function (AjaxOverlayInstance) {
                         // gets called when an AjaxPage gets opened
-                        // &#x27;this&#x27; is the AjaxPage instance
+                        // 'this' is the AjaxPage instance
                     },
                     error: function (){
                         // gets called when an ajax error appears
-                        // &#x27;this&#x27; is the AjaxOverlay instance, arguments are all the arguments from jQuery.ajax.error
+                        // 'this' is the AjaxOverlay instance, arguments are all the arguments from jQuery.ajax.error
                     },
                     beforeClose: function () {
                         // gets called right before the AjaxOverlay gets closed
-                        // &#x27;this&#x27; is the AjaxOverlay instance
+                        // 'this' is the AjaxOverlay instance
                     },
                     afterClose: function () {
                         // gets called right after the AjaxOverlay has been closed
-                        // &#x27;this&#x27; is the AjaxOverlay instance
+                        // 'this' is the AjaxOverlay instance
                     },
                     beforeOpen: function () {
                         // gets called right before the AjaxOverlay gets opened
-                        // &#x27;this&#x27; is the AjaxOverlay instance
+                        // 'this' is the AjaxOverlay instance
                     },
                     afterOpen: function () {
                         // gets called right after the AjaxOverlay has been opened
-                        // &#x27;this&#x27; is the AjaxOverlay instance
+                        // 'this' is the AjaxOverlay instance
                     }
                 }
             },
             AjaxOverlay = function (options) {
                 this.options = $.extend(true, {}, defaults, options  ||  {});
 
-                this.$body = $(&#x27;body&#x27;);
+                this.$body = $('body');
 
-                this.$overlayHTML = $(&#x27;&lt;div id=&quot;ajax-content-overlay&quot; class=&quot;&quot;&gt;&lt;div id=&quot;ajax-content-overlay-container&quot;&gt;&lt;header id=&quot;ajax-content-overlay-head&quot;&gt;&lt;ul id=&quot;ajax-content-overlay-tabs&quot; class=&quot;nav nav-tabs&quot;&gt;&lt;/ul&gt;&lt;/header&gt;&lt;div id=&quot;ajax-content-overlay-inner&quot;&gt;&lt;/div&gt;&lt;footer id=&quot;ajax-content-overlay-footer&quot;&gt;&lt;a class=&quot;btn btn-primary close-overlay&quot;&gt;&lt;i class=&quot;icon-left&quot;&gt;&lt;/i&gt;Schließen&lt;/a&gt;&lt;/footer&gt;&lt;div id=&quot;ajax-content-overlay-loader&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&#x27;);
+                this.$overlayHTML = $('<div id="ajax-content-overlay" class=""><div id="ajax-content-overlay-container"><header id="ajax-content-overlay-head"><ul id="ajax-content-overlay-tabs" class="nav nav-tabs"></ul></header><div id="ajax-content-overlay-inner"></div><footer id="ajax-content-overlay-footer"><a class="btn btn-primary close-overlay"><i class="icon-left"></i>Schließen</a></footer><div id="ajax-content-overlay-loader"></div></div></div>');
                 this.$overlayHTML.hide().appendTo(this.options.context);
 
-                this.$overlayInner = $(&#x27;#ajax-content-overlay-inner&#x27;);
-                this.$overlayContainer = $(&#x27;#ajax-content-overlay-container&#x27;);
+                this.$overlayInner = $('#ajax-content-overlay-inner');
+                this.$overlayContainer = $('#ajax-content-overlay-container');
 
-                this.$loader = $(&#x27;#ajax-content-overlay-loader&#x27;);
+                this.$loader = $('#ajax-content-overlay-loader');
 
-                this.$tabs = $(&#x27;#ajax-content-overlay-tabs&#x27;);
+                this.$tabs = $('#ajax-content-overlay-tabs');
 
-                this.$scrollEl = $(&#x27;#ajax-content-overlay&#x27;);
+                this.$scrollEl = $('#ajax-content-overlay');
 
                 this.init();
             };
@@ -189,11 +95,11 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
         */
 
         AjaxOverlay.prototype.init = function (context) {
-            $(context || this.options.context).on(&#x27;click&#x27;, &#x27;.&#x27; + this.options.linkClass, this.onLinkClick);
+            $(context || this.options.context).on('click', '.' + this.options.linkClass, this.onLinkClick);
 
-            this.$overlayHTML.on(&#x27;click&#x27;, &#x27;.close-overlay&#x27;, this.onCloseClick);
-            this.$overlayHTML.on(&#x27;click&#x27;, &#x27;.&#x27; + this.options.linkClass, this.onLinkClick);
-            this.$overlayHTML.on(&#x27;click&#x27;, this.preventOverlayClosing);
+            this.$overlayHTML.on('click', '.close-overlay', this.onCloseClick);
+            this.$overlayHTML.on('click', '.' + this.options.linkClass, this.onLinkClick);
+            this.$overlayHTML.on('click', this.preventOverlayClosing);
 
             return this;
         };
@@ -207,13 +113,13 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
 
         AjaxOverlay.prototype.onLinkClick = function (e) {
             e.preventDefault();
-            var url = $(this).attr(&#x27;href&#x27;),
+            var url = $(this).attr('href'),
                 title = $(this).text();
 
             if (!isActive) {
                 lastScrollTop = document.body.scrollTop;
 
-                instance.bootAjaxContent(url, title, (instance.options.ajaxContentTop &lt; lastScrollTop) ? lastScrollTop + 20 : instance.options.ajaxContentTop);
+                instance.bootAjaxContent(url, title, (instance.options.ajaxContentTop < lastScrollTop) ? lastScrollTop + 20 : instance.options.ajaxContentTop);
             } else {
                 instance.addPage(url, title).scrollToPageTop();
             }
@@ -278,7 +184,7 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             // this.$overlayContainer.css({
             //     top: top
             // });
-            this.$overlayHTML.show().addClass(&#x27;active&#x27;);
+            this.$overlayHTML.show().addClass('active');
 
             this.addPage(url, title);
 
@@ -304,16 +210,16 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             $(self.options.context)
                 .removeClass(self.options.overlayActiveClass);
 
-            self.$overlayHTML.removeClass(&#x27;active&#x27;);
+            self.$overlayHTML.removeClass('active');
 
-            $(self.$body).unbind(&#x27;click&#x27;, self.onCloseClick);
+            $(self.$body).unbind('click', self.onCloseClick);
 
-            if (typeof lastScrollTop === &#x27;number&#x27;) {
+            if (typeof lastScrollTop === 'number') {
                 // prevent afterClose callback to be called twice;
                 var afterCloseOnce = (function (fn) {
                     var allowed = true;
                     return function () {
-                        allowed &amp;&amp; fn.apply(self);
+                        allowed && fn.apply(self);
                         allowed = false;
                     }
                 })(self.options.on.afterClose);
@@ -408,23 +314,23 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
 
             /* Add title as first Tab */
 
-            $li = $(&#x27;&lt;li&gt;&#x27;).html($(&#x27;&lt;a&gt;&#x27;)
-                            .attr(&#x27;href&#x27;, &#x27;#&#x27;)
-                            .addClass(&#x27;close-overlay&#x27;)
-                            .addClass(&#x27;root-tab&#x27;)
-                            .html(&#x27;&lt;i class=&quot;icon-cancel&quot;&gt;&lt;/i&gt; &#x27; + self.title));
+            $li = $('<li>').html($('<a>')
+                            .attr('href', '#')
+                            .addClass('close-overlay')
+                            .addClass('root-tab')
+                            .html('<i class="icon-cancel"></i> ' + self.title));
             self.$tabs.append($li);
 
-            if (self.options.tabLimit &gt; 0) {
-                i = (self.options.tabLimit &gt; tabPages.length) ? 0 : tabPages.length - self.options.tabLimit;
+            if (self.options.tabLimit > 0) {
+                i = (self.options.tabLimit > tabPages.length) ? 0 : tabPages.length - self.options.tabLimit;
             }
 
-            for (length = tabPages.length; i &lt; length; i += 1) {
+            for (length = tabPages.length; i < length; i += 1) {
                 page = tabPages[i];
 
                 if (undefined === dublets[page.url]) {
-                    $li = $(&#x27;&lt;li&gt;&#x27;).html($(&#x27;&lt;a&gt;&#x27;)
-                                            .attr(&#x27;href&#x27;, page.url)
+                    $li = $('<li>').html($('<a>')
+                                            .attr('href', page.url)
                                             .addClass(self.options.linkClass)
                                             .text(tabPages[i].title));
 
@@ -439,10 +345,10 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             // if the active tab is NOT in the range of the tablimit,
             // kick out the first tab and prepend the active tab34
 
-            if(!self.$tabs.find(&#x27;.&#x27; + self.options.activeTabClass).length) {
-                self.$tabs.find(&#x27;li&#x27;).first().remove();
-                $li = $(&#x27;&lt;li&gt;&#x27;).html($(&#x27;&lt;a&gt;&#x27;)
-                                    .attr(&#x27;href&#x27;, activePage.url)
+            if(!self.$tabs.find('.' + self.options.activeTabClass).length) {
+                self.$tabs.find('li').first().remove();
+                $li = $('<li>').html($('<a>')
+                                    .attr('href', activePage.url)
                                     .addClass(self.options.linkClass)
                                     .text(activePage.title));
 
@@ -466,7 +372,7 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             self.$scrollEl.animate({
                 scrollTop: 0 //self.$overlayHTML.position().top
             });
-            console.log(&#x27;SCROPP&#x27;)
+            console.log('SCROPP')
 
             return self;
         }
@@ -509,7 +415,7 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
         * The Initializing function, put into jQuery. Creates only one instance of AjaxOverlay
         *
         * @method $.SerloAjaxOverlay
-        * @param {Object} options All options described as &#x60;defaults&#x60;. (optional)
+        * @param {Object} options All options described as `defaults`. (optional)
         */
 
         $.SerloAjaxOverlay = function (options) {
@@ -531,17 +437,17 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             this.super = instance;
 
             this.url = url;
-            this.title = url.split(&#x27;/&#x27;).pop();
+            this.title = url.split('/').pop();
             this.loaded = false;
 
-            this.$el = $(&#x27;&lt;div&gt;&#x27;);
+            this.$el = $('<div>');
         };
 
         /**
         * Loads this.url only if it hasnt been loaded earlier
         * and triggers the AjaxOverlay to show the pages content
         *
-        * TODO: remove the &#x27;ajax-example-content.html&#x27; call
+        * TODO: we do not load the href because of Allowed-X-Origin
         * 
         * @method load
         * @return Returns itself for chaining
@@ -559,22 +465,22 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             self.super.showLoader();
 
             call = $.ajax({
-                url: &#x27;ajax-example-content.html&#x27; || this.url,
-                dataType: &#x27;html&#x27;
+                url: 'ajax-example-content.html' || this.url,
+                dataType: 'html'
             });
 
             call.success(function (data) {
                 instance.options.on.contentLoaded.call(self, data, instance);
 
-                var $data = $(&#x27;&lt;div&gt;&#x27;).html(data);
+                var $data = $('<div>').html(data);
                 self.loaded = true;
 
                 if($data.find(self.super.options.ajaxContentSelector).length) {
                     self.$el.html($data.find(self.super.options.ajaxContentSelector).html());
-                    self.$el.prepend(&#x27;&lt;h1&gt;&#x27; + self.title + &#x27;&lt;/h1&gt;&#x27;);
+                    self.$el.prepend('<h1>' + self.title + '</h1>');
                     self.super.showPage(self.url).hideLoader();
                 } else {
-                    self.super.onError(new Error(&#x27;No content found&#x27;));
+                    self.super.onError(new Error('No content found'));
                 }
             });
 
@@ -602,7 +508,7 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
             length = array.length,
             exists = false;
 
-        for(; i &lt; length; i += 1) {
+        for(; i < length; i += 1) {
             if(array[i] === element) {
                 exists = true;
                 break;
@@ -612,22 +518,3 @@ define([&#x27;jquery&#x27;], function (jQuery) {;
         return exists;
     }
 });
-    </pre>
-</div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="../assets/vendor/prettify/prettify-min.js"></script>
-<script>prettyPrint();</script>
-<script src="../assets/js/yui-prettify.js"></script>
-<script src="../assets/../api.js"></script>
-<script src="../assets/js/api-filter.js"></script>
-<script src="../assets/js/api-list.js"></script>
-<script src="../assets/js/api-search.js"></script>
-<script src="../assets/js/apidocs.js"></script>
-</body>
-</html>
