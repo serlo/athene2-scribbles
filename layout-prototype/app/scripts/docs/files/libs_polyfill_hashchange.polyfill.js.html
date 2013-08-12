@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/AjaxPage.html">AjaxPage</a></li>
             
+                <li><a href="../classes/SerloLayout.html">SerloLayout</a></li>
+            
                 <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
             
                 <li><a href="../classes/SerloSideMenu.html">SerloSideMenu</a></li>
@@ -92,7 +94,7 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-define([&#x27;jquery&#x27;], function(jQuery) {
+(function($, window, undefined){
     /**
      * Hashchange Event Polyfill
      */
@@ -210,8 +212,7 @@ define([&#x27;jquery&#x27;], function(jQuery) {
     };
 
     fix.init();
-    /* End of file hashchange.js */
-});
+})(jQuery, window);
     </pre>
 </div>
 

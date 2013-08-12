@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/AjaxPage.html">AjaxPage</a></li>
             
+                <li><a href="../classes/SerloLayout.html">SerloLayout</a></li>
+            
                 <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
             
                 <li><a href="../classes/SerloSideMenu.html">SerloSideMenu</a></li>
@@ -92,6 +94,7 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
+/*global jQuery: false, window: false, setTimeout: false, console: false*/
 /**
 * Sidebar Search jQuery Plugin
 *
@@ -99,7 +102,8 @@
 * @constructor
 * @param {Object} options Check &#x27;defaults&#x27; in code
 */
-define([&#x27;jquery&#x27;], function($){
+(function ($, _, window, undefined) {
+    &quot;use strict&quot;;
     var instance,
         KEYCODES = {
             left: 37,
@@ -139,7 +143,7 @@ define([&#x27;jquery&#x27;], function($){
             /// with a throttled one
             /// to minimize the amount of ajax calls to the server
             this.search_orig = this.search;
-            this.search = this.throttle(this.search_orig, this.options.ajaxThrottlingDelay);
+            this.search = _.throttle(this.search_orig, this.options.ajaxThrottlingDelay);
         };
 
     /**
@@ -172,43 +176,6 @@ define([&#x27;jquery&#x27;], function($){
 
         call.error = function () {
             console.log(arguments);
-        };
-    };
-
-    /**
-    * Creates a throttled function,
-    * used to reduce ajax calls
-    *
-    * Optimized for the search: always uses last calls arguments
-    * 
-    * @method throttle
-    * @param {Function} fn The function to call throttled
-    * @param {Number} delay The amount of throttling
-    * @param {Boolean} execAsap Force no throttling
-    * @returns {Function} A new, throttled function
-    */
-
-    SerloSearch.prototype.throttle = function (fn, delay, execAsap) {
-        var timeout,
-            lastArgs;
-
-        return function () {
-            var that = this,
-                args = arguments;
-
-            // If there is no timeout variable set, proceed to create a new timeout
-            if (!timeout) {
-                execAsap &amp;&amp; fn.apply(that, args);
-
-                timeout = setTimeout(function () {
-                    execAsap || fn.apply(that, lastArgs || args);
-                    // Remove the old timeout variable so the function can run again
-                    timeout = null;
-                    lastArgs = null;
-                }, delay || 100);
-            } else {
-                lastArgs = args;
-            }
         };
     };
 
@@ -257,20 +224,18 @@ define([&#x27;jquery&#x27;], function($){
     SerloSearch.prototype.onKeyUp = function (e) {
         var searchString = $(this).val();
 
-        switch(e.keyCode) {
-            case KEYCODES.left:
-            case KEYCODES.top:
-            case KEYCODES.right:
-            case KEYCODES.down:
-                return true;
-                break;
-            default:
-                e.preventDefault();
-                if(searchString !== &#x27;&#x27; || e.shift) {
-                    instance.search(searchString);
-                }
-                return false;
-                break;
+        switch (e.keyCode) {
+        case KEYCODES.left:
+        case KEYCODES.top:
+        case KEYCODES.right:
+        case KEYCODES.down:
+            return true;
+        default:
+            e.preventDefault();
+            if (searchString !== &#x27;&#x27; || e.shift) {
+                instance.search(searchString);
+            }
+            return false;
         }
     }
 
@@ -285,7 +250,7 @@ define([&#x27;jquery&#x27;], function($){
     $.SerloSearch = function (options) {
         return instance || (instance = new SerloSearch(options));
     }
-});
+})(jQuery, _, window);
     </pre>
 </div>
 

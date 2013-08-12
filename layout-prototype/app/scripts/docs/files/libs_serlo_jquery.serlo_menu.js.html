@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/AjaxPage.html">AjaxPage</a></li>
             
+                <li><a href="../classes/SerloLayout.html">SerloLayout</a></li>
+            
                 <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
             
                 <li><a href="../classes/SerloSideMenu.html">SerloSideMenu</a></li>
@@ -92,6 +94,7 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
+/*global jQuery: false, window: false*/
 /**
 * Sidebar Navigation jQuery Plugin
 * !!outdated
@@ -101,7 +104,7 @@
 * @param {Object} options Check &#x27;defaults&#x27; in code
 */
 
-define([&#x27;jquery&#x27;], function ($) {
+(function ($, window, undefined) {
     &#x27;use strict&#x27;;
     var SerloSideMenu = function (options) {
         var plugin = {
@@ -211,33 +214,32 @@ define([&#x27;jquery&#x27;], function ($) {
                 }
 
                 plugin.mouseLeaveTimeout = setTimeout((function ($self){
-                    return function() {
+                    return function () {
                         $self
                             .unbind(&#x27;mouseleave&#x27;)
                             .unbind(&#x27;mouseenter&#x27;)
                             .removeClass(plugin.options.activeClass);
                     }
                 })($(this)), plugin.options.hoverDuration);
-                
             },
 
-            onSubNavMouseEnter: function() {
+            onSubNavMouseEnter: function () {
                 var $info = $(this).siblings().filter(&#x27;.info&#x27;);
-                if($info.length) {
-                    $(&#x27;#subnav-info&#x27;).show().html($info.html())
+                if ($info.length) {
+                    $(&#x27;#subnav-info&#x27;).show().html($info.html());
                 } else {
                     $(&#x27;#subnav-info&#x27;).hide();
                 }
             },
 
-            resetSubNav: function() {
+            resetSubNav: function () {
                 $(&#x27;.mover&#x27;, this.$root)
                     .css(&#x27;left&#x27;, 0)
                     .find(&#x27;.&#x27; + plugin.options.activeClass)
                     .removeClass(plugin.options.activeClass);
             },
 
-            setTitle: function(text) {
+            setTitle: function (text) {
                 plugin.$title.html(&#x27;&lt;a href=&quot;#&quot; class=&quot;nav-back&quot;&gt;&lt;i class=&quot;icon-left-circle&quot;&gt;&lt;/i&gt; &#x27; + text + &#x27;&lt;/a&gt;&#x27;);
             }
         };
@@ -246,7 +248,7 @@ define([&#x27;jquery&#x27;], function ($) {
     }
 
     $.SerloSideMenu = SerloSideMenu;
-});
+})(jQuery, window);
     </pre>
 </div>
 

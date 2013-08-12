@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>SerloSideMenu</title>
+    <title>libs/serlo/jquery.serlo_layout.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -90,155 +90,102 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>SerloSideMenu Class</h1>
-<div class="box meta">
-    
+                        <h1 class="file-heading">File: libs/serlo/jquery.serlo_layout.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*global jQuery: false, window: false*/
+/**
+* Handles the Main Layout
+*
+* Acts as a Singleton
+*
+* @class SerloLayout
+* @constructor
+* @param {Object} options Check &#x27;defaults&#x27; in code
+*/
+(function ($, window, undefined){
+    &quot;use strict&quot;;
+    var instance,
+        defaults =  {
+            rootSelector: &#x27;body&#x27;,
+            togglerSelector: &#x27;.layout-toggle&#x27;,
+            leftToggleSelector: &#x27;#navigation-toggle&#x27;,
+            rightToggleSelector: &#x27;#sidebar-toggle&#x27;,
+            rightActiveClass: &#x27;slide-left&#x27;,
+            leftActiveClass: &#x27;slide-right&#x27;,
+            toggleActiveClass: &#x27;layout-toggle-active&#x27;
+        },
+        SerloLayout = function (options) {
+            this.options = $.extend({}, defaults, options);
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l2"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:2</code></a>
-        </div>
-    
+            this.$root = $(this.options.rootSelector);
+            this.$togglers = $(this.options.togglerSelector);
 
-    
+            this.$togglers.click(this.onTogglerClick);
 
-    
-</div>
+            $(window).smartresize(this.onResize);
+        };
 
+    /**
+    * Checks, which direction the $root should slide
+    * and toggles the specific class.
+    *
+    * @method onTogglerClick
+    * @param {Object} e The click event object
+    */
+    SerloLayout.prototype.onTogglerClick = function (e) {
+        var slideClass,
+            $self = $(this);
 
+        e.preventDefault();
 
-<div class="box intro">
-    <p>Sidebar Navigation jQuery Plugin
-!!outdated</p>
+        $self.parent().toggleClass(instance.options.toggleActiveClass);
 
-</div>
+        if ($self.is(instance.options.leftToggleSelector)) {
+            slideClass = instance.options.leftActiveClass;
+            instance.$root.removeClass(instance.options.rightActiveClass);
+        }
+        if ($self.is(instance.options.rightToggleSelector)) {
+            slideClass = instance.options.rightActiveClass;
+            instance.$root.removeClass(instance.options.leftActiveClass);
+        }
+        if (slideClass) {
+            instance.$root.toggleClass(slideClass);
+        }
+        return;
+    };
 
+    /**
+    * Removes all togglerActive Classes and left-/rightActiveClasses
+    *
+    * @method onResize
+    * @param {Object} e The smartresize event object
+    */
 
-    <div class="constructor">
-        <h2>Constructor</h2>
-        <div id="method_SerloSideMenu" class="method item">
-    <h3 class="name"><code>SerloSideMenu</code></h3>
+    SerloLayout.prototype.onResize = function (e) {
+        var self = instance;
 
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>options</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
+        self.$root
+            .removeClass(self.options.leftActiveClass)
+            .removeClass(self.options.rightActiveClass);
 
-    
+        $(&#x27;.&#x27; + self.options.toggleActiveClass).removeClass(self.options.toggleActiveClass);
+    };
 
-    
+    /**
+    * Publishes a single instance of SerloLayout
+    * and makes it available in the global jQuery object
+    *
+    * @method $.SerloLayout
+    * @param {Object} options See SerloLayout&#x27;s defaults
+    */
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l2"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:2</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">options</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>Check &#39;defaults&#39; in code</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-    </div>
-
-
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
-
-        
-        
-        
-        
-    </ul>
-
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
-
-            
-
-            
-
-            
-
-            
-        </div>
-
-        
-
-        
-
-        
-
-        
-    </div>
+    $.SerloLayout = function (options) {
+        return instance || (instance = new SerloLayout(options));
+    };
+})(jQuery, window);
+    </pre>
 </div>
 
                     </div>
