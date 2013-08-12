@@ -1,3 +1,4 @@
+/*global window: false, jQuery: false*/
 /*jslint todo: true */
 /**
 * $.SerloAjaxOverlay opens links in an overlay.
@@ -31,7 +32,6 @@
             overlayActiveClass: 'ajax-content-active',
             ajaxContentSelector: '#content-container',
             titleSelector: '#pagetitle',
-            ajaxContentTop: 177,
             activeTabClass: 'active',
             tabLimit: 5,
             on: {
@@ -165,8 +165,7 @@
     */
 
     AjaxOverlay.prototype.bootAjaxContent = function (url, title, position) {
-        var self = this,
-            top = position || this.options.ajaxContentTop;
+        var self = this;
 
         self.options.on.beforeOpen.apply(self, Array.prototype.slice.call(arguments, 0));
 
@@ -180,9 +179,7 @@
             .addClass(this.options.overlayActiveClass);
 
         this.$overlayInner.show();
-        // this.$overlayContainer.css({
-        //     top: top
-        // });
+
         this.$overlayHTML.show().addClass('active');
 
         this.addPage(url, title);
@@ -202,7 +199,7 @@
     */
 
     AjaxOverlay.prototype.shutDownAjaxContent = function () {
-        var self = this;
+        var self = this, afterCloseOnce, allowed;
 
         self.options.on.beforeClose.call(self);
 
@@ -215,12 +212,12 @@
 
         if (typeof lastScrollTop === 'number') {
             // prevent afterClose callback to be called twice;
-            var afterCloseOnce = (function (fn) {
-                var allowed = true;
+            afterCloseOnce = (function (fn) {
+                allowed = true;
                 return function () {
                     allowed && fn.apply(self);
                     allowed = false;
-                }
+                };
             })(self.options.on.afterClose);
 
             self.$scrollEl.delay(300).animate({
@@ -255,7 +252,7 @@
     AjaxOverlay.prototype.addPage = function (url, title) {
         var page = pageCache[url] || (pageCache[url] = new AjaxOverlay.AjaxPage(url, title));
 
-        if(!elementExistsInArray(page, tabPages)) {
+        if (!elementExistsInArray(page, tabPages)) {
             tabPages.push(page);
         }
 
@@ -276,14 +273,14 @@
         var self = this,
             page = pageCache[url];
 
-        if(undefined !== page) {
+        if (undefined !== page) {
             instance.options.on.contentOpened.call(page, instance);
 
             activePage = page;
-            this.$overlayInner.html(page.$el);
+            self.$overlayInner.html(page.$el);
         }
 
-        return this.renderPageTabs();
+        return self.renderPageTabs();
     };
 
     /**
@@ -344,7 +341,7 @@
         // if the active tab is NOT in the range of the tablimit,
         // kick out the first tab and prepend the active tab34
 
-        if(!self.$tabs.find('.' + self.options.activeTabClass).length) {
+        if (!self.$tabs.find('.' + self.options.activeTabClass).length) {
             self.$tabs.find('li').first().remove();
             $li = $('<li>').html($('<a>')
                                 .attr('href', activePage.url)
@@ -355,7 +352,7 @@
         }
 
         return self;
-    }
+    };
 
     /**
     * Tells the Overlay to scroll to the top
@@ -371,10 +368,9 @@
         self.$scrollEl.animate({
             scrollTop: 0 //self.$overlayHTML.position().top
         });
-        console.log('SCROPP')
 
         return self;
-    }
+    };
 
     /**
     * Shows loader indicator
@@ -408,7 +404,7 @@
 
     AjaxOverlay.prototype.onError = function () {
         this.options.on.error.apply(this, Array.prototype.slice.call(arguments, 0));
-    }
+    };
 
     /**
     * The Initializing function, put into jQuery. Creates only one instance of AjaxOverlay
