@@ -1,3 +1,4 @@
+/*global jQuery: false, window: false, setTimeout: false, console: false*/
 /**
 * Sidebar Search jQuery Plugin
 *
@@ -108,6 +109,7 @@
                 execAsap && fn.apply(that, args);
 
                 timeout = setTimeout(function () {
+                    // if !execAsap, call the function with the latest arguments
                     execAsap || fn.apply(that, lastArgs || args);
                     // Remove the old timeout variable so the function can run again
                     timeout = null;

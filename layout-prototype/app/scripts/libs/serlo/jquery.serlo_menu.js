@@ -1,3 +1,4 @@
+/*global jQuery: false, window: false*/
 /**
 * Sidebar Navigation jQuery Plugin
 * !!outdated
