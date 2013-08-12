@@ -6,7 +6,7 @@
 * @constructor
 * @param {Object} options Check 'defaults' in code
 */
-(function ($, window, undefined) {
+(function ($, _, window, undefined) {
     "use strict";
     var instance,
         KEYCODES = {
@@ -47,7 +47,7 @@
             /// with a throttled one
             /// to minimize the amount of ajax calls to the server
             this.search_orig = this.search;
-            this.search = this.throttle(this.search_orig, this.options.ajaxThrottlingDelay);
+            this.search = _.throttle(this.search_orig, this.options.ajaxThrottlingDelay);
         };
 
     /**
@@ -80,44 +80,6 @@
 
         call.error = function () {
             console.log(arguments);
-        };
-    };
-
-    /**
-    * Creates a throttled function,
-    * used to reduce ajax calls
-    *
-    * Optimized for the search: always uses last calls arguments
-    * 
-    * @method throttle
-    * @param {Function} fn The function to call throttled
-    * @param {Number} delay The amount of throttling
-    * @param {Boolean} execAsap Force no throttling
-    * @returns {Function} A new, throttled function
-    */
-
-    SerloSearch.prototype.throttle = function (fn, delay, execAsap) {
-        var timeout,
-            lastArgs;
-
-        return function () {
-            var that = this,
-                args = arguments;
-
-            // If there is no timeout variable set, proceed to create a new timeout
-            if (!timeout) {
-                execAsap && fn.apply(that, args);
-
-                timeout = setTimeout(function () {
-                    // if !execAsap, call the function with the latest arguments
-                    execAsap || fn.apply(that, lastArgs || args);
-                    // Remove the old timeout variable so the function can run again
-                    timeout = null;
-                    lastArgs = null;
-                }, delay || 100);
-            } else {
-                lastArgs = args;
-            }
         };
     };
 
@@ -192,4 +154,4 @@
     $.SerloSearch = function (options) {
         return instance || (instance = new SerloSearch(options));
     }
-})(jQuery, window);
+})(jQuery, _, window);
