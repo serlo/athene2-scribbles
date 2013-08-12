@@ -15,16 +15,7 @@
 
         $.SerloSearch();
 
-        /// TBD
-        $navigationToggler.click(function () {
-            $(this).parent().toggleClass('layout-toggle-active');
-            $body.removeClass('slide-left').toggleClass('slide-right');
-        });
-
-        $sidebarToggler.click(function () {
-            $(this).parent().toggleClass('layout-toggle-active');
-            $body.removeClass('slide-right').toggleClass('slide-left');
-        });
+        $.SerloLayout();
     });
 
 })(jQuery, window);
