@@ -298,7 +298,7 @@ body {
   @include clearfix();
 
   .slide-left & {
-    left: -240px;
+    left: -200px;
   }
 
   .slide-right & {
@@ -463,9 +463,9 @@ body {
   }
 
   &.layout-toggle-active {
-    width: 236px;
+    width: 240px;
     position: absolute;
-    right: -196px;
+    right: -200px;
 
     #sidebar-content {
       visibility: visible;
@@ -533,7 +533,7 @@ body {
 
 
   .layout-toggle-active & {
-    right: -40px;
+    right: 0;
     width: 40px;
     background: $themeColor;
     color: $white;
@@ -553,7 +553,6 @@ body {
 
   .layout-toggle-active & {
     display: block;
-    width: 220px;
   }
 }
 
