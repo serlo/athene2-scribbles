@@ -1,155 +1,201 @@
-/*global jQuery: false, window: false*/
+/*jslint nomen: true*/
+/*global window: false, setTimeout: false, jQuery: false, _: false*/
 /**
 * Sidebar Navigation jQuery Plugin
-* !!outdated
 *
-* @class SerloSideMenu
+* @class SerloSlideMenu
 * @constructor
 * @param {Object} options Check 'defaults' in code
 */
 
 (function ($, window, undefined) {
     'use strict';
-    var SerloSideMenu = function (options) {
-        var plugin = {
-            options: $.extend({
-                root: '#sidebar-nav',
-                selector: ' > .nav > li',
-                subNavSelector: '.subnav li > a',
-                activeClass: 'active-hover',
-                hoverDuration: 550,
-                leftOffset: 300
-            }, options),
+    var instance,
+        defaults = {
+            rootSelector: '#main-nav',
+            navLinkSelector: 'li > a',
+            activeClass: 'active-hover',
+            titleSelector: '.title',
+            moverSelector: '.mover',
+            backLinkClass: 'nav-back'
+        },
+        SerloSlideMenu = function (options) {
+            this.options = $.extend({}, defaults, options);
+            /* cache main dom elements */
+            this.$root = $(this.options.rootSelector);
+            this.$links = $(this.options.navLinkSelector, this.$root);
+            this.$linkParents = this.$links.parent();
 
-            init: function () {
-                this.$root = $(this.options.root);
+            this.$mover = $(this.options.moverSelector, this.$root);
 
-                this.$el =  $(this.options.selector, this.$root);
-                this.$el.find('> a').click(this.onClick);
+            this.$title = $(this.options.titleSelector, this.$root);
 
-                this.$subNav = $(this.options.subNavSelector, this.$root)
-                                    .click(this.onSubNavClick)
-                                    .mouseenter(this.onSubNavMouseEnter);
+            this.history = [];
 
-                this.$title = $('.title', this.$root);
-
-                this.$root.on('click', '.nav-back', this.onBackClick);
-
-                return this;
-            },
-
-            onClick: function (e) {
-                e.preventDefault();
-
-                if (plugin.mouseLeaveTimeout) {
-                    clearTimeout(plugin.mouseLeaveTimeout);
-                }
-
-                plugin.resetSubNav();
-
-                var $parent = $(this).parent();
-
-                plugin.$title = $('.title', $parent);
-
-                plugin.setTitle($(this).html());
-
-                var isActive = $parent.hasClass(plugin.options.activeClass);
-
-                plugin.$el.removeClass(plugin.options.activeClass);
-
-                if (isActive) {
-                    $parent.trigger('mouseleave');
-                } else {
-                    $parent
-                        .addClass(plugin.options.activeClass)
-                        .unbind('mouseenter')
-                        .mouseenter(plugin.onMouseEnter)
-                        .unbind('mouseleave')
-                        .mouseleave(plugin.onMouseLeave);
-                }
-                return;
-            },
-
-            onSubNavClick: function (e) {
-                e.preventDefault();
-                var $parent = $(this).parent();
-
-                $parent.addClass(plugin.options.activeClass);
-
-                plugin.setTitle($(this).html());
-
-                var $mover = $(this).parents('.mover').first();
-
-                $mover.animate({
-                    left: '-=' + plugin.options.leftOffset + 'px'
-                }, {
-                    duration: 250
-                });
-
-                return;
-            },
-
-            onBackClick: function (e) {
-                e.preventDefault();
-
-                var $mover = $('.mover', plugin.$root).first();
-
-                $mover.animate({
-                    left: '+=' + plugin.options.leftOffset + 'px'
-                }, {
-                    duration: 250,
-                    complete: function () {
-                        $('.' + plugin.options.activeClass, plugin.$root).last().removeClass(plugin.options.activeClass);
-                        plugin.setTitle($('.' + plugin.options.activeClass, plugin.$root).last().find('> a').html());
-                    }
-                });
-                return;
-            },
-
-            onMouseEnter: function () {
-                if (plugin.mouseLeaveTimeout) {
-                    clearTimeout(plugin.mouseLeaveTimeout);
-                }
-            },
-
-            onMouseLeave: function () {
-                if (plugin.mouseLeaveTimeout) {
-                    clearTimeout(plugin.mouseLeaveTimeout);
-                }
-
-                plugin.mouseLeaveTimeout = setTimeout((function ($self){
-                    return function () {
-                        $self
-                            .unbind('mouseleave')
-                            .unbind('mouseenter')
-                            .removeClass(plugin.options.activeClass);
-                    }
-                })($(this)), plugin.options.hoverDuration);
-            },
-
-            onSubNavMouseEnter: function () {
-                var $info = $(this).siblings().filter('.info');
-                if ($info.length) {
-                    $('#subnav-info').show().html($info.html());
-                } else {
-                    $('#subnav-info').hide();
-                }
-            },
-
-            resetSubNav: function () {
-                $('.mover', this.$root)
-                    .css('left', 0)
-                    .find('.' + plugin.options.activeClass)
-                    .removeClass(plugin.options.activeClass);
-            },
-
-            setTitle: function (text) {
-                plugin.$title.html('<a href="#" class="nav-back"><i class="icon-left-circle"></i> ' + text + '</a>');
-            }
+            this.attachHandler();
         };
 
-        return plugin.init();
-    }
+    /**
+    * Adds all neccessary event handler
+    *
+    * @method attachHandler
+    */
+    SerloSlideMenu.prototype.attachHandler = function () {
+        this.$links.click(this.onLinkClick);
+        this.$root.on('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
+    };
 
-    $.SerloSideMenu = SerloSideMenu;
-})(jQuery, window);
+    /**
+    * Removes all added event handler
+    *
+    * @method removeHandler
+    */
+    SerloSlideMenu.prototype.removeHandler = function () {
+        this.$links.unbind('click', this.onLinkClick);
+        this.$root.off('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
+    };
+
+    /**
+    * Closes the menu
+    *
+    * @method Close
+    */
+    SerloSlideMenu.prototype.close = function () {
+        this.history = [];
+        this.$linkParents.removeClass(this.options.activeClass);
+    };
+
+    /**
+    * Event handler for clicks on navigation links
+    *
+    * @method onLinkClick
+    * @param {Object} e The click event object
+    * @return {Boolean} false
+    */
+
+    SerloSlideMenu.prototype.onLinkClick = function (e) {
+        var self = this,
+            $self = $(self),
+            $list = $self.next('ul');
+
+        /// if there is no more submenu, let the event pass, close the menu.
+        if (!$list.length) {
+            instance.close();
+            return true;
+        }
+
+        e.preventDefault();
+
+        instance.updateHistory($self);
+        instance.setTitle($self);
+
+        instance.move();
+
+        return;
+    };
+
+    /**
+    * Event handler for clicks on the backLink
+    *
+    * @method onBackLinkClick
+    * @param {Object} e The click event object
+    */
+
+    SerloSlideMenu.prototype.onBackLinkClick = function (e) {
+        e.preventDefault();
+
+        // [].shift.call(instance.$activeLinks);
+        instance.history.pop();
+
+        if (!instance.history.length) {
+            instance.close();
+        } else {
+            $(_.last(instance.history)).trigger('click');
+        }
+        return;
+    };
+
+    /**
+    * Updates the click history:
+    *
+    * Adds a new element if it isnt already in the history
+    * or deletes all appended elements before its position in history
+    *
+    * @method updateHistory
+    * @param {Object} $elem The jQuery <li> element
+    */
+    SerloSlideMenu.prototype.updateHistory = function ($elem) {
+        var self = this,
+            index = _.indexOf(this.history, $elem[0]);
+
+        $elem.parent().addClass(self.options.activeClass);
+
+        if (index > -1) {
+            this.history.splice(index);
+        }
+        self.history.push($elem[0]);
+    };
+
+    /**
+    * Animates the Link list horizontally to the given elements position
+    * 
+    * @method move
+    * @param {Object} $list The currents list jQuery object
+    */
+    SerloSlideMenu.prototype.move = function () {
+        var self = this,
+            depth = this.history.length - 1;
+
+        self.$mover.animate({
+            left: -1 * depth * $(_.last(this.history)).next('ul').position().left
+        }, {
+            complete: function () {
+                self.onMoveComplete();
+            }
+        });
+    };
+
+    /**
+    * Cleans up the old active links
+    *
+    * @method onMoveComplete
+    */
+    SerloSlideMenu.prototype.onMoveComplete = function () {
+        var self = this;
+
+        self.$linkParents.removeClass(self.options.activeClass);
+
+        $.each(this.history, function (i, elem) {
+            $(elem).parent().addClass(self.options.activeClass);
+        });
+    };
+
+    /**
+    * Resets the link lists left offset to zero
+    * 
+    * @method resetMove
+    */
+    SerloSlideMenu.prototype.resetMove = function () {
+        this.$mover.css('left', '0px');
+    };
+
+    /**
+    * Sets the menus title
+    *
+    * @method setTitle
+    * @param {Object} $link The jQuery object, containing the title
+    * @return {String} The title
+    */
+    SerloSlideMenu.prototype.setTitle = function ($link) {
+        var title = $link.html();
+        this.$title.html('<a href="#" class="' + this.options.backLinkClass + '"><i class="icon-left-circle"></i>' + title + '</a>');
+        return title;
+    };
+
+    $.SerloSlideMenu = function () {
+        return instance || (function () {
+            instance = new SerloSlideMenu();
+            return instance;
+        }());
+    };
+}(jQuery, window));
