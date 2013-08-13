@@ -563,11 +563,19 @@ body {
 }
 
 #footer {
-  padding-top: 15px;
-  
-  border-top: 2px solid $themeColor;
+    padding-top: 15px;
 
-  transition: 0.15s transform 0.1s ease-in-out, 0.25s opacity 0.01s ease-in-out;
+    transition: 0.15s transform 0.1s ease-in-out, 0.25s opacity 0.01s ease-in-out;
+    border-top: 2px solid $themeColor;
+
+    @include background(linear-gradient(bottom, #fff, #f2f2f2));
+
+  .container {
+
+    .inner {
+        padding: 12px 5px 0 20px;
+    }
+  }
 }
 
 

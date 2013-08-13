@@ -6,10 +6,7 @@
             $navigationToggler = $('#navigation-toggle'),
             $sidebarToggler = $('#sidebar-toggle');
 
-        $.SerloSideMenu({
-            root: '#main-nav',
-            selector: '> li'
-        });
+        $.SerloSlideMenu();
 
         $.SerloAjaxOverlay();
 

@@ -16,7 +16,8 @@
             down: 40,
             enter: 13,
             backspace: 8,
-            entf: 46
+            entf: 46,
+            esc: 27
         },
         defaults  = {
             rootSelector: '#search-content',
@@ -47,7 +48,7 @@
             /// with a throttled one
             /// to minimize the amount of ajax calls to the server
             this.search_orig = this.search;
-            this.search = _.throttle(this.search_orig, this.options.ajaxThrottlingDelay);
+            this.search = _.throttle(this.search_orig, this.options.ajaxThrottlingDelay, {leading: false});
         };
 
     /**
@@ -126,7 +127,7 @@
     */
 
     SerloSearch.prototype.onKeyUp = function (e) {
-        var searchString = $(this).val();
+        var searchString = $.trim($(this).val());
 
         switch (e.keyCode) {
         case KEYCODES.left:
@@ -134,6 +135,10 @@
         case KEYCODES.right:
         case KEYCODES.down:
             return true;
+        case KEYCODES.esc:
+            $(this).val('');
+            instance.$root.removeClass(instance.options.hasResultsClass);
+            break;
         default:
             e.preventDefault();
             if (searchString !== '' || e.shift) {
