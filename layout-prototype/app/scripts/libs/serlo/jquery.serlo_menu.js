@@ -32,28 +32,19 @@
 
             this.history = [];
 
-            this.attachHandler();
+            this.$links.click(this.onLinkClick);
+            this.$root.on('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
+
+            // click on body closes the menu
+            $('body').click('click', function () {
+                instance.close();
+            });
+            // click on $root stops event propagation,
+            // to avoid closing 
+            this.$root.click(function (e) {
+                e.stopPropagation();
+            });
         };
-
-    /**
-    * Adds all neccessary event handler
-    *
-    * @method attachHandler
-    */
-    SerloSlideMenu.prototype.attachHandler = function () {
-        this.$links.click(this.onLinkClick);
-        this.$root.on('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
-    };
-
-    /**
-    * Removes all added event handler
-    *
-    * @method removeHandler
-    */
-    SerloSlideMenu.prototype.removeHandler = function () {
-        this.$links.unbind('click', this.onLinkClick);
-        this.$root.off('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
-    };
 
     /**
     * Closes the menu
