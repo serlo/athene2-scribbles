@@ -49,7 +49,7 @@
             
                 <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
             
-                <li><a href="../classes/SerloSideMenu.html">SerloSideMenu</a></li>
+                <li><a href="../classes/SerloSlideMenu.html">SerloSlideMenu</a></li>
             
             </ul>
 
@@ -112,7 +112,8 @@
             down: 40,
             enter: 13,
             backspace: 8,
-            entf: 46
+            entf: 46,
+            esc: 27
         },
         defaults  = {
             rootSelector: &#x27;#search-content&#x27;,
@@ -143,7 +144,7 @@
             /// with a throttled one
             /// to minimize the amount of ajax calls to the server
             this.search_orig = this.search;
-            this.search = _.throttle(this.search_orig, this.options.ajaxThrottlingDelay);
+            this.search = _.throttle(this.search_orig, this.options.ajaxThrottlingDelay, {leading: false});
         };
 
     /**
@@ -222,7 +223,7 @@
     */
 
     SerloSearch.prototype.onKeyUp = function (e) {
-        var searchString = $(this).val();
+        var searchString = $.trim($(this).val());
 
         switch (e.keyCode) {
         case KEYCODES.left:
@@ -230,6 +231,10 @@
         case KEYCODES.right:
         case KEYCODES.down:
             return true;
+        case KEYCODES.esc:
+            $(this).val(&#x27;&#x27;);
+            instance.$root.removeClass(instance.options.hasResultsClass);
+            break;
         default:
             e.preventDefault();
             if (searchString !== &#x27;&#x27; || e.shift) {

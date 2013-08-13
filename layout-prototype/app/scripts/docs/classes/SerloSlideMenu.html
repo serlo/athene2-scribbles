@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>SerloSearch</title>
+    <title>SerloSlideMenu</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -90,7 +90,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>SerloSearch Class</h1>
+                        <h1>SerloSlideMenu Class</h1>
 <div class="box meta">
     
 
@@ -98,7 +98,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/libs_serlo_jquery.serlo_search.js.html#l2"><code>libs&#x2F;serlo&#x2F;jquery.serlo_search.js:2</code></a>
+            Defined in: <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l3"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:3</code></a>
         </div>
     
 
@@ -110,15 +110,15 @@
 
 
 <div class="box intro">
-    <p>Sidebar Search jQuery Plugin</p>
+    <p>Sidebar Navigation jQuery Plugin</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_SerloSearch" class="method item">
-    <h3 class="name"><code>SerloSearch</code></h3>
+        <div id="method_SerloSlideMenu" class="method item">
+    <h3 class="name"><code>SerloSlideMenu</code></h3>
 
     
         <div class="args">
@@ -159,7 +159,7 @@
             
         
         
-        <a href="../files/libs_serlo_jquery.serlo_search.js.html#l2"><code>libs&#x2F;serlo&#x2F;jquery.serlo_search.js:2</code></a>
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l3"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:3</code></a>
         
         </p>
 
@@ -230,35 +230,70 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_$.SerloSearch">$.SerloSearch</a>
+                                <a href="#method_attachHandler">attachHandler</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_onFocus">onFocus</a>
+                                <a href="#method_Close">Close</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_onFocusOut">onFocusOut</a>
+                                <a href="#method_move">move</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_onKeyUp">onKeyUp</a>
+                                <a href="#method_onBackLinkClick">onBackLinkClick</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_search">search</a>
+                                <a href="#method_onLinkClick">onLinkClick</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onMoveComplete">onMoveComplete</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeHandler">removeHandler</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_resetMove">resetMove</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_setTitle">setTitle</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_updateHistory">updateHistory</a>
 
                                 
                                 
@@ -280,27 +315,13 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_$.SerloSearch" class="method item">
-    <h3 class="name"><code>$.SerloSearch</code></h3>
+                    <div id="method_attachHandler" class="method item">
+    <h3 class="name"><code>attachHandler</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>options</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
     
 
     
@@ -326,7 +347,7 @@
             
         
         
-        <a href="../files/libs_serlo_jquery.serlo_search.js.html#l151"><code>libs&#x2F;serlo&#x2F;jquery.serlo_search.js:151</code></a>
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l38"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:38</code></a>
         
         </p>
 
@@ -337,7 +358,127 @@
     </div>
 
     <div class="description">
-        <p>Allows only one instance</p>
+        <p>Adds all neccessary event handler</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_Close" class="method item">
+    <h3 class="name"><code>Close</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l58"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:58</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Closes the menu</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_move" class="method item">
+    <h3 class="name"><code>move</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>$list</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l139"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:139</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Animates the Link list horizontally to the given elements position</p>
 
     </div>
 
@@ -349,14 +490,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">options</code>
+                        <code class="param-name">$list</code>
                         <span class="type">Object</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>Check &#39;defaults&#39;</p>
+                        <p>The currents list jQuery object</p>
 
                     </div>
 
@@ -368,25 +509,13 @@
     
 
     
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>The SerloSearch instance</p>
-
-                
-            </div>
-        </div>
-    
 
     
 </div>
 
                 
-                    <div id="method_onFocus" class="method item">
-    <h3 class="name"><code>onFocus</code></h3>
+                    <div id="method_onBackLinkClick" class="method item">
+    <h3 class="name"><code>onBackLinkClick</code></h3>
 
     
         <div class="args">
@@ -403,10 +532,6 @@
     
 
     
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
 
     
 
@@ -431,7 +556,7 @@
             
         
         
-        <a href="../files/libs_serlo_jquery.serlo_search.js.html#l87"><code>libs&#x2F;serlo&#x2F;jquery.serlo_search.js:87</code></a>
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l97"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:97</code></a>
         
         </p>
 
@@ -442,8 +567,7 @@
     </div>
 
     <div class="description">
-        <p>Handles the focus event on search input
-adds the onFocusClass to the rootSelector</p>
+        <p>Event handler for clicks on the backLink</p>
 
     </div>
 
@@ -462,7 +586,7 @@ adds the onFocusClass to the rootSelector</p>
                     
 
                     <div class="param-description">
-                        <p>The focus event</p>
+                        <p>The click event object</p>
 
                     </div>
 
@@ -474,25 +598,13 @@ adds the onFocusClass to the rootSelector</p>
     
 
     
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>false</p>
-
-                
-            </div>
-        </div>
-    
 
     
 </div>
 
                 
-                    <div id="method_onFocusOut" class="method item">
-    <h3 class="name"><code>onFocusOut</code></h3>
+                    <div id="method_onLinkClick" class="method item">
+    <h3 class="name"><code>onLinkClick</code></h3>
 
     
         <div class="args">
@@ -510,7 +622,7 @@ adds the onFocusClass to the rootSelector</p>
 
     
         <span class="returns-inline">
-            <span class="type"></span>
+            <span class="type">Boolean</span>
         </span>
     
 
@@ -537,7 +649,7 @@ adds the onFocusClass to the rootSelector</p>
             
         
         
-        <a href="../files/libs_serlo_jquery.serlo_search.js.html#l103"><code>libs&#x2F;serlo&#x2F;jquery.serlo_search.js:103</code></a>
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l68"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:68</code></a>
         
         </p>
 
@@ -548,8 +660,7 @@ adds the onFocusClass to the rootSelector</p>
     </div>
 
     <div class="description">
-        <p>Handles the focusout event on search input,
-removes the onFocusClass to the rootSelector</p>
+        <p>Event handler for clicks on navigation links</p>
 
     </div>
 
@@ -568,7 +679,7 @@ removes the onFocusClass to the rootSelector</p>
                     
 
                     <div class="param-description">
-                        <p>The focusout event</p>
+                        <p>The click event object</p>
 
                     </div>
 
@@ -586,6 +697,8 @@ removes the onFocusClass to the rootSelector</p>
             <div class="returns-description">
                 
                     
+                        <span class="type">Boolean</span>:
+                    
                     <p>false</p>
 
                 
@@ -597,8 +710,173 @@ removes the onFocusClass to the rootSelector</p>
 </div>
 
                 
-                    <div id="method_onKeyUp" class="method item">
-    <h3 class="name"><code>onKeyUp</code></h3>
+                    <div id="method_onMoveComplete" class="method item">
+    <h3 class="name"><code>onMoveComplete</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l158"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:158</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Cleans up the old active links</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeHandler" class="method item">
+    <h3 class="name"><code>removeHandler</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l48"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:48</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Removes all added event handler</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_resetMove" class="method item">
+    <h3 class="name"><code>resetMove</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l173"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:173</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Resets the link lists left offset to zero</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_setTitle" class="method item">
+    <h3 class="name"><code>setTitle</code></h3>
 
     
         <div class="args">
@@ -606,7 +884,7 @@ removes the onFocusClass to the rootSelector</p>
             
                 <li class="arg">
                     
-                        <code>e</code>
+                        <code>$link</code>
                     
                 </li>
             
@@ -616,7 +894,7 @@ removes the onFocusClass to the rootSelector</p>
 
     
         <span class="returns-inline">
-            <span class="type"></span>
+            <span class="type">String</span>
         </span>
     
 
@@ -643,7 +921,7 @@ removes the onFocusClass to the rootSelector</p>
             
         
         
-        <a href="../files/libs_serlo_jquery.serlo_search.js.html#l120"><code>libs&#x2F;serlo&#x2F;jquery.serlo_search.js:120</code></a>
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l182"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:182</code></a>
         
         </p>
 
@@ -654,8 +932,7 @@ removes the onFocusClass to the rootSelector</p>
     </div>
 
     <div class="description">
-        <p>Handles the keyUp event on search input,
-triggers an ajax call</p>
+        <p>Sets the menus title</p>
 
     </div>
 
@@ -667,14 +944,14 @@ triggers an ajax call</p>
             
                 <li class="param">
                     
-                        <code class="param-name">e</code>
+                        <code class="param-name">$link</code>
                         <span class="type">Object</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The keyup event</p>
+                        <p>The jQuery object, containing the title</p>
 
                     </div>
 
@@ -692,7 +969,9 @@ triggers an ajax call</p>
             <div class="returns-description">
                 
                     
-                    <p>false</p>
+                        <span class="type">String</span>:
+                    
+                    <p>The title</p>
 
                 
             </div>
@@ -703,8 +982,8 @@ triggers an ajax call</p>
 </div>
 
                 
-                    <div id="method_search" class="method item">
-    <h3 class="name"><code>search</code></h3>
+                    <div id="method_updateHistory" class="method item">
+    <h3 class="name"><code>updateHistory</code></h3>
 
     
         <div class="args">
@@ -712,7 +991,7 @@ triggers an ajax call</p>
             
                 <li class="arg">
                     
-                        <code>searchString</code>
+                        <code>$elem</code>
                     
                 </li>
             
@@ -745,7 +1024,7 @@ triggers an ajax call</p>
             
         
         
-        <a href="../files/libs_serlo_jquery.serlo_search.js.html#l54"><code>libs&#x2F;serlo&#x2F;jquery.serlo_search.js:54</code></a>
+        <a href="../files/libs_serlo_jquery.serlo_menu.js.html#l118"><code>libs&#x2F;serlo&#x2F;jquery.serlo_menu.js:118</code></a>
         
         </p>
 
@@ -756,10 +1035,9 @@ triggers an ajax call</p>
     </div>
 
     <div class="description">
-        <p>Performs an GET request to options.searchUrl
-with param options.searchParam
-set to searchString.</p>
-<p>Gets overridden in the constructor</p>
+        <p>Updates the click history:</p>
+<p>Adds a new element if it isnt already in the history
+or deletes all appended elements before its position in history</p>
 
     </div>
 
@@ -771,14 +1049,14 @@ set to searchString.</p>
             
                 <li class="param">
                     
-                        <code class="param-name">searchString</code>
-                        <span class="type">String</span>
+                        <code class="param-name">$elem</code>
+                        <span class="type">Object</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The string to search for</p>
+                        <p>The jQuery <li> element</p>
 
                     </div>
 

@@ -5,7 +5,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "AjaxPage",
         "SerloLayout",
         "SerloSearch",
-        "SerloSideMenu"
+        "SerloSlideMenu"
     ],
     "modules": [],
     "allModules": []

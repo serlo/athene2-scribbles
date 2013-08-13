@@ -33,7 +33,7 @@
             "name": "libs/serlo/jquery.serlo_menu.js",
             "modules": {},
             "classes": {
-                "SerloSideMenu": 1
+                "SerloSlideMenu": 1
             },
             "fors": {},
             "namespaces": {}
@@ -115,17 +115,17 @@
                 }
             ]
         },
-        "SerloSideMenu": {
-            "name": "SerloSideMenu",
-            "shortname": "SerloSideMenu",
+        "SerloSlideMenu": {
+            "name": "SerloSlideMenu",
+            "shortname": "SerloSlideMenu",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 2,
-            "description": "Sidebar Navigation jQuery Plugin\n!!outdated",
+            "line": 3,
+            "description": "Sidebar Navigation jQuery Plugin",
             "is_constructor": 1,
             "params": [
                 {
@@ -452,8 +452,131 @@
             "class": "SerloLayout"
         },
         {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 38,
+            "description": "Adds all neccessary event handler",
+            "itemtype": "method",
+            "name": "attachHandler",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 48,
+            "description": "Removes all added event handler",
+            "itemtype": "method",
+            "name": "removeHandler",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 58,
+            "description": "Closes the menu",
+            "itemtype": "method",
+            "name": "Close",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 68,
+            "description": "Event handler for clicks on navigation links",
+            "itemtype": "method",
+            "name": "onLinkClick",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The click event object",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "false",
+                "type": "Boolean"
+            },
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 97,
+            "description": "Event handler for clicks on the backLink",
+            "itemtype": "method",
+            "name": "onBackLinkClick",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The click event object",
+                    "type": "Object"
+                }
+            ],
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 118,
+            "description": "Updates the click history:\n\nAdds a new element if it isnt already in the history\nor deletes all appended elements before its position in history",
+            "itemtype": "method",
+            "name": "updateHistory",
+            "params": [
+                {
+                    "name": "$elem",
+                    "description": "The jQuery <li> element",
+                    "type": "Object"
+                }
+            ],
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 139,
+            "description": "Animates the Link list horizontally to the given elements position",
+            "itemtype": "method",
+            "name": "move",
+            "params": [
+                {
+                    "name": "$list",
+                    "description": "The currents list jQuery object",
+                    "type": "Object"
+                }
+            ],
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 158,
+            "description": "Cleans up the old active links",
+            "itemtype": "method",
+            "name": "onMoveComplete",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 173,
+            "description": "Resets the link lists left offset to zero",
+            "itemtype": "method",
+            "name": "resetMove",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 182,
+            "description": "Sets the menus title",
+            "itemtype": "method",
+            "name": "setTitle",
+            "params": [
+                {
+                    "name": "$link",
+                    "description": "The jQuery object, containing the title",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The title",
+                "type": "String"
+            },
+            "class": "SerloSlideMenu"
+        },
+        {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 53,
+            "line": 54,
             "description": "Performs an GET request to options.searchUrl\nwith param options.searchParam\nset to searchString.\n\nGets overridden in the constructor",
             "itemtype": "method",
             "name": "search",
@@ -468,7 +591,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 86,
+            "line": 87,
             "description": "Handles the focus event on search input\nadds the onFocusClass to the rootSelector",
             "itemtype": "method",
             "name": "onFocus",
@@ -486,7 +609,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 102,
+            "line": 103,
             "description": "Handles the focusout event on search input,\nremoves the onFocusClass to the rootSelector",
             "itemtype": "method",
             "name": "onFocusOut",
@@ -504,7 +627,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 119,
+            "line": 120,
             "description": "Handles the keyUp event on search input,\ntriggers an ajax call",
             "itemtype": "method",
             "name": "onKeyUp",
@@ -522,7 +645,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 146,
+            "line": 151,
             "description": "Allows only one instance",
             "itemtype": "method",
             "name": "$.SerloSearch",
@@ -542,19 +665,27 @@
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:86"
+            "line": " libs/serlo/jquery.serlo_menu.js:68"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:102"
+            "line": " libs/serlo/jquery.serlo_menu.js:182"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:119"
+            "line": " libs/serlo/jquery.serlo_search.js:87"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:146"
+            "line": " libs/serlo/jquery.serlo_search.js:103"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " libs/serlo/jquery.serlo_search.js:120"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " libs/serlo/jquery.serlo_search.js:151"
         },
         {
             "message": "Missing item type\nHashchange Event Polyfill",
