@@ -1,0 +1,300 @@
+
+@media only screen and (max-width: $navigationBreakPoint) {
+  @include grid-core($gridColumnWidthNavigation, $gridGutterWidthNavigation);
+}
+
+@media only screen and (max-width: $sidebarBreakPoint) {
+  @include grid-core($gridColumnWidthSidebar, $gridGutterWidthSidebar);
+}
+
+#page {
+  position: relative;
+  margin-top: 55px;
+  margin-bottom: 45px;
+  
+  transform-style: preserve-3d;
+  transition: 0.15s transform 0.1s ease-in-out, 0.25s opacity 0.01s ease-in-out;
+}
+
+#navigation {
+  position: relative;
+  z-index: 90;
+}
+
+#navigation-container {
+    position: absolute;
+    width: $navigationWidth;
+    height: auto;
+    top: 20px;
+    left: 0;
+    margin: 0;
+
+    @media only screen and (max-width: $navigationBreakPoint) {
+        width: 40px;
+    }
+
+    &.layout-toggle-active {
+        width: $navigationWidth;
+        margin-left: 40px;
+        #navigation-content {
+            visibility: visible;
+        }
+    }
+
+    .slide-left & {
+        display: none;
+    }
+}
+
+
+#navigation-toggle {
+
+    width: 40px;
+
+    @media only screen and (max-width: $navigationBreakPoint) {
+        display: block;
+    }
+
+    .layout-toggle-active & {
+        left: -40px;
+    }
+
+}
+
+#navigation-content {
+    width: $navigationWidth;
+
+    @media only screen and (max-width: $navigationBreakPoint) {
+        visibility: hidden;
+    }
+
+    .layout-toggle-active & {
+        display: block;
+        width: 200px;
+    }
+}
+
+#main {
+    position: relative;
+
+    padding-left: $navigationWidth;
+
+    @media only screen and (max-width: $navigationBreakPoint) {
+        padding-left: 40px;
+    }
+
+    @include clearfix();
+
+    .slide-left & {
+        left: -200px;
+    }
+
+    .slide-right & {
+        left: 200px;
+    }
+}
+
+#content {
+    width: $contentWidth;
+    float: left;
+}
+
+#content-container {
+    min-height: 680px;
+    padding: 12px 20px 20px;
+}
+
+
+#search-content {
+    display: block;
+    position: relative;
+
+    z-index: 1;
+
+    @media only screen and (max-width: $navigationBreakPoint) {
+        position: absolute;
+        top: -57px;
+        left: 40px;
+
+        width: 220px;
+        input {
+            border: none;
+        }
+    }
+
+    .layout-toggle-active & {
+        left: 220px;
+    }
+
+    &.is-focus {
+        width: 386px;
+
+        #search-help {
+            display: block;
+        }
+    }
+
+    &.has-results {
+
+        #search-results {
+            display: block
+        }
+
+        #search-help {
+           display: none;
+        }
+    }
+
+    input {
+        width: 100%;
+        height: 37px;
+
+        box-sizing: border-box;
+        border: none;
+        border-radius: 0;
+        padding: 4px 24px 4px 12px;
+        margin: 0;
+
+        transition: 0.3s background-color 0s;
+
+        line-height: 2;
+
+        z-index: 2;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .icon-search {
+        position: absolute;
+        top: 8px;
+        right: 11px;
+    }
+}
+
+#search-results {
+    display: none;
+    position: absolute;
+    width: 386px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    margin-bottom: 0;
+    padding-top: 37px;
+
+    a {
+        padding: 6px 12px;
+    }
+}
+
+#search-help {
+    display: none;
+
+    position: absolute;
+
+    z-index: -1;
+    left: 0;
+    top: 0;
+    padding: 12px;
+    width: 362px;
+
+    padding-top: 49px;
+}
+
+
+#sidebar {
+    position: relative;
+
+    margin-left: $contentWidth;
+    min-height: 300px;
+    top: 20px;
+
+    @media only screen and (max-width: $sidebarBreakPoint) {
+        width: 40px;
+    }
+
+    &.layout-toggle-active {
+        width: 240px;
+        position: absolute;
+        right: -200px;
+
+        #sidebar-content {
+            visibility: visible;
+        }
+    }
+}
+
+/* Toggle Button */
+.layout-toggle {
+    display: none;
+
+    height: auto;
+    padding: 10px 0;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    cursor: pointer;
+
+    .toggle-bar {
+        display: block;
+        margin: 0 6px;
+
+        & + .toggle-bar {
+            margin-top: 3px;
+        }
+    }
+}
+
+.layout-toggle-active {
+    .layout-toggle {
+        display: none;
+    }
+    .layout-inner {
+        display: block;
+    }
+}
+
+#sidebar-toggle {
+
+    @media only screen and (max-width: $sidebarBreakPoint) {
+        display: block;
+    }
+
+    .layout-toggle-active & {
+        right: 0;
+        width: 40px;
+    }
+}
+
+#sidebar-content {
+    width: $sidebarWidth;
+
+    @media only screen and (max-width: $sidebarBreakPoint) {
+        visibility: hidden;
+    }
+
+    @media only screen and (min-width: $fullStackBreakPoint) {
+        width: auto;
+    }
+
+    .layout-toggle-active & {
+        display: block;
+    }
+}
+
+
+#footer {
+    padding-top: 15px;
+
+    transition: 0.15s transform 0.1s ease-in-out, 0.25s opacity 0.01s ease-in-out;
+
+    .container {
+        .inner {
+            padding: 12px 5px 0 20px;
+        }
+    }
+}

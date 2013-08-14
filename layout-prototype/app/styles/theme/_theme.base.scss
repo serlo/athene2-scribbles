@@ -1,0 +1,167 @@
+/// top bar menu
+#serlo-menu {
+  font-size: 0.8em;
+  border-bottom: 2px solid $themeColor;
+
+  li {
+    line-height: 23px;
+  }
+}
+
+/// the subject picker next to the logo
+#subject-nav {
+    padding: 15px 0;
+
+    .title {
+        display: inline;
+        padding-right: 12px;
+
+        font-weight: normal;
+    }
+
+    .slogan {
+        padding: 0.4em 0.2em;
+        font-size: 1.5em;
+    }
+
+    .dropdown {
+        display: inline;
+        z-index: 2;
+    }
+
+    .open .dropdown-menu {
+        display: block;
+        z-index: -1;
+        top: -33px;
+        padding-top: 58px;
+        padding-left: 0;
+        left: -12px;
+        width: 120%;
+    }
+
+    li > a {
+        font-size: 1.2em;
+        line-height: 1.3em;
+    }
+
+    .dropdown-toggle {
+        @extend h1;
+
+        z-index: 12;
+
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            border-color: $themeColor;
+        }
+    }
+
+    .caret {
+        margin-left: 10px;
+        margin-top: 17px;
+        border-width: 7px;
+    }
+}
+
+#navigation-container {
+    background: $gray;
+    @include background(linear-gradient(right, darken($gray, 3%), $gray 12px, $gray));
+}
+
+#navigation-toggle {
+    &:hover {
+        box-shadow: -2px 0 4px darken($themeColor, 8%) inset;
+    }
+
+    .layout-toggle-active {
+        background: $themeColor;
+        color: $white;
+    }
+}
+
+#content-container {
+    background: $white;
+}
+
+
+#search-content {
+    background: $white;
+
+    &.is-focus {
+        box-shadow: 0 0 7px #9f9f9f;
+    }
+
+    input {
+        background: rgba($white, 0.3);
+
+        &:hover {
+            background: $white;
+        }
+
+        &:focus {
+            background: $themeColor;
+            color: $white;
+
+            @include placeholder-color($white);
+
+            & + .icon-search {
+                color: $white;
+            }
+        }
+    }
+}
+
+#search-results {
+    background: $white;
+    box-shadow: 0 0 3px #dadada;
+}
+
+#search-help {
+    background: $white;
+    box-shadow: 0 0 3px #dadada;
+}
+
+#sidebar {
+
+    background: $gray;
+
+    @include background(linear-gradient(left, darken($gray, 3%), $gray 12px, $gray));
+
+    a {
+        color: $white;
+    }
+}
+
+.layout-toggle {
+    font-size: 1.5em;
+    text-align: center;
+
+    &:hover {
+        background: $themeColor;
+        color: $white;
+    }
+
+    .toggle-bar {
+        border-top: 2px solid $gray;
+    }
+}
+
+#sidebar-toggle {
+
+    &:hover {
+        box-shadow: 2px 0 4px darken($themeColor, 8%) inset;
+    }
+
+    .layout-toggle-active & {
+        background: $themeColor;
+        color: $white;
+    }
+}
+
+#footer {
+    border-top: 2px solid $themeColor;
+    @include background(linear-gradient(bottom, #fff, #f2f2f2));
+}

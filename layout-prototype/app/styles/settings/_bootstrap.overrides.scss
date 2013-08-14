@@ -1,0 +1,18 @@
+/* ICONS */
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+
+/* Override Base Styles */
+$baseBorderRadius:      0px;
+$borderRadiusLarge:     0px;
+$borderRadiusSmall:     0px;
+
+$linkColor: $themeColor;
+$dropdownLinkBackgroundActive: $themeColor;
+
+/* Override Default Grid */
+$gridGutterWidth: 24px;
+$gridColumnWidth: 73px;
+
+/* Override Navbar Styles */
+$navbarHeight: 25px;
