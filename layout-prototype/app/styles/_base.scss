@@ -1,0 +1,26 @@
+/* BODY / HTML*/
+body,html {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  // height: 100%;
+  // background: $grayLighter url(../images/mooning.png) 50% 0;
+  background: $backgroundColor;
+  // overflow-y: scroll;
+  // overflow-x: hidden;
+  // -webkit-overflow-scroll: touch;
+}
+
+body {
+  background: none transparent;
+  
+  transform-origin: 50% 250px;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  // ios overfloy-x hidden fix
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
