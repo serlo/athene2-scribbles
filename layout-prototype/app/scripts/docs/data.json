@@ -79,7 +79,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 422,
+            "line": 424,
             "description": "Constructor for a single AjaxPage. Allows navigation inside the AjaxOverlay",
             "is_constructor": 1,
             "params": [
@@ -165,7 +165,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 88,
+            "line": 90,
             "description": "Initializes the onClick event for links in a specific context",
             "itemtype": "method",
             "name": "init",
@@ -183,7 +183,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 106,
+            "line": 108,
             "description": "Click handler for links. Triggers the Overlay to start, saves current scroll position.",
             "itemtype": "method",
             "name": "onLinkClick",
@@ -198,7 +198,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 129,
+            "line": 131,
             "description": "Click handler for overlay closing links. Triggers the Overlay to hide.",
             "itemtype": "method",
             "name": "onCloseClick",
@@ -213,7 +213,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 143,
+            "line": 145,
             "description": "A helper function that stops Propagation of click event bubbling:\nmakes sure the overlay only gets closed, when user did not click on the overlay itself.",
             "itemtype": "method",
             "name": "preventOverlayClosing",
@@ -228,7 +228,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 157,
+            "line": 159,
             "description": "Opens the Overlay and loads the given href.",
             "itemtype": "method",
             "name": "bootAjaxContent",
@@ -256,7 +256,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 194,
+            "line": 196,
             "description": "Closes the overlay, unbinds clickhandler from body, scrolls the body to formerly saved scrollposition",
             "itemtype": "method",
             "name": "shutDownAjaxContent",
@@ -267,7 +267,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 240,
+            "line": 242,
             "description": "AjaxPages are stored by url in var pageCache.\n\nCreates a new page, or takes the cached one,\nadds it to tabPages and triggers AjaxPage.load",
             "itemtype": "method",
             "name": "addPage",
@@ -290,7 +290,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 264,
+            "line": 266,
             "description": "Shows the AjaxPage by url",
             "itemtype": "method",
             "name": "showPage",
@@ -308,7 +308,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 286,
+            "line": 288,
             "description": "Renders tabs for all Pages that are in the tabPages array\nif options.tabLimit is -1, all tabs\nif options.tabLimit is 0, no tabs,\nelse a limited amount of tabs get rendered",
             "itemtype": "method",
             "name": "renderPageTabs",
@@ -319,7 +319,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 357,
+            "line": 359,
             "description": "Tells the Overlay to scroll to the top\nGets called, when a new AjaxPage is loaded",
             "itemtype": "method",
             "name": "scrollToPageTop",
@@ -330,7 +330,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 375,
+            "line": 377,
             "description": "Shows loader indicator",
             "itemtype": "method",
             "name": "showLoader",
@@ -341,7 +341,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 387,
+            "line": 389,
             "description": "Hides loader indicator",
             "itemtype": "method",
             "name": "hideLoader",
@@ -352,7 +352,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 399,
+            "line": 401,
             "description": "Error handler",
             "itemtype": "method",
             "name": "onError",
@@ -360,10 +360,10 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 409,
+            "line": 411,
             "description": "The Initializing function, put into jQuery. Creates only one instance of AjaxOverlay",
             "itemtype": "method",
-            "name": "$.SerloAjaxOverlay",
+            "name": "SERLO.AjaxOverlay",
             "params": [
                 {
                     "name": "options",
@@ -375,7 +375,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 441,
+            "line": 443,
             "description": "Loads this.url only if it hasnt been loaded earlier\nand triggers the AjaxOverlay to show the pages content\n\nTODO: we do not load the href because of Allowed-X-Origin",
             "itemtype": "method",
             "name": "load",
@@ -386,7 +386,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_ajax_overlay.js",
-            "line": 490,
+            "line": 492,
             "description": "Helper function that checks if an array contains a specific element",
             "itemtype": "method",
             "name": "elementExistsInArray",
@@ -408,7 +408,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_layout.js",
-            "line": 34,
+            "line": 37,
             "description": "Checks, which direction the $root should slide\nand toggles the specific class.",
             "itemtype": "method",
             "name": "onTogglerClick",
@@ -423,7 +423,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_layout.js",
-            "line": 63,
+            "line": 66,
             "description": "Removes all togglerActive Classes and left-/rightActiveClasses",
             "itemtype": "method",
             "name": "onResize",
@@ -438,10 +438,10 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_layout.js",
-            "line": 80,
+            "line": 83,
             "description": "Publishes a single instance of SerloLayout\nand makes it available in the global jQuery object",
             "itemtype": "method",
-            "name": "$.SerloLayout",
+            "name": "SERLO.Layout",
             "params": [
                 {
                     "name": "options",
@@ -453,23 +453,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 38,
-            "description": "Adds all neccessary event handler",
-            "itemtype": "method",
-            "name": "attachHandler",
-            "class": "SerloSlideMenu"
-        },
-        {
-            "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 48,
-            "description": "Removes all added event handler",
-            "itemtype": "method",
-            "name": "removeHandler",
-            "class": "SerloSlideMenu"
-        },
-        {
-            "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 58,
+            "line": 64,
             "description": "Closes the menu",
             "itemtype": "method",
             "name": "Close",
@@ -477,7 +461,15 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 68,
+            "line": 75,
+            "description": "Sets the internal opened bool to true\nand resets the mover.",
+            "itemtype": "method",
+            "name": "open",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 86,
             "description": "Event handler for clicks on navigation links",
             "itemtype": "method",
             "name": "onLinkClick",
@@ -496,7 +488,23 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 97,
+            "line": 119,
+            "description": "Event handler for mouseenter events on navigation links\n\nadds the onHoverClass to the parent li",
+            "itemtype": "method",
+            "name": "onLinkMouseEnter",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 143,
+            "description": "Event handler for mouseleave events on navigation links\n\nremoves the onHoverClass from the parent li",
+            "itemtype": "method",
+            "name": "onLinkMouseLeave",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 154,
             "description": "Event handler for clicks on the backLink",
             "itemtype": "method",
             "name": "onBackLinkClick",
@@ -511,7 +519,23 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 118,
+            "line": 175,
+            "description": "Fills the link info DOM element with the given $element\nand shows it.",
+            "itemtype": "method",
+            "name": "showInfo",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 185,
+            "description": "Empties the info DOM element and hides it",
+            "itemtype": "method",
+            "name": "showInfo",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 194,
             "description": "Updates the click history:\n\nAdds a new element if it isnt already in the history\nor deletes all appended elements before its position in history",
             "itemtype": "method",
             "name": "updateHistory",
@@ -526,7 +550,15 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 139,
+            "line": 215,
+            "description": "Clears the click history",
+            "itemtype": "method",
+            "name": "clearHistory",
+            "class": "SerloSlideMenu"
+        },
+        {
+            "file": "libs/serlo/jquery.serlo_menu.js",
+            "line": 224,
             "description": "Animates the Link list horizontally to the given elements position",
             "itemtype": "method",
             "name": "move",
@@ -541,7 +573,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 158,
+            "line": 244,
             "description": "Cleans up the old active links",
             "itemtype": "method",
             "name": "onMoveComplete",
@@ -549,7 +581,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 173,
+            "line": 259,
             "description": "Resets the link lists left offset to zero",
             "itemtype": "method",
             "name": "resetMove",
@@ -557,7 +589,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_menu.js",
-            "line": 182,
+            "line": 268,
             "description": "Sets the menus title",
             "itemtype": "method",
             "name": "setTitle",
@@ -576,7 +608,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 54,
+            "line": 57,
             "description": "Performs an GET request to options.searchUrl\nwith param options.searchParam\nset to searchString.\n\nGets overridden in the constructor",
             "itemtype": "method",
             "name": "search",
@@ -591,7 +623,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 87,
+            "line": 90,
             "description": "Handles the focus event on search input\nadds the onFocusClass to the rootSelector",
             "itemtype": "method",
             "name": "onFocus",
@@ -609,7 +641,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 103,
+            "line": 106,
             "description": "Handles the focusout event on search input,\nremoves the onFocusClass to the rootSelector",
             "itemtype": "method",
             "name": "onFocusOut",
@@ -627,7 +659,7 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 120,
+            "line": 123,
             "description": "Handles the keyUp event on search input,\ntriggers an ajax call",
             "itemtype": "method",
             "name": "onKeyUp",
@@ -645,10 +677,10 @@
         },
         {
             "file": "libs/serlo/jquery.serlo_search.js",
-            "line": 151,
+            "line": 154,
             "description": "Allows only one instance",
             "itemtype": "method",
-            "name": "$.SerloSearch",
+            "name": "SERLO.Search",
             "params": [
                 {
                     "name": "options",
@@ -665,27 +697,19 @@
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_menu.js:68"
+            "line": " libs/serlo/jquery.serlo_search.js:90"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_menu.js:182"
+            "line": " libs/serlo/jquery.serlo_search.js:106"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:87"
+            "line": " libs/serlo/jquery.serlo_search.js:123"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:103"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:120"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " libs/serlo/jquery.serlo_search.js:151"
+            "line": " libs/serlo/jquery.serlo_search.js:154"
         },
         {
             "message": "Missing item type\nHashchange Event Polyfill",

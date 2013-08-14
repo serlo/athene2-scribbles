@@ -104,6 +104,8 @@
 * @param {Object} options Check &#x27;defaults&#x27; in code
 */
 
+var SERLO = SERLO || {};
+
 (function ($, window, undefined) {
     &#x27;use strict&#x27;;
     var instance,
@@ -112,8 +114,11 @@
             navLinkSelector: &#x27;li &gt; a&#x27;,
             activeClass: &#x27;active-hover&#x27;,
             titleSelector: &#x27;.title&#x27;,
+            infoSelector: &#x27;#subnav-info&#x27;,
+            onHoverClass: &#x27;.hover&#x27;,
             moverSelector: &#x27;.mover&#x27;,
-            backLinkClass: &#x27;nav-back&#x27;
+            backLinkClass: &#x27;nav-back&#x27;,
+            slideDuration: 200
         },
         SerloSlideMenu = function (options) {
             this.options = $.extend({}, defaults, options);
@@ -125,31 +130,32 @@
             this.$mover = $(this.options.moverSelector, this.$root);
 
             this.$title = $(this.options.titleSelector, this.$root);
+            this.$info = $(this.options.infoSelector);
 
             this.history = [];
+            this.opened = false;
 
-            this.attachHandler();
+            this.$links
+                .click(this.onLinkClick);
+
+            this.$linkParents
+                .mouseenter(this.onLinkMouseEnter)
+                .mouseleave(this.onLinkMouseLeave);
+
+            this.$root.on(&#x27;click&#x27;, &#x27;.&#x27; + this.options.backLinkClass, this.onBackLinkClick);
+
+            // click on body closes the menu
+            $(&#x27;body&#x27;).click(&#x27;click&#x27;, function () {
+                if (instance.opened) {
+                    instance.close();
+                }
+            });
+            // click on $root stops event propagation,
+            // to avoid closing 
+            this.$root.click(function (e) {
+                e.stopPropagation();
+            });
         };
-
-    /**
-    * Adds all neccessary event handler
-    *
-    * @method attachHandler
-    */
-    SerloSlideMenu.prototype.attachHandler = function () {
-        this.$links.click(this.onLinkClick);
-        this.$root.on(&#x27;click&#x27;, &#x27;.&#x27; + this.options.backLinkClass, this.onBackLinkClick);
-    };
-
-    /**
-    * Removes all added event handler
-    *
-    * @method removeHandler
-    */
-    SerloSlideMenu.prototype.removeHandler = function () {
-        this.$links.unbind(&#x27;click&#x27;, this.onLinkClick);
-        this.$root.off(&#x27;click&#x27;, &#x27;.&#x27; + this.options.backLinkClass, this.onBackLinkClick);
-    };
 
     /**
     * Closes the menu
@@ -157,8 +163,20 @@
     * @method Close
     */
     SerloSlideMenu.prototype.close = function () {
-        this.history = [];
+        this.clearHistory();
+        this.opened = false;
         this.$linkParents.removeClass(this.options.activeClass);
+    };
+
+    /**
+    * Sets the internal opened bool to true
+    * and resets the mover.
+    *
+    * @method open
+    */
+    SerloSlideMenu.prototype.open = function () {
+        this.opened = true;
+        this.resetMove();
     };
 
     /**
@@ -166,7 +184,7 @@
     *
     * @method onLinkClick
     * @param {Object} e The click event object
-    * @returns {Boolean} false
+    * @return {Boolean} false
     */
 
     SerloSlideMenu.prototype.onLinkClick = function (e) {
@@ -180,6 +198,10 @@
             return true;
         }
 
+        if (!instance.opened) {
+            instance.open();
+        }
+
         e.preventDefault();
 
         instance.updateHistory($self);
@@ -188,6 +210,41 @@
         instance.move();
 
         return;
+    };
+
+    /**
+    * Event handler for mouseenter events on navigation links
+    * 
+    * adds the onHoverClass to the parent li
+    *
+    * @method onLinkMouseEnter
+    */
+    SerloSlideMenu.prototype.onLinkMouseEnter = function () {
+        var $info;
+
+        if ($(this).hasClass(instance.options.activeClass)) {
+            /// prevent the parent LIs from triggering
+            return;
+        }
+
+        $info = $(this).children().filter(&#x27;.info&#x27;);
+
+        if ($info.length) {
+            instance.showInfo($info);
+        } else {
+            instance.hideInfo();
+        }
+    };
+
+    /**
+    * Event handler for mouseleave events on navigation links
+    *
+    * removes the onHoverClass from the parent li
+    *
+    * @method onLinkMouseLeave
+    */
+    SerloSlideMenu.prototype.onLinkMouseLeave = function () {
+        instance.hideInfo();
     };
 
     /**
@@ -212,6 +269,25 @@
     };
 
     /**
+    * Fills the link info DOM element with the given $element
+    * and shows it.
+    *
+    * @method showInfo
+    */
+    SerloSlideMenu.prototype.showInfo = function ($elem) {
+        this.$info.html($elem.html()).show();
+    };
+
+    /**
+    * Empties the info DOM element and hides it
+    *
+    * @method showInfo
+    */
+    SerloSlideMenu.prototype.hideInfo = function () {
+        this.$info.empty().hide();
+    };
+
+    /**
     * Updates the click history:
     *
     * Adds a new element if it isnt already in the history
@@ -233,6 +309,15 @@
     };
 
     /**
+    * Clears the click history
+    * 
+    * @method clearHistory
+    */
+    SerloSlideMenu.prototype.clearHistory = function () {
+        SERLO.emptyArray(this.history);
+    };
+
+    /**
     * Animates the Link list horizontally to the given elements position
     * 
     * @method move
@@ -245,6 +330,7 @@
         self.$mover.animate({
             left: -1 * depth * $(_.last(this.history)).next(&#x27;ul&#x27;).position().left
         }, {
+            duration: this.options.slideDuration,
             complete: function () {
                 self.onMoveComplete();
             }
@@ -280,7 +366,7 @@
     *
     * @method setTitle
     * @param {Object} $link The jQuery object, containing the title
-    * @returns {String} The title
+    * @return {String} The title
     */
     SerloSlideMenu.prototype.setTitle = function ($link) {
         var title = $link.html();
@@ -288,7 +374,7 @@
         return title;
     };
 
-    $.SerloSlideMenu = function () {
+    SERLO.SlideMenu = function () {
         return instance || (function () {
             instance = new SerloSlideMenu();
             return instance;

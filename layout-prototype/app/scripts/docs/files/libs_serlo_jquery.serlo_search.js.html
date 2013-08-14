@@ -102,6 +102,9 @@
 * @constructor
 * @param {Object} options Check &#x27;defaults&#x27; in code
 */
+
+var SERLO = SERLO || {};
+
 (function ($, _, window, undefined) {
     &quot;use strict&quot;;
     var instance,
@@ -247,12 +250,12 @@
     /**
     * Allows only one instance 
     * 
-    * @method $.SerloSearch
+    * @method SERLO.Search
     * @param {Object} options Check &#x27;defaults&#x27;
     * @returns The SerloSearch instance
     */
 
-    $.SerloSearch = function (options) {
+    SERLO.Search = function (options) {
         return instance || (instance = new SerloSearch(options));
     }
 })(jQuery, _, window);
