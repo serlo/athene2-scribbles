@@ -16,8 +16,11 @@
             navLinkSelector: 'li > a',
             activeClass: 'active-hover',
             titleSelector: '.title',
+            infoSelector: '#subnav-info',
+            onHoverClass: '.hover',
             moverSelector: '.mover',
-            backLinkClass: 'nav-back'
+            backLinkClass: 'nav-back',
+            slideDuration: 200
         },
         SerloSlideMenu = function (options) {
             this.options = $.extend({}, defaults, options);
@@ -29,15 +32,25 @@
             this.$mover = $(this.options.moverSelector, this.$root);
 
             this.$title = $(this.options.titleSelector, this.$root);
+            this.$info = $(this.options.infoSelector);
 
             this.history = [];
+            this.opened = false;
 
-            this.$links.click(this.onLinkClick);
+            this.$links
+                .click(this.onLinkClick);
+
+            this.$linkParents
+                .mouseenter(this.onLinkMouseEnter)
+                .mouseleave(this.onLinkMouseLeave);
+
             this.$root.on('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
 
             // click on body closes the menu
             $('body').click('click', function () {
-                instance.close();
+                if (instance.opened) {
+                    instance.close();
+                }
             });
             // click on $root stops event propagation,
             // to avoid closing 
@@ -52,8 +65,20 @@
     * @method Close
     */
     SerloSlideMenu.prototype.close = function () {
-        this.history = [];
+        this.clearHistory();
+        this.opened = false;
         this.$linkParents.removeClass(this.options.activeClass);
+    };
+
+    /**
+    * Sets the internal opened bool to true
+    * and resets the mover.
+    *
+    * @method open
+    */
+    SerloSlideMenu.prototype.open = function () {
+        this.opened = true;
+        this.resetMove();
     };
 
     /**
@@ -75,6 +100,10 @@
             return true;
         }
 
+        if (!instance.opened) {
+            instance.open();
+        }
+
         e.preventDefault();
 
         instance.updateHistory($self);
@@ -83,6 +112,41 @@
         instance.move();
 
         return;
+    };
+
+    /**
+    * Event handler for mouseenter events on navigation links
+    * 
+    * adds the onHoverClass to the parent li
+    *
+    * @method onLinkMouseEnter
+    */
+    SerloSlideMenu.prototype.onLinkMouseEnter = function () {
+        var $info;
+
+        if ($(this).hasClass(instance.options.activeClass)) {
+            /// prevent the parent LIs from triggering
+            return;
+        }
+
+        $info = $(this).children().filter('.info');
+
+        if ($info.length) {
+            instance.showInfo($info);
+        } else {
+            instance.hideInfo();
+        }
+    };
+
+    /**
+    * Event handler for mouseleave events on navigation links
+    *
+    * removes the onHoverClass from the parent li
+    *
+    * @method onLinkMouseLeave
+    */
+    SerloSlideMenu.prototype.onLinkMouseLeave = function () {
+        instance.hideInfo();
     };
 
     /**
@@ -107,6 +171,28 @@
     };
 
     /**
+    * Fills the link info DOM element with the given $element
+    * and shows it.
+    *
+    * @method showInfo
+    */
+    SerloSlideMenu.prototype.showInfo = function ($elem) {
+        console.log('showInfo');
+        this.$info.html($elem.html()).show();
+    };
+
+    /**
+    * Empties the info DOM element and hides it
+    *
+    * @method showInfo
+    */
+    SerloSlideMenu.prototype.hideInfo = function () {
+        console.log('hideInfo');
+        console.trace();
+        this.$info.empty().hide();
+    };
+
+    /**
     * Updates the click history:
     *
     * Adds a new element if it isnt already in the history
@@ -128,6 +214,15 @@
     };
 
     /**
+    * Clears the click history
+    * 
+    * @method clearHistory
+    */
+    SerloSlideMenu.prototype.clearHistory = function () {
+        SERLO.emptyArray(this.history);
+    };
+
+    /**
     * Animates the Link list horizontally to the given elements position
     * 
     * @method move
@@ -140,6 +235,7 @@
         self.$mover.animate({
             left: -1 * depth * $(_.last(this.history)).next('ul').position().left
         }, {
+            duration: this.options.slideDuration,
             complete: function () {
                 self.onMoveComplete();
             }
