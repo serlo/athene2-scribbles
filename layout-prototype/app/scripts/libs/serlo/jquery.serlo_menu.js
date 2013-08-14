@@ -8,6 +8,8 @@
 * @param {Object} options Check 'defaults' in code
 */
 
+var SERLO = SERLO || {};
+
 (function ($, window, undefined) {
     'use strict';
     var instance,
@@ -177,7 +179,6 @@
     * @method showInfo
     */
     SerloSlideMenu.prototype.showInfo = function ($elem) {
-        console.log('showInfo');
         this.$info.html($elem.html()).show();
     };
 
@@ -187,8 +188,6 @@
     * @method showInfo
     */
     SerloSlideMenu.prototype.hideInfo = function () {
-        console.log('hideInfo');
-        console.trace();
         this.$info.empty().hide();
     };
 
@@ -279,7 +278,7 @@
         return title;
     };
 
-    $.SerloSlideMenu = function () {
+    SERLO.SlideMenu = function () {
         return instance || (function () {
             instance = new SerloSlideMenu();
             return instance;

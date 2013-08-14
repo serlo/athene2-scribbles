@@ -2,17 +2,14 @@
 (function ($, window, undefined) {
     'use strict';
     $(function () {
-        var $body = $('body'),
-            $navigationToggler = $('#navigation-toggle'),
-            $sidebarToggler = $('#sidebar-toggle');
 
-        $.SerloSlideMenu();
+        SERLO.SlideMenu();
 
-        $.SerloAjaxOverlay();
+        SERLO.AjaxOverlay();
 
-        $.SerloSearch();
+        SERLO.Search();
 
-        $.SerloLayout();
+        SERLO.Layout();
     });
 
 })(jQuery, window);

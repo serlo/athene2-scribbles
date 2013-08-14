@@ -18,6 +18,8 @@
 * @param {Object} options Check 'defaults' in code
 */
 
+var SERLO = SERLO || {};
+
 (function ($, window, undefined) {
     var document = window.document,
         instance,
@@ -409,11 +411,11 @@
     /**
     * The Initializing function, put into jQuery. Creates only one instance of AjaxOverlay
     *
-    * @method $.SerloAjaxOverlay
+    * @method SERLO.AjaxOverlay
     * @param {Object} options All options described as `defaults`. (optional)
     */
 
-    $.SerloAjaxOverlay = function (options) {
+    SERLO.AjaxOverlay = function (options) {
         /// only allow one instance
         return instance || (instance = new AjaxOverlay(options));
     };
@@ -482,7 +484,7 @@
         call.error(function () {
             self.super.onError(arguments);
         });
-        
+
 
         return self;
     };

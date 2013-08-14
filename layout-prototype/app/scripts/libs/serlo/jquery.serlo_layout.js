@@ -8,6 +8,9 @@
 * @constructor
 * @param {Object} options Check 'defaults' in code
 */
+
+var SERLO = SERLO || {};
+
 (function ($, window, undefined){
     "use strict";
     var instance,
@@ -81,11 +84,11 @@
     * Publishes a single instance of SerloLayout
     * and makes it available in the global jQuery object
     *
-    * @method $.SerloLayout
+    * @method SERLO.Layout
     * @param {Object} options See SerloLayout's defaults
     */
 
-    $.SerloLayout = function (options) {
+    SERLO.Layout = function (options) {
         return instance || (instance = new SerloLayout(options));
     };
 })(jQuery, window);
