@@ -2,125 +2,122 @@
 /* MAIN NAV STYLES */
 
 #main-nav {
-  & > li {
-    position: relative;
-    
-    a {
-      color: $white;
-      border-left: 2px solid transparent;
-
-      &:hover {
-        background: $themeColor;
-        color: $white;
-      }
-
-      &.active {
-        background: $themeColor;
-      }
-  
-      &.active-trail {
-        border-color: $themeColor;
-        & + ul {
-          border-color: $themeColor;
-        }
-      }
-    }
-
-    & > a {
-      display: block;
-      padding: 8px 12px 7px;
-
-      &.active {
-        background-color: $themeColor;
-      }
-    }
-
-    & > ul {
-      padding: 5px 0 0 0;
-      margin-bottom: 0;
-      border-left: 2px solid transparent;
-
-      & > li > a {
-        font-size: 0.9em;
-        line-height: 1.4;
-        padding: 4px 12px 3px 24px;
-      }
-    }
-  }
-  
-  .subnav {
-    display: none;
-    position: absolute;
-    left: $navigationWidth;
-    top: 0;
-    width: $navigationWidth * 1.5;
-    height: 440px;
-
-    background: $themeColor;
-    list-style: none;
-
-    .title {
-      padding: 5px 12px;
-      border-bottom: 1px solid white;
-      a {
-        color: white;
-      }
-    }
-
-    ul {
-      position: absolute;
-      display: none;
-      top: 0;
-      left: $navigationWidth * 1.5;
-      width: $navigationWidth * 1.5;
-      margin-left: 0;
-
-      &.first-level {
+    & > li {
         position: relative;
-        display: block;
-        left: 0;
-        top: 0;
-        min-height: 400px;
-      }
-
-      & > li {
-        display: block;
-        padding: 5px 12px;
-        
-        list-style: none;
-        
-        color: $white;
+        margin-bottom: 2px;
 
         a {
-          color: $white;
+            color: $white;
+
+            &:hover {
+                background: $themeColor;
+                color: $white;
+            }
+
+            &.active {
+                background: $themeColor;
+            }
+
         }
-      }
 
-      .active-hover > ul {
-        display: block;
-      }
+        & > a {
+            display: block;
+
+            padding: 12px 12px 11px;
+            font-size: 17px;
+
+            background: $gray;
+            @include background(linear-gradient(right, darken($gray, 3%), $gray 12px, $gray));
+
+            &.active {
+                background-color: $themeColor;
+            }
+        }
+
+        & > ul {
+            margin-bottom: 0;
+
+            & > li > a {
+                font-size: 0.9em;
+                line-height: 1.4;
+                padding: 4px 12px 3px 24px;
+            }
+        }
     }
-
-    .mask {
-      width: $navigationWidth * 1.5;
-      overflow: hidden;
-    }
-
-    .mover {
-      position: relative;
-    }
-
-  }
-
-  .active-hover {
-    & > a {
-      background: $themeColor;
-      color: $white;
-    }
+  
     .subnav {
-      display: block;
+        display: none;
+        position: absolute;
+        left: $navigationWidth;
+        top: 0;
+        width: $navigationWidth * 1.5;
+        height: 440px;
+
+        background: $themeColor;
+        list-style: none;
+
+        .title {
+                padding: 5px 12px;
+                border-bottom: 1px solid white;
+            a {
+                color: white;
+            }
+        }
+
+        ul {
+            position: absolute;
+            display: none;
+            top: 0;
+            left: $navigationWidth * 1.5;
+            width: $navigationWidth * 1.5;
+            margin-left: 0;
+
+            &.first-level {
+                position: relative;
+                display: block;
+                left: 0;
+                top: 0;
+                min-height: 400px;
+            }
+
+            & > li {
+                display: block;
+                padding: 5px 12px;
+
+                list-style: none;
+
+                color: $white;
+
+                a {
+                    color: $white;
+                }
+            }
+
+            .active-hover > ul {
+                display: block;
+            }
+        }
+
+        .mask {
+            width: $navigationWidth * 1.5;
+            overflow: hidden;
+        }
+
+        .mover {
+            position: relative;
+        }
+
     }
-  }
+
+    .active-hover {
+        & > a {
+            background: $themeColor;
+            color: $white;
+        }
+        .subnav {
+            display: block;
+        }
+    }
 
     .info {
         display: none;

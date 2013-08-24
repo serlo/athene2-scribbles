@@ -27,6 +27,8 @@
     .dropdown {
         display: inline;
         z-index: 2;
+
+        // color: $themeColor;
     }
 
     .open .dropdown-menu {
@@ -36,12 +38,20 @@
         padding-top: 58px;
         padding-left: 0;
         left: -12px;
-        width: 120%;
+        width: 660px;
+        border-radius: 2px;
     }
 
     li > a {
         font-size: 1.2em;
-        line-height: 1.3em;
+        line-height: 1.5em;
+
+        color: $gray;
+
+        &:hover {
+            background: none;
+            text-decoration: underline;
+        }
     }
 
     .dropdown-toggle {
@@ -51,6 +61,8 @@
 
         cursor: pointer;
         border-bottom: 2px solid transparent;
+        
+        color: $themeColor;
 
         &:hover,
         &:focus {
@@ -64,11 +76,26 @@
         margin-top: 17px;
         border-width: 7px;
     }
-}
 
-#navigation-container {
-    background: $gray;
-    @include background(linear-gradient(right, darken($gray, 3%), $gray 12px, $gray));
+    .right-side {
+        .layout-inner {
+            padding-top: 30px;
+
+            border-left: 1px solid lighten($gray, 20%);
+        }
+
+        & + .right-side {
+            .layout-inner {
+                border: none;
+            }
+        }
+    }
+
+    .nav-header {
+        padding-left: 15px;
+        font-size: inherit;
+        color: $black;
+    }
 }
 
 #navigation-toggle {
@@ -76,7 +103,7 @@
         box-shadow: -2px 0 4px darken($themeColor, 8%) inset;
     }
 
-    .layout-toggle-active {
+    .layout-toggle-active & {
         background: $themeColor;
         color: $white;
     }
@@ -163,5 +190,21 @@
 
 #footer {
     border-top: 2px solid $themeColor;
-    @include background(linear-gradient(bottom, #fff, #f2f2f2));
+    background: $footerBackground;
+
+    font-size: 0.9em;
+    small {
+        color: $gray;
+    }
+
+    a {
+        padding-left: 0;
+        color: $gray;
+
+        &:hover {
+            background: none;
+            text-decoration: underline;
+        }
+    }
+
 }
