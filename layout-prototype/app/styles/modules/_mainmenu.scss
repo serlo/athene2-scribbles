@@ -2,35 +2,40 @@
 /* MAIN NAV STYLES */
 
 #main-nav {
+    margin-bottom: 0;
+    
+    
+    a {
+        color: $white;
+
+        &:hover,
+        &.active,
+        &.active-trail {
+            background: $themeColor;
+            color: $white;
+        }
+
+        background: $gray;
+        @include background(linear-gradient(right, darken($gray, 3%), $gray 12px, $gray));
+
+    }
+
     & > li {
         position: relative;
-        margin-bottom: 2px;
-
-        a {
-            color: $white;
-
-            &:hover {
-                background: $themeColor;
-                color: $white;
-            }
-
-            &.active {
-                background: $themeColor;
-            }
-
-        }
 
         & > a {
             display: block;
 
-            padding: 12px 12px 11px;
+            padding: 14px 12px 12px;
             font-size: 17px;
-
-            background: $gray;
-            @include background(linear-gradient(right, darken($gray, 3%), $gray 12px, $gray));
 
             &.active {
                 background-color: $themeColor;
+            }
+
+            & [class*="icon-"] {
+                font-size: 1.4em;
+                vertical-align: text-top;
             }
         }
 
@@ -40,9 +45,15 @@
             & > li > a {
                 font-size: 0.9em;
                 line-height: 1.4;
-                padding: 4px 12px 3px 24px;
+                padding: 4px 12px 3px 25px;
             }
         }
+
+        & + li {
+            margin-top: 2px;
+        }
+
+
     }
   
     .subnav {
@@ -51,14 +62,18 @@
         left: $navigationWidth;
         top: 0;
         width: $navigationWidth * 1.5;
-        height: 440px;
 
         background: $themeColor;
         list-style: none;
 
+        font-size: 1.1em;
+
         .title {
-                padding: 5px 12px;
-                border-bottom: 1px solid white;
+            padding: 12px 12px 11px;
+            border-bottom: 1px solid white;
+
+            font-size: 17px;
+            
             a {
                 color: white;
             }
@@ -77,25 +92,27 @@
                 display: block;
                 left: 0;
                 top: 0;
-                min-height: 400px;
+                min-height: 370px;
             }
 
             & > li {
                 display: block;
-                padding: 5px 12px;
+                padding: 8px 12px;
 
                 list-style: none;
 
                 color: $white;
-
-                a {
-                    color: $white;
-                }
             }
 
             .active-hover > ul {
                 display: block;
             }
+        }
+
+
+        a {
+            color: $white;
+            background: none;
         }
 
         .mask {
@@ -124,14 +141,14 @@
     }
 }
 
-#subnav-info {
-    position: absolute;
-    display: none;
+#nav-overview {
+    background: $gray;
+    color: $white;
+    padding: 12px 12px 11px;
 
-    top: 0;
-    left: $navigationWidth * 1.5;
-    width: $navigationWidth * 1.5;
-    height: 440px;
-
-    background: $themeColor;
+    a {
+        &:hover {
+             background: $gray;
+        }
+    }
 }

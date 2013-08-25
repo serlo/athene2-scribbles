@@ -1,11 +1,28 @@
+#beta {
+    position: absolute;
+    top: 33px;
+    right: 0;
+    background-color: $themeColor;
+    color: white;
+    padding: 3px 8px;
+}
+
 /// top bar menu
 #serlo-menu {
-  font-size: 0.8em;
-  border-bottom: 2px solid $themeColor;
+    font-size: 0.8em;
+    border-bottom: 2px solid $themeColor;
 
-  li {
-    line-height: 23px;
-  }
+    li {
+        line-height: 23px;
+    }
+    
+    .navbar-inner {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .container {
+        @extend .container;
+    }
 }
 
 /// the subject picker next to the logo
@@ -99,18 +116,21 @@
 }
 
 #navigation-toggle {
-    &:hover {
-        box-shadow: -2px 0 4px darken($themeColor, 8%) inset;
-    }
+    background: $gray;
+    @include background(linear-gradient(right, darken($gray, 3%), $gray 12px, $gray));
 
+    &:hover,
     .layout-toggle-active & {
+        box-shadow: -2px 0 4px darken($themeColor, 8%) inset;
         background: $themeColor;
         color: $white;
     }
+
 }
 
 #content-container {
     background: $white;
+    border: 1px solid #dfdfdf;
 }
 
 
@@ -152,11 +172,7 @@
 }
 
 #sidebar {
-
-    background: $gray;
-
-    @include background(linear-gradient(left, darken($gray, 3%), $gray 12px, $gray));
-
+    
     a {
         color: $white;
     }
@@ -176,15 +192,27 @@
     }
 }
 
-#sidebar-toggle {
+.sidebar-content-group {
 
-    &:hover {
-        box-shadow: 2px 0 4px darken($themeColor, 8%) inset;
+    color: $white;
+
+    background: $gray;
+    @include background(linear-gradient(left, darken($gray, 3%), $gray 12px, $gray));
+
+    & + .sidebar-content-group {
+        margin-top: 2px;
     }
+}
 
+#sidebar-toggle {
+    background: $gray;
+    @include background(linear-gradient(left, darken($gray, 3%), $gray 12px, $gray));
+
+    &:hover,
     .layout-toggle-active & {
         background: $themeColor;
         color: $white;
+        box-shadow: 2px 0 4px darken($themeColor, 8%) inset;
     }
 }
 

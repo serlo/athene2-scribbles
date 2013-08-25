@@ -42,10 +42,6 @@ var SERLO = SERLO || {};
             this.$links
                 .click(this.onLinkClick);
 
-            this.$linkParents
-                .mouseenter(this.onLinkMouseEnter)
-                .mouseleave(this.onLinkMouseLeave);
-
             this.$root.on('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
 
             // click on body closes the menu
@@ -114,41 +110,6 @@ var SERLO = SERLO || {};
         instance.move();
 
         return;
-    };
-
-    /**
-    * Event handler for mouseenter events on navigation links
-    * 
-    * adds the onHoverClass to the parent li
-    *
-    * @method onLinkMouseEnter
-    */
-    SerloSlideMenu.prototype.onLinkMouseEnter = function () {
-        var $info;
-
-        if ($(this).hasClass(instance.options.activeClass)) {
-            /// prevent the parent LIs from triggering
-            return;
-        }
-
-        $info = $(this).children().filter('.info');
-
-        if ($info.length) {
-            instance.showInfo($info);
-        } else {
-            instance.hideInfo();
-        }
-    };
-
-    /**
-    * Event handler for mouseleave events on navigation links
-    *
-    * removes the onHoverClass from the parent li
-    *
-    * @method onLinkMouseLeave
-    */
-    SerloSlideMenu.prototype.onLinkMouseLeave = function () {
-        instance.hideInfo();
     };
 
     /**
@@ -273,7 +234,7 @@ var SERLO = SERLO || {};
     * @return {String} The title
     */
     SerloSlideMenu.prototype.setTitle = function ($link) {
-        var title = $link.html();
+        var title = $link.text();
         this.$title.html('<a href="#" class="' + this.options.backLinkClass + '"><i class="icon-left-circle"></i>' + title + '</a>');
         return title;
     };

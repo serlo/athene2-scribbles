@@ -5,7 +5,15 @@
 
         SERLO.SlideMenu();
 
-        SERLO.AjaxOverlay();
+        SERLO.AjaxOverlay({
+            on: {
+                contentOpened: function(AjaxOverlay) {
+                    // set page title (for tab)
+                    this.title = this.$el.find('#pagetitle').text();
+
+                }
+            }
+        });
 
         SERLO.Search();
 

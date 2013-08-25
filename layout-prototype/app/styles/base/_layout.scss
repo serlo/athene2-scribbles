@@ -14,10 +14,14 @@
 #page {
   position: relative;
   margin-top: 15px;
-  margin-bottom: 45px;
+  margin-bottom: 75px;
   
   transform-style: preserve-3d;
   transition: 0.15s transform 0.1s ease-in-out, 0.25s opacity 0.01s ease-in-out;
+
+  @media only screen and (max-width: $navigationBreakPoint) {
+    margin-top: 54px;
+  }
 }
 
 #navigation {
@@ -30,7 +34,7 @@
     width: $navigationWidth;
     height: auto;
     top: 20px;
-    left: 0;
+    left: 1px; // 1px left, to overlap #content's 1px border; */
     margin: 0;
 
     @media only screen and (max-width: $navigationBreakPoint) {
@@ -66,7 +70,7 @@
 }
 
 #navigation-content {
-    width: $navigationWidth;
+    width: 200px;
 
     @media only screen and (max-width: $navigationBreakPoint) {
         visibility: hidden;
@@ -113,7 +117,6 @@
     position: relative;
 
     margin-left: $contentWidth;
-    min-height: 300px;
     top: 20px;
 
     @media only screen and (max-width: $sidebarBreakPoint) {

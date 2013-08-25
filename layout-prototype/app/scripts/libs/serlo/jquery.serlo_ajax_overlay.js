@@ -462,7 +462,7 @@ var SERLO = SERLO || {};
         self.super.showLoader();
 
         call = $.ajax({
-            url: 'ajax-example-content.html' || this.url,
+            url: this.url,
             dataType: 'html'
         });
 
@@ -474,7 +474,6 @@ var SERLO = SERLO || {};
 
             if($data.find(self.super.options.ajaxContentSelector).length) {
                 self.$el.html($data.find(self.super.options.ajaxContentSelector).html());
-                self.$el.prepend('<h1>' + self.title + '</h1>');
                 self.super.showPage(self.url).hideLoader();
             } else {
                 self.super.onError(new Error('No content found'));
