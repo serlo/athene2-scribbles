@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/AjaxPage.html">AjaxPage</a></li>
             
+                <li><a href="../classes/COMMON.html">COMMON</a></li>
+            
                 <li><a href="../classes/SerloLayout.html">SerloLayout</a></li>
             
                 <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
@@ -54,6 +56,10 @@
             </ul>
 
             <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/COMMON.html">COMMON</a></li>
+            
+                <li><a href="../modules/SERLO.html">SERLO</a></li>
             
             </ul>
         </div>
@@ -108,28 +114,20 @@ var SERLO = SERLO || {};
 (function ($, _, window, undefined) {
     &quot;use strict&quot;;
     var instance,
-        KEYCODES = {
-            left: 37,
-            top : 38,
-            right: 39,
-            down: 40,
-            enter: 13,
-            backspace: 8,
-            entf: 46,
-            esc: 27
-        },
         defaults  = {
             rootSelector: &#x27;#search-content&#x27;,
             inputSelector: &#x27;#search-input&#x27;,
             resultSelector: &#x27;#search-results&#x27;,
 
             onFocusClass: &#x27;is-focus&#x27;,
+            isSearchingClass: &#x27;is-searching&#x27;,
             hasResultsClass: &#x27;has-results&#x27;,
 
             ajaxThrottlingDelay: 650,
 
-            searchUrl: &#x27;/search/json&#x27;,
-            searchParam: &#x27;q&#x27;
+            searchUrl: &#x27;http://www.serlo.org/search/quicksearch&#x27;,
+            searchMethod: &#x27;post&#x27;,
+            searchParam: &#x27;query&#x27;
         },
         SerloSearch = function (options) {
             this.options = $.extend({}, defaults, options);
@@ -168,19 +166,28 @@ var SERLO = SERLO || {};
 
         data[this.options.searchParam] = searchString;
 
-        call = $.ajax({
+        this.$root.addClass(this.options.isSearchingClass);
+
+        this.call = $.ajax({
             url: this.options.searchUrl,
-            method: &#x27;GET&#x27;,
+            method: this.options.searchMethod,
             data: data
         });
 
-        call.success = function (result) {
+        this.call.success(function (result) {
             self.$results.html(result);
-        };
+            // only remove isSearchingClass if this has been the last call
+            if(arguments[2] === self.call) {
+                self.$root.removeClass(self.options.isSearchingClass);
+            }
+        });
 
-        call.error = function () {
-            console.log(arguments);
-        };
+        this.call.error(function () {
+            // only remove isSearchingClass if this has been the last call
+            if(self.call === arguments[0]) {
+                self.$root.removeClass(self.options.isSearchingClass);
+            }
+        });
     };
 
     /**
@@ -229,13 +236,13 @@ var SERLO = SERLO || {};
         var searchString = $.trim($(this).val());
 
         switch (e.keyCode) {
-        case KEYCODES.left:
-        case KEYCODES.top:
-        case KEYCODES.right:
-        case KEYCODES.down:
+        case SERLO.COMMON.KEYCODES.left:
+        case SERLO.COMMON.KEYCODES.top:
+        case SERLO.COMMON.KEYCODES.right:
+        case SERLO.COMMON.KEYCODES.down:
             return true;
-        case KEYCODES.esc:
-            $(this).val(&#x27;&#x27;);
+        case SERLO.COMMON.KEYCODES.esc:
+            $(this).val(&#x27;&#x27;).blur();
             instance.$root.removeClass(instance.options.hasResultsClass);
             break;
         default:

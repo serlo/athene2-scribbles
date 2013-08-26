@@ -4,6 +4,17 @@
 #main-nav {
     margin-bottom: 0;
     
+    .icon-play {
+        font-size: 0.8em;
+        color: rgba($white, 0.7);
+    }
+
+    li:hover {
+
+        & >.icon-play {
+            color: $white;
+        }
+    }
     
     a {
         color: $white;
@@ -27,25 +38,28 @@
             display: block;
 
             padding: 14px 12px 12px;
-            font-size: 17px;
+            font-size: 14px;
+
+            font-weight: bold;
 
             &.active {
                 background-color: $themeColor;
             }
 
             & [class*="icon-"] {
-                font-size: 1.4em;
+                font-size: 1.6em;
                 vertical-align: text-top;
             }
         }
 
         & > ul {
             margin-bottom: 0;
+            padding-bottom: 9px;
 
             & > li > a {
-                font-size: 0.9em;
+                font-size: 0.8em;
                 line-height: 1.4;
-                padding: 4px 12px 3px 25px;
+                padding: 4px 12px 3px 46px;
             }
         }
 
@@ -60,22 +74,27 @@
         display: none;
         position: absolute;
         left: $navigationWidth;
-        top: 0;
+        top: -113px;
         width: $navigationWidth * 1.5;
 
         background: $themeColor;
         list-style: none;
 
-        font-size: 1.1em;
+        font-size: 0.85em;
 
         .title {
-            padding: 12px 12px 11px;
-            border-bottom: 1px solid white;
+            padding: 22px 12px 11px;
+            margin-bottom: 15px;
 
             font-size: 17px;
+            font-weight: bold;
             
             a {
                 color: white;
+            }
+
+            .icon-left-circle {
+                font-size: 22px;
             }
         }
 
@@ -92,12 +111,12 @@
                 display: block;
                 left: 0;
                 top: 0;
-                min-height: 370px;
+                min-height: 330px;
             }
 
             & > li {
                 display: block;
-                padding: 8px 12px;
+                padding: 5px 12px;
 
                 list-style: none;
 
@@ -138,6 +157,14 @@
 
     .info {
         display: none;
+    }
+
+    .divider {
+        height: 17px;
+    }
+
+    .active-trail + .nav-second {
+        background: $themeColor;
     }
 }
 

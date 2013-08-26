@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/AjaxPage.html">AjaxPage</a></li>
             
+                <li><a href="../classes/COMMON.html">COMMON</a></li>
+            
                 <li><a href="../classes/SerloLayout.html">SerloLayout</a></li>
             
                 <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
@@ -54,6 +56,10 @@
             </ul>
 
             <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/COMMON.html">COMMON</a></li>
+            
+                <li><a href="../modules/SERLO.html">SERLO</a></li>
             
             </ul>
         </div>
@@ -558,7 +564,7 @@ var SERLO = SERLO || {};
         self.super.showLoader();
 
         call = $.ajax({
-            url: &#x27;ajax-example-content.html&#x27; || this.url,
+            url: this.url,
             dataType: &#x27;html&#x27;
         });
 
@@ -570,7 +576,6 @@ var SERLO = SERLO || {};
 
             if($data.find(self.super.options.ajaxContentSelector).length) {
                 self.$el.html($data.find(self.super.options.ajaxContentSelector).html());
-                self.$el.prepend(&#x27;&lt;h1&gt;&#x27; + self.title + &#x27;&lt;/h1&gt;&#x27;);
                 self.super.showPage(self.url).hideLoader();
             } else {
                 self.super.onError(new Error(&#x27;No content found&#x27;));

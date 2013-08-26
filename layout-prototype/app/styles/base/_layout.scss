@@ -1,4 +1,3 @@
-
 @media only screen and (max-width: $navigationBreakPoint) {
   @include grid-core($gridColumnWidthNavigation, $gridGutterWidthNavigation);
 }
@@ -116,7 +115,7 @@
 #sidebar {
     position: relative;
 
-    margin-left: $contentWidth;
+    margin-left: $contentWidth - 1px; // -1px because of #content border 1px
     top: 20px;
 
     @media only screen and (max-width: $sidebarBreakPoint) {

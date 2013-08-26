@@ -18,6 +18,21 @@
         SERLO.Search();
 
         SERLO.Layout();
+
+
+        /**** VISION SUMMIT SPAGHETTI CODE *****/
+
+        $('#alle-themen .nav-side > li > a').click(function (e) {
+            var $child = $(this).next('ul');
+
+            if($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            } else if ($child.length) {
+                $(this).addClass('active');
+            }
+            e.preventDefault();
+            return;
+        })
     });
 
 })(jQuery, window);

@@ -15,10 +15,11 @@ var SERLO = SERLO || {};
     var instance,
         defaults = {
             rootSelector: '#main-nav',
+            subnavContainerSelector: '.subnav',
             navLinkSelector: 'li > a',
             activeClass: 'active-hover',
             titleSelector: '.title',
-            infoSelector: '#subnav-info',
+            activeSubNav: '.nav-second a',
             onHoverClass: '.hover',
             moverSelector: '.mover',
             backLinkClass: 'nav-back',
@@ -31,16 +32,22 @@ var SERLO = SERLO || {};
             this.$links = $(this.options.navLinkSelector, this.$root);
             this.$linkParents = this.$links.parent();
 
+            this.$activeSubLinks = $(this.options.activeSubNav, this.$root);
+
             this.$mover = $(this.options.moverSelector, this.$root);
 
             this.$title = $(this.options.titleSelector, this.$root);
-            this.$info = $(this.options.infoSelector);
 
             this.history = [];
             this.opened = false;
 
             this.$links
                 .click(this.onLinkClick);
+
+
+            this.$activeSubLinks
+                .unbind('click')
+                .click(this.onActiveSubLinkClick);
 
             this.$root.on('click', '.' + this.options.backLinkClass, this.onBackLinkClick);
 
@@ -75,6 +82,7 @@ var SERLO = SERLO || {};
     * @method open
     */
     SerloSlideMenu.prototype.open = function () {
+        this.clearHistory();
         this.opened = true;
         this.resetMove();
     };
@@ -90,7 +98,7 @@ var SERLO = SERLO || {};
     SerloSlideMenu.prototype.onLinkClick = function (e) {
         var self = this,
             $self = $(self),
-            $list = $self.next('ul');
+            $list = $self.siblings().filter('ul, ' + instance.options.subnavContainerSelector);
 
         /// if there is no more submenu, let the event pass, close the menu.
         if (!$list.length) {
@@ -113,6 +121,46 @@ var SERLO = SERLO || {};
     };
 
     /**
+    * Event handler for clicks on active navigation links
+    *
+    * NOT SAVE, because it triggers Link with same .text()
+    *
+    * @method onActiveSubLinkClick
+    * @param {Object} e The click event object
+    * @return {Boolean} false
+    */
+    SerloSlideMenu.prototype.onActiveSubLinkClick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var self = this,
+            $target,
+            identifier = new RegExp($(self).text().trim());
+
+        instance.open();
+
+        $(self).parents('li').last().addClass(instance.options.activeClass);
+
+        $target = instance.$links.filter(function () {
+            return identifier.test($(this).text().trim()) && self !== this;
+        }).first();
+
+        if ($target.length) {
+
+            $target.parents('li').each(function (i) {
+                if (i > 0){
+                    instance.updateHistory($(this).children('a').first());
+                }
+            });
+
+            $target.trigger('click');
+        }
+
+
+        return false;
+    };
+
+    /**
     * Event handler for clicks on the backLink
     *
     * @method onBackLinkClick
@@ -122,7 +170,6 @@ var SERLO = SERLO || {};
     SerloSlideMenu.prototype.onBackLinkClick = function (e) {
         e.preventDefault();
 
-        // [].shift.call(instance.$activeLinks);
         instance.history.pop();
 
         if (!instance.history.length) {
@@ -190,10 +237,12 @@ var SERLO = SERLO || {};
     */
     SerloSlideMenu.prototype.move = function () {
         var self = this,
-            depth = this.history.length - 1;
+            depth = this.history.length - 1,
+            lastElement = $(_.last(this.history)).next('ul').position(),
+            left = !!lastElement ? lastElement.left : 0;
 
         self.$mover.animate({
-            left: -1 * depth * $(_.last(this.history)).next('ul').position().left
+            left: -1 * depth * left
         }, {
             duration: this.options.slideDuration,
             complete: function () {

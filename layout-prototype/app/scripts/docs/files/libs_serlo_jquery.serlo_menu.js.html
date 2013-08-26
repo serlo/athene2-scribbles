@@ -45,6 +45,8 @@
             
                 <li><a href="../classes/AjaxPage.html">AjaxPage</a></li>
             
+                <li><a href="../classes/COMMON.html">COMMON</a></li>
+            
                 <li><a href="../classes/SerloLayout.html">SerloLayout</a></li>
             
                 <li><a href="../classes/SerloSearch.html">SerloSearch</a></li>
@@ -54,6 +56,10 @@
             </ul>
 
             <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/COMMON.html">COMMON</a></li>
+            
+                <li><a href="../modules/SERLO.html">SERLO</a></li>
             
             </ul>
         </div>
@@ -114,7 +120,7 @@ var SERLO = SERLO || {};
             navLinkSelector: &#x27;li &gt; a&#x27;,
             activeClass: &#x27;active-hover&#x27;,
             titleSelector: &#x27;.title&#x27;,
-            infoSelector: &#x27;#subnav-info&#x27;,
+            activeSubNav: &#x27;.nav-second a&#x27;,
             onHoverClass: &#x27;.hover&#x27;,
             moverSelector: &#x27;.mover&#x27;,
             backLinkClass: &#x27;nav-back&#x27;,
@@ -127,10 +133,11 @@ var SERLO = SERLO || {};
             this.$links = $(this.options.navLinkSelector, this.$root);
             this.$linkParents = this.$links.parent();
 
+            this.$activeSubLinks = $(this.options.activeSubNav, this.$root);
+
             this.$mover = $(this.options.moverSelector, this.$root);
 
             this.$title = $(this.options.titleSelector, this.$root);
-            this.$info = $(this.options.infoSelector);
 
             this.history = [];
             this.opened = false;
@@ -138,9 +145,10 @@ var SERLO = SERLO || {};
             this.$links
                 .click(this.onLinkClick);
 
-            this.$linkParents
-                .mouseenter(this.onLinkMouseEnter)
-                .mouseleave(this.onLinkMouseLeave);
+
+            this.$activeSubLinks
+                .unbind(&#x27;click&#x27;)
+                .click(this.onActiveSubLinkClick);
 
             this.$root.on(&#x27;click&#x27;, &#x27;.&#x27; + this.options.backLinkClass, this.onBackLinkClick);
 
@@ -213,38 +221,43 @@ var SERLO = SERLO || {};
     };
 
     /**
-    * Event handler for mouseenter events on navigation links
-    * 
-    * adds the onHoverClass to the parent li
+    * Event handler for clicks on active navigation links
     *
-    * @method onLinkMouseEnter
+    * NOT SAVE, because it triggers Link with same .text()
+    *
+    * @method onActiveSubLinkClick
+    * @param {Object} e The click event object
+    * @return {Boolean} false
     */
-    SerloSlideMenu.prototype.onLinkMouseEnter = function () {
-        var $info;
+    SerloSlideMenu.prototype.onActiveSubLinkClick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-        if ($(this).hasClass(instance.options.activeClass)) {
-            /// prevent the parent LIs from triggering
-            return;
+        var self = this,
+            $target,
+            identifier = new RegExp($(self).text().trim());
+
+        instance.open();
+
+        $(self).parents(&#x27;li&#x27;).last().addClass(instance.options.activeClass);
+
+        $target = instance.$links.filter(function () {
+            return identifier.test($(this).text().trim()) &amp;&amp; self !== this;
+        }).first();
+
+        if ($target.length) {
+
+            $target.parents(&#x27;li&#x27;).each(function (i) {
+                if (i &gt; 0){
+                    instance.updateHistory($(this).children(&#x27;a&#x27;).first());
+                }
+            });
+
+            $target.trigger(&#x27;click&#x27;);
         }
 
-        $info = $(this).children().filter(&#x27;.info&#x27;);
 
-        if ($info.length) {
-            instance.showInfo($info);
-        } else {
-            instance.hideInfo();
-        }
-    };
-
-    /**
-    * Event handler for mouseleave events on navigation links
-    *
-    * removes the onHoverClass from the parent li
-    *
-    * @method onLinkMouseLeave
-    */
-    SerloSlideMenu.prototype.onLinkMouseLeave = function () {
-        instance.hideInfo();
+        return false;
     };
 
     /**
@@ -257,7 +270,6 @@ var SERLO = SERLO || {};
     SerloSlideMenu.prototype.onBackLinkClick = function (e) {
         e.preventDefault();
 
-        // [].shift.call(instance.$activeLinks);
         instance.history.pop();
 
         if (!instance.history.length) {
@@ -369,7 +381,7 @@ var SERLO = SERLO || {};
     * @return {String} The title
     */
     SerloSlideMenu.prototype.setTitle = function ($link) {
-        var title = $link.html();
+        var title = $link.text();
         this.$title.html(&#x27;&lt;a href=&quot;#&quot; class=&quot;&#x27; + this.options.backLinkClass + &#x27;&quot;&gt;&lt;i class=&quot;icon-left-circle&quot;&gt;&lt;/i&gt;&#x27; + title + &#x27;&lt;/a&gt;&#x27;);
         return title;
     };

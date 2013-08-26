@@ -72,7 +72,7 @@ var SERLO = SERLO || {};
 
             this.$body = $('body');
 
-            this.$overlayHTML = $('<div id="ajax-content-overlay" class=""><div id="ajax-content-overlay-container"><header id="ajax-content-overlay-head"><ul id="ajax-content-overlay-tabs" class="nav nav-tabs"></ul></header><div id="ajax-content-overlay-inner"></div><footer id="ajax-content-overlay-footer"><a class="btn btn-primary close-overlay"><i class="icon-left"></i>Schließen</a></footer><div id="ajax-content-overlay-loader"></div></div></div>');
+            this.$overlayHTML = $('<div id="ajax-content-overlay" class=""><div id="ajax-content-overlay-container"><header id="ajax-content-overlay-head"><ul id="ajax-content-overlay-tabs" class="nav nav-tabs"></ul></header><div id="ajax-content-overlay-inner"></div><footer id="ajax-content-overlay-footer"></footer><div id="ajax-content-overlay-loader"></div></div></div>');
             this.$overlayHTML.hide().appendTo(this.options.context);
 
             this.$overlayInner = $('#ajax-content-overlay-inner');

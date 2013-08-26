@@ -3,10 +3,11 @@
 var SERLO = SERLO || {};
 
 (function ($, _, window, undefined) {
-    /*
+    /**
     * Adds a smartResize event that uses a debounced function
     *
-    * @module smartResize
+    * @method smartResize
+    * @param {Function} fn The callback function
     */
     var smartResize = {
             setup: function () {
@@ -26,12 +27,12 @@ var SERLO = SERLO || {};
         $(this).bind('smartresize', fn);
     };
 
-    /*
+    /**
     * Emptys an array
     *
     * Can have an infinite number of parameters
     *
-    * @module emptyArray
+    * @method emptyArray
     * @param {Array} arr1 The array to empty
     */
 

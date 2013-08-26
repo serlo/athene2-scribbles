@@ -14,6 +14,7 @@
     <!-- <meta name="viewport" content="width=device-width"> -->
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr-custom.built.js"></script>
     <!-- endbuild -->
@@ -57,9 +58,9 @@
             <div class="row">
                 <div class="span12">
                     <div id="subject-nav">
-                        <h1 class="title">Serlo</h1>
+                        <h1 id="logo" class="title"><a href="/index.html"><img id="logo-image" src="/images/logo1.png" /></a></h1>
                         <div class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mathe<b class="caret"></b></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">mathe<b class="caret"></b></a>
                             <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                                 <div class="row-fluid">
                                     <div class="span3">
@@ -130,7 +131,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="slogan">die freie Lernplattform</div>
+                        <div class="slogan">Die freie Lernseite</div>
                         <div id="beta">Prototyp</div>
                     </div>
                 </div>
@@ -171,7 +172,8 @@
                     <ul id="main-nav" class="nav">
                         <li><a href="#" class="active-trail"><i class="icon-location"></i> Alle Themen</a>
                             <ul class="nav nav-second">
-                                <li><a href="#" class="active"><i class="icon-right"></i> Arithmetik und Rechnen</a></li>
+                                <li><a href="#" class="active">Grenzwertbetrachtung</a></li>
+                                <li><a href="#" class="active">Asymptote</a></li>
                             </ul>
                             <div class="subnav">
                                 <div class="row-fluid">
@@ -181,18 +183,18 @@
                                             <div class="mover">
                                                 <ul class="first-level">
                                                     <li>
-                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Arithmetik und Rechnen</a>
+                                                        <i class="icon-play"></i>&nbsp;<a href="#">Arithmetik und Rechnen</a>
                                                         <ul>
                                                             <li>
-                                                                <i class="icon-right-circle"></i>&nbsp;<a href="#">Grundrechenarten</a>
+                                                                <i class="icon-play"></i>&nbsp;<a href="#">Grundrechenarten</a>
                                                                 <ul>
-                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Additionsübungen <span class="badge">(12)</span></a></li>
-                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Subtraktionsübungen <span class="badge">(7)</span></a></li>
-                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Multiplikationsübungen <span class="badge">(10)</span></a></li>
-                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Divisionsübungen <span class="badge">(11)</span></a></li>
-                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gemischte Aufgaben zu den Grundrechenarten <span class="badge">(34)</span></a></li>
-                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gemischte Aufgaben mit negativen Zahlen <span class="badge">(73)</span></a></li>
-                                                                    <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Sachaufgaben zu den Grundrechenarten <span class="badge">(68)</span></a></li>
+                                                                    <li><i class="icon-play"></i>&nbsp;<a href="#">Additionsübungen <span class="badge">(12)</span></a></li>
+                                                                    <li><i class="icon-play"></i>&nbsp;<a href="#">Subtraktionsübungen <span class="badge">(7)</span></a></li>
+                                                                    <li><i class="icon-play"></i>&nbsp;<a href="#">Multiplikationsübungen <span class="badge">(10)</span></a></li>
+                                                                    <li><i class="icon-play"></i>&nbsp;<a href="#">Divisionsübungen <span class="badge">(11)</span></a></li>
+                                                                    <li><i class="icon-play"></i>&nbsp;<a href="#">Gemischte Aufgaben zu den Grundrechenarten <span class="badge">(34)</span></a></li>
+                                                                    <li><i class="icon-play"></i>&nbsp;<a href="#">Gemischte Aufgaben mit negativen Zahlen <span class="badge">(73)</span></a></li>
+                                                                    <li><i class="icon-play"></i>&nbsp;<a href="#">Sachaufgaben zu den Grundrechenarten <span class="badge">(68)</span></a></li>
                                                                 </ul>
                                                                 <div class="info">
                                                                     <header>
@@ -210,80 +212,98 @@
                                                                     </section>
                                                                 </div>
                                                             </li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Bruchrechnen und Dezimalzahlen</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Zahlenstrahl und Zahlengerade <span class="badge">17</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Runden und Abschätzen <span class="badge">38</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Große Zahlen <span class="badge">46</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Prozent- und Zinsrechnung</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Proportionalität und Dreisatz</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Einheiten und Maßstab</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">kgV und ggT <span class="badge">13</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Primfaktorzerlegung <span class="badge">10</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Bruchrechnen und Dezimalzahlen</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Zahlenstrahl und Zahlengerade <span class="badge">17</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Runden und Abschätzen <span class="badge">38</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Große Zahlen <span class="badge">46</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Prozent- und Zinsrechnung</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Proportionalität und Dreisatz</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Einheiten und Maßstab</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">kgV und ggT <span class="badge">13</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Primfaktorzerlegung <span class="badge">10</span></a></li>
                                                         </ul>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Analysis</a>
+                                                        <i class="icon-play"></i>&nbsp;<a href="#">Analysis</a>
                                                         <ul>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Funktionen</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Ableitung</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Integral</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Kurvendiskussion</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">exponentielles Wachstum</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Extremwertaufgaben <span class="badge">23</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Funktionen</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Ableitung</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Integral</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Kurvendiskussion</a>
+                                                                <ul>
+                                                                    <li><i class="icon-play"></i><a href="#">Definitionsbereich bestimmen <span class="badge">28</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">Wertebereich bestimmen <span class="badge">6</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">Nullstellen berechnen <span class="badge">23</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">Grenzwertbetrachtung</a>
+                                                                        <ul>
+                                                                            <li><i class="icon-play"></i><a href="#">Grenzwerte von Funktionen berechnen <span class="badge">15</span></a></li>
+                                                                            <li><i class="icon-play"></i><a href="#">Asymptoten bestimmen <span class="badge">17</span></a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li><i class="icon-play"></i><a href="#">Monotonieverhalten berechnen <span class="badge">3</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">e- und ln-Funktionen diskutieren <span class="badge">12</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">Polynomfunktionen diskutieren <span class="badge">16</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">Gebrochenrationale Funktionen diskutieren <span class="badge">23</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">Betragsfunktionen diskutieren <span class="badge">5</span></a></li>
+                                                                    <li><i class="icon-play"></i><a href="#">Funktionsscharen diskutieren <span class="badge">5</span></a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">exponentielles Wachstum</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Extremwertaufgaben <span class="badge">23</span></a></li>
                                                         </ul>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Terme und Gleichungen</a>
+                                                        <i class="icon-play"></i>&nbsp;<a href="#">Terme und Gleichungen</a>
                                                         <ul>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Potenzen und Wurzeln</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Rechnen mit Logarithmen und Exponentialfunktionen <span class="badge">12</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Terme und Variablen</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gleichungssysteme</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Gleichungen</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Ungleichungen</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Potenzen und Wurzeln</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Rechnen mit Logarithmen und Exponentialfunktionen <span class="badge">12</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Terme und Variablen</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Gleichungssysteme</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Gleichungen</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Ungleichungen</a></li>
                                                         </ul>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Stochastik</a>
+                                                        <i class="icon-play"></i>&nbsp;<a href="#">Stochastik</a>
                                                         <ul>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Grundbegriffe</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Vierfeldertafel <span class="badge">6</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Baumdiagramm <span class="badge">13</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Kombinatorik <span class="badge">80</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Wahrscheinlichkeit</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Binominalverteilung</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Hypothesentest <span class="badge">7</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Statistik</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Zufallsgrößen</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Grundbegriffe</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Vierfeldertafel <span class="badge">6</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Baumdiagramm <span class="badge">13</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Kombinatorik <span class="badge">80</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Wahrscheinlichkeit</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Binominalverteilung</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Hypothesentest <span class="badge">7</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Statistik</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Zufallsgrößen</a></li>
                                                         </ul>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Geometrie</a>
+                                                        <i class="icon-play"></i>&nbsp;<a href="#">Geometrie</a>
                                                         <ul>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Figuren in der Ebene</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Räumliche Figuren</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Ortslinien und Ortsbereiche <span class="badge">5</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Winkel und Geraden <span class="badge">9</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Konstruktionen mit Zirkel und Lineal <span class="badge">15</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Analytische Geometrie</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Vektorrechnung</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Koordinatensystem</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Figuren in der Ebene</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Räumliche Figuren</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Ortslinien und Ortsbereiche <span class="badge">5</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Winkel und Geraden <span class="badge">9</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Konstruktionen mit Zirkel und Lineal <span class="badge">15</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Analytische Geometrie</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Vektorrechnung</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Koordinatensystem</a></li>
                                                         </ul>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-right-circle"></i>&nbsp;<a href="#">Sonstiges</a>
+                                                        <i class="icon-play"></i>&nbsp;<a href="#">Sonstiges</a>
                                                         <ul>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Berechnung von Determinanten <span class="badge">7</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Historisches</a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Knobelaufgaben <span class="badge">17</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Diagramme <span class="badge">10</span></a></li>
-                                                            <li><i class="icon-right-circle"></i>&nbsp;<a href="#">Formeln berechen <span class="badge">10</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Berechnung von Determinanten <span class="badge">7</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Historisches</a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Knobelaufgaben <span class="badge">17</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Diagramme <span class="badge">10</span></a></li>
+                                                            <li><i class="icon-play"></i>&nbsp;<a href="#">Formeln berechen <span class="badge">10</span></a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div id="nav-overview">
-                                                <a href="#">Zur großen Übersicht</a>
+                                                <a href="overview.html"><span class="bar-stack"><span></span><span></span><span></span></span>Zur großen Übersicht</a>
                                             </div>
                                         </div>
                                     </div>
@@ -294,9 +314,10 @@
                         </li>
                         <li><a href="#"><i class="icon-share"></i> Lernpfad</a>
                         </li>
-                        <li><a href="#"><i class="icon-ok"></i> Prüfungen</a>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-award"></i> Prüfungen</a>
                         </li>
-                        <li><a href="#"><i class="icon-pencil"></i> Mitmachen</a>
+                        <li><a href="#"><i class="icon-user"></i> Mitmachen</a>
                         </li>
                     </ul>
                 </div>
@@ -311,7 +332,8 @@
                             <button class="btn btn-default btn-small ajax-content" href="#"><i class="icon-info"></i></button>
                         </div>-->
                         <div class="article">
-                            <h1 id="pagetitle">&nbsp;</h1>
+                            <!--<h1 id="pagetitle"></h1>-->
+                            <br><br>
                             <center><img src="/images/vision_summit_logo.png"></center>
                             <a href="polstelle-overlay.html" class="ajax-content">Polstelle</a><br>
                             <a href="gebrochen-rationale-funktionen-overlay.html" class="ajax-content">Gebrochenrationale Funktionen</a>
@@ -324,15 +346,39 @@
                     </div>
                     <div id="sidebar-content">
                         <!-- <h5>Context Bereich</h5> -->
-                        <div class="sidebar-content-group layout-inner">
-                            <p><strong><i class="icon-right"></i> Siehe auch:</strong></p>
-                            <ul>
-                                <li><a href="#"><i class="icon-play"></i>Ableitungs Video</a></li>
-                                <li><a href="#">Lorem ipsum dolor</a></li>
+                        <div class="sidebar-content-group ">
+                            <ul class="nav nav-side">
+                                <li class="nav-side-header"><strong>Artikelgruppe</strong> <i>(3)</i></li>
+                                <li><a href="#"><i class="icon-doc-text"></i> Asymptote</a></li>
+                                <li><a href="#" class="active"><i class="icon-doc-text"></i> Asymptote berechnen</a></li>
+                                <li><a href="#"><i class="icon-doc-text"></i> Schiefe Asymptote</a></li>
+                            </ul>
+
+                            <ul class="nav nav-side">
+                                <li class="nav-side-header"><strong>Mehr zum Artikel</strong></li>
+                                <li><a href="#"><i class="icon-flag"></i> Aufgaben</a></li>
+                                <li><a href="#"><i class="icon-play"></i> Videos</a></li>
+                                <li><a href="#"><i class="icon-calendar"></i> Lern-Module</a></li>
+                            </ul>
+
+                            <ul class="nav nav-side">
+                                <li class="nav-side-header"><strong>Interdisziplinär</strong></li>
+                                <li><a href="#"><i class="icon-doc-inv-alt"></i> Reale Projekte</a></li>
+                                <li><a href="#"><i class="icon-help"></i> Aktuelle Fragen</a></li>
                             </ul>
                         </div>
-                        <div class="sidebar-content-group layout-inner">
-                            <p><strong><i class="icon-eye"></i> Zuletzt angesehen</strong></p>
+                        <div class="sidebar-content-group ">
+                            <ul class="nav nav-side">
+                                <li><a href="#"><img style="float: left;" src="/images/cluefabric-small.png" /><div style="margin-left: 58px;"><strong>Diskussion</strong><br><i>via Cluefabric</i></div></a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-content-group gray">
+                            <ul class="nav nav-side">
+                                <li class="nav-side-header"><i class="icon-eye"></i> <strong>zuletzt angesehen:</strong></li>
+                                <li><a href="#">Kurvendiskussion</a></li>
+                                <li><a href="#">Infinitesimalrechnung</a></li>
+                                <li><a href="#">Definitionslücken schlie...</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -428,6 +474,7 @@
     <script type="text/javascript" src="scripts/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="scripts/libs/polyfill/hashchange.polyfill.js"></script>
     <script type="text/javascript" src="scripts/libs/thirdparty/jquery.hoverintent.min.js"></script>
+    <script type="text/javascript" src="scripts/libs/serlo/serlo.common.js"></script>
     <script type="text/javascript" src="scripts/libs/serlo/jquery.serlo_helper.js"></script>
     <script type="text/javascript" src="scripts/libs/serlo/jquery.serlo_ajax_overlay.js"></script>
     <script type="text/javascript" src="scripts/libs/serlo/jquery.serlo_menu.js"></script>

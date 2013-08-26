@@ -1,0 +1,73 @@
+span.bar-stack {
+    display: inline-block;
+    width: 18px;
+    padding-right: 11px;
+    
+    vertical-align: text-top;
+
+    span {
+        display: block;
+        height: 2px;
+        margin-top: 3px;
+
+        background-color: $white;
+    }
+}
+
+
+.nav-side {
+    padding-top: 12px;
+    padding-bottom: 8px;
+    margin-bottom: 2px;
+
+    a {
+        color: $black;
+    }
+
+    li.nav-side-header {
+        padding: 3px 12px;
+    }
+
+    & > li > a {
+        padding: 3px 12px;
+
+        font-size: 0.9em;
+
+        &.active,
+        &:hover,
+        &:focus {
+            color: $white;
+            background: $darkGray;
+        }
+    }
+
+    .nav-side {
+        margin-left: 16px;
+        font-size: 0.96em;
+        line-height: 120%;
+
+        display: none;
+
+        a {
+            color: $themeColor;
+            
+            &:hover {
+                background-color: $themeColor;
+                color: $white;
+            }
+
+            span {
+                color: $gray;
+            }
+        }
+    }
+
+    .active + .nav-side {
+        display: block;
+    }
+}
+
+.navbar .nav > li > a {
+    padding-left: 9px;
+    padding-right: 9px;
+}

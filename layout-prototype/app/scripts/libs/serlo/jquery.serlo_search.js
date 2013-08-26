@@ -12,16 +12,6 @@ var SERLO = SERLO || {};
 (function ($, _, window, undefined) {
     "use strict";
     var instance,
-        KEYCODES = {
-            left: 37,
-            top : 38,
-            right: 39,
-            down: 40,
-            enter: 13,
-            backspace: 8,
-            entf: 46,
-            esc: 27
-        },
         defaults  = {
             rootSelector: '#search-content',
             inputSelector: '#search-input',
@@ -144,12 +134,12 @@ var SERLO = SERLO || {};
         var searchString = $.trim($(this).val());
 
         switch (e.keyCode) {
-        case KEYCODES.left:
-        case KEYCODES.top:
-        case KEYCODES.right:
-        case KEYCODES.down:
+        case SERLO.COMMON.KEYCODES.left:
+        case SERLO.COMMON.KEYCODES.top:
+        case SERLO.COMMON.KEYCODES.right:
+        case SERLO.COMMON.KEYCODES.down:
             return true;
-        case KEYCODES.esc:
+        case SERLO.COMMON.KEYCODES.esc:
             $(this).val('').blur();
             instance.$root.removeClass(instance.options.hasResultsClass);
             break;

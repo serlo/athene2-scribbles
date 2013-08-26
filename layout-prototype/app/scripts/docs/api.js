@@ -3,11 +3,26 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "AjaxOverlay",
         "AjaxPage",
+        "COMMON",
         "SerloLayout",
         "SerloSearch",
         "SerloSlideMenu"
     ],
-    "modules": [],
-    "allModules": []
+    "modules": [
+        "COMMON",
+        "SERLO"
+    ],
+    "allModules": [
+        {
+            "displayName": "COMMON",
+            "name": "COMMON",
+            "description": "Contains static variables"
+        },
+        {
+            "displayName": "SERLO",
+            "name": "SERLO",
+            "description": "Serlos 'namespace'"
+        }
+    ]
 } };
 });
