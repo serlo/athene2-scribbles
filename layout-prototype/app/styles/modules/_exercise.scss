@@ -1,0 +1,43 @@
+.exercises {
+    padding-top: 12px;
+    margin-bottom: 12px;
+}
+
+.exercise-header {
+    padding-bottom: 1em;
+    margin-left: 1.4em;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.exercise {
+    padding: 18px 0 6px;
+
+    & + .exercise {
+        border-top: 1px dotted $lighterGray;
+    }
+
+    .nav  li {
+        clear: left;
+
+        & + li {
+            opacity: 0.25;
+        }
+    }
+    
+    .ex-inner {
+        margin-left: 65px;
+    }
+
+    .ex-que {
+        margin-bottom: 0.8em;
+    }
+
+    .ex-lab {
+        float: left;
+        width: 20px;
+
+        font-weight: bold;
+    }
+}

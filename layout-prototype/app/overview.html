@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="span12">
                             <ul class="nav pull-left">
-                                <li><a href="#home"><i class="icon-home"></i></a>
+                                <li><a href="/index.html"><i class="icon-home"></i></a>
                                 </li>
                                 <li><a href="#blog">Blog</a>
                                 </li>
@@ -41,6 +41,7 @@
                             <ul class="nav pull-right">
                                 <li><a href="#">Community</a></li>
                                 <li><a href="#">Profile</a></li>
+                                <li><a href="#">Learn</a></li>
                                 <li><a href="#">Settings</a></li>
                                 <li><a href="#">Registration</a></li>
                                 <li><a href="#"><i class="icon-user"></i> Login</a></li>
@@ -72,9 +73,11 @@
                                         <div class="layout-inner">
                                             <ul class="nav nav-list">
                                                 <li><a href="#">Physik</a></li>
-                                                <li><a href="#">Sozialkunde</a></li>
+                                                <li><a href="#">Chemie</a></li>
                                                 <li><a href="#">Biologie</a></li>
                                                 <li><a href="#">Geographie</a></li>
+                                                <li><a href="#">Sozialkunde</a></li>
+                                                <li><a href="#">Philosophie</a></li>
                                                 <li class="nav-header">Andere</li>
                                                 <li><a href="#">Rebound</a></li>
                                                 <li><a href="#">Subsistenzlehre</a></li>
@@ -231,12 +234,7 @@
                                                                     <li><i class="icon-play"></i><a href="#">Definitionsbereich bestimmen <span class="badge">28</span></a></li>
                                                                     <li><i class="icon-play"></i><a href="#">Wertebereich bestimmen <span class="badge">6</span></a></li>
                                                                     <li><i class="icon-play"></i><a href="#">Nullstellen berechnen <span class="badge">23</span></a></li>
-                                                                    <li><i class="icon-play"></i><a href="#">Grenzwertbetrachtung</a>
-                                                                        <ul>
-                                                                            <li><i class="icon-play"></i><a href="#">Grenzwerte von Funktionen berechnen <span class="badge">15</span></a></li>
-                                                                            <li><i class="icon-play"></i><a href="#">Asymptoten bestimmen <span class="badge">17</span></a></li>
-                                                                        </ul>
-                                                                    </li>
+                                                                    <li><i class="icon-play"></i><a href="/grenzwertbetrachtung.html">Grenzwertbetrachtung</a></li>
                                                                     <li><i class="icon-play"></i><a href="#">Monotonieverhalten berechnen <span class="badge">3</span></a></li>
                                                                     <li><i class="icon-play"></i><a href="#">e- und ln-Funktionen diskutieren <span class="badge">12</span></a></li>
                                                                     <li><i class="icon-play"></i><a href="#">Polynomfunktionen diskutieren <span class="badge">16</span></a></li>
@@ -380,12 +378,16 @@
                                         <li><a href="#">Funktionen</a></li>
                                         <li><a href="#">Ableitungen</a></li>
                                         <li><a href="#">Integral</a></li>
-                                        <li><a href="#">Kurvendiskussion</a>
+                                        <li><a href="#" data-id="info-2">Kurvendiskussion</a>
                                             <ul class="nav nav-side">
                                                 <li><a href="#">Allgemeine Erklärung und Aufgabensammlung&nbsp;<span>(223)</span></a></li>
                                                 <li><a href="#">Definitionsbereich und Wertebereich&nbsp;<span>(34)</span></a></li>
                                                 <li><a href="#">Nullstellen&nbsp;<span>(49)</span></a></li>
-                                                <li><a href="#">Grenzwertbetrachtung&nbsp;<span>(32)</span></a></li>
+                                                <li><a href="#" data-id="info-1">Grenzwertbetrachtung&nbsp;<span>(32)</span></a>
+                                                    <ul class="nav nav-side detail">
+                                                        <li><a href="/grenzwertbetrachtung.html" class="let-through"><i class="icon-right-circle"></i> zum Thema</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li><a href="#">Monotonieverhalten&nbsp;<span>(8)</span></a></li>
                                                 <li><a href="#">Symmetrie zum Koordinatensystem&nbsp;<span>(14)</span></a></li>
                                                 <li><a href="#">Graphen zuordnen&nbsp;<span>(15)</span></a></li>
@@ -429,39 +431,24 @@
                     </div>
                     <div id="sidebar-content">
                         <!-- <h5>Context Bereich</h5> -->
-                        <div class="sidebar-content-group ">
-                            <ul class="nav nav-side">
-                                <li class="nav-side-header"><strong>Artikelgruppe</strong> <i>(3)</i></li>
-                                <li><a href="#"><i class="icon-doc-text"></i> Asymptote</a></li>
-                                <li><a href="#" class="active"><i class="icon-doc-text"></i> Asymptote berechnen</a></li>
-                                <li><a href="#"><i class="icon-doc-text"></i> Schiefe Asymptote</a></li>
-                            </ul>
-
-                            <ul class="nav nav-side">
-                                <li class="nav-side-header"><strong>Mehr zum Artikel</strong></li>
-                                <li><a href="#"><i class="icon-flag"></i> Aufgaben</a></li>
-                                <li><a href="#"><i class="icon-play"></i> Videos</a></li>
-                                <li><a href="#"><i class="icon-calendar"></i> Lern-Module</a></li>
-                            </ul>
-
-                            <ul class="nav nav-side">
-                                <li class="nav-side-header"><strong>Interdisziplinär</strong></li>
-                                <li><a href="#"><i class="icon-doc-inv-alt"></i> Reale Projekte</a></li>
-                                <li><a href="#"><i class="icon-help"></i> Aktuelle Fragen</a></li>
-                            </ul>
+                        <!-- #info-n  is only for vision summit -->
+                        <div id="info-2" class="sidebar-content-group preview">
+                            <h4>Kurvendiskussion</h4>
+                            <hr>
+                            <p>
+                                <img src="/images/preview/kurvendiskussion-vorschau.png"/><br><br>
+                                <i>In der Kurvendiskussion werden die Eigenschaften des Graphens einer Funktion untersucht.</i>
+                            </p>
+                            <p><a href="#">Mehr <i class="icon-right-circle"></i></a></p>
                         </div>
-                        <div class="sidebar-content-group ">
-                            <ul class="nav nav-side">
-                                <li><a href="#"><img style="float: left;" src="/images/cluefabric-small.png" /><div style="margin-left: 58px;"><strong>Diskussion</strong><br><i>via Cluefabric</i></div></a></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-content-group gray">
-                            <ul class="nav nav-side">
-                                <li class="nav-side-header"><i class="icon-eye"></i> <strong>zuletzt angesehen:</strong></li>
-                                <li><a href="#">Kurvendiskussion</a></li>
-                                <li><a href="#">Infinitesimalrechnung</a></li>
-                                <li><a href="#">Definitionslücken schlie...</a></li>
-                            </ul>
+                        <div id="info-1" class="sidebar-content-group preview">
+                            <h4>Grenzwert&shy;betrachtung</h4>
+                            <hr>
+                            <p>
+                                <img src="/images/preview/grenzwertbetrachtung-vorschau.png"/><br><br>
+                                <i>Bei der Grenz&shy;wert&shy;be&shy;trach&shy;tung wird das Verhalten einer Funktion und ihres Graphen entweder im Unendlichen oder an einer bestimmten Stelle (meist Definitionslücke) ermittelt.</i>
+                            </p>
+                            <p><a href="/grenzwertbetrachtung.html">Mehr <i class="icon-right-circle"></i></a></p>
                         </div>
                     </div>
                 </div>

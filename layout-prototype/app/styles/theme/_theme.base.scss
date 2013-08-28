@@ -106,7 +106,7 @@
 
     .right-side {
         .layout-inner {
-            padding-top: 30px;
+            padding-top: 17px;
 
             border-left: 1px solid $lighterGray;
         }
@@ -222,6 +222,27 @@
         margin-top: 19px;
         background: $lightGray;
     }
+
+    &.preview {
+        display: none;
+        background: $themeColor;
+        border: 3px solid $white;
+        padding: 12px;
+        box-shadow: 1px 1px 9px $lighterGray;
+    
+        h4 {
+            font-weight: normal;
+        }
+        p {
+            font-size: 0.9em;
+        }
+        .nav {
+            font-size: 0.9em;
+            li {
+                margin-bottom: 6px;
+            }
+        }
+    }
 }
 
 #sidebar-toggle {
@@ -255,4 +276,20 @@
         }
     }
 
+}
+
+.horizont {
+    background: $lighterGray;
+
+    .image {
+        height: 170px;
+    }
+
+    a {
+        color: $black;
+        &:hover {
+            text-decoration: none;
+            color: $black;
+        }
+    }
 }

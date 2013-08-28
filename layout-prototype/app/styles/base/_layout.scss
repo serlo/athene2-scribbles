@@ -6,6 +6,10 @@
   @include grid-core($gridColumnWidthSidebar, $gridGutterWidthSidebar);
 }
 
+// @media only screen and (max-width: $fullStackBreakPoint) {
+//   @include grid-core($gridColumnWidthFullStack, $gridGutterWidthFullStack);
+// }
+
 .layout-inner {
     padding: 12px 20px;
 }

@@ -22,17 +22,31 @@
 
         /**** VISION SUMMIT SPAGHETTI CODE *****/
 
-        $('#alle-themen .nav-side > li > a').click(function (e) {
-            var $child = $(this).next('ul');
+        if ($('#grenzwertbetrachtung, #alle-themen').length) {
+            $('#content .nav-side a').click(function (e) {
+                var $self = $(this),
+                    $preview = $('#' + $self.attr('data-id')),
+                    $child = $(this).next('ul');
 
-            if($(this).hasClass('active')) {
-                $(this).removeClass('active');
-            } else if ($child.length) {
-                $(this).addClass('active');
-            }
-            e.preventDefault();
-            return;
-        })
+                if($self.hasClass('let-through')) return true;
+
+                $('.sidebar-content-group.preview').hide();
+                $('#content .nav-side a.active').removeClass('active');
+
+                if ($(this).hasClass('active')) {
+                    $preview.hide();
+                } else {
+                    $(this).parents('li').children('a').addClass('active');
+                    $('#sidebar').css({
+                        top: $(window).scrollTop() - 120
+                    });
+                    $preview.show();
+                }
+
+                e.preventDefault();
+                return;
+            });
+        }
     });
 
 })(jQuery, window);

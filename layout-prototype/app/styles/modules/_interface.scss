@@ -51,6 +51,8 @@ span.bar-stack {
         a {
             color: $themeColor;
             
+            &.active,
+            &:focus,
             &:hover {
                 background-color: $themeColor;
                 color: $white;
@@ -58,6 +60,14 @@ span.bar-stack {
 
             span {
                 color: $gray;
+            }
+        }
+
+        &.detail {
+            background: $themeColor;
+            margin-left: 0;
+            a {
+                color: $white;
             }
         }
     }
@@ -70,4 +80,11 @@ span.bar-stack {
 .navbar .nav > li > a {
     padding-left: 9px;
     padding-right: 9px;
+}
+
+
+#grenzwertbetrachtung {
+    .nav-side-header {
+        font-size: 1.2em;
+    }
 }

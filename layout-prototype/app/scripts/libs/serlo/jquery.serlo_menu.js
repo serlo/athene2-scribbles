@@ -96,6 +96,7 @@ var SERLO = SERLO || {};
     */
 
     SerloSlideMenu.prototype.onLinkClick = function (e) {
+        console.log(e);
         var self = this,
             $self = $(self),
             $list = $self.siblings().filter('ul, ' + instance.options.subnavContainerSelector);
@@ -130,9 +131,6 @@ var SERLO = SERLO || {};
     * @return {Boolean} false
     */
     SerloSlideMenu.prototype.onActiveSubLinkClick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
         var self = this,
             $target,
             identifier = new RegExp($(self).text().trim());
@@ -148,16 +146,23 @@ var SERLO = SERLO || {};
         if ($target.length) {
 
             $target.parents('li').each(function (i) {
-                if (i > 0){
+                if (i > 0) {
                     instance.updateHistory($(this).children('a').first());
                 }
             });
 
-            $target.trigger('click');
+            $target.trigger('click', e);
         }
 
 
-        return false;
+        return (function (self) {
+            if ($(self).attr('href') !== '#') {
+                return true;
+            }
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }(this));
     };
 
     /**
