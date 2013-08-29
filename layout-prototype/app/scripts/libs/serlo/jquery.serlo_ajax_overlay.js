@@ -431,10 +431,10 @@ var SERLO = SERLO || {};
     */
 
     AjaxOverlay.AjaxPage = function (url, title) {
-        this.super = instance;
+        this.uber = instance;
 
         this.url = url;
-        this.title = url.split('/').pop();
+        this.title = title;
         this.loaded = false;
 
         this.$el = $('<div>');
@@ -450,16 +450,16 @@ var SERLO = SERLO || {};
     * @return Returns itself for chaining
     */
 
-    AjaxOverlay.AjaxPage.prototype.load = function() {
+    AjaxOverlay.AjaxPage.prototype.load = function () {
         var self = this,
             call;
 
-        if(self.loaded) {
-            self.super.showPage(self.url).hideLoader();
+        if (self.loaded) {
+            self.uber.showPage(self.url).hideLoader();
             return;
         }
 
-        self.super.showLoader();
+        self.uber.showLoader();
 
         call = $.ajax({
             url: this.url,
@@ -472,16 +472,16 @@ var SERLO = SERLO || {};
             var $data = $('<div>').html(data);
             self.loaded = true;
 
-            if($data.find(self.super.options.ajaxContentSelector).length) {
-                self.$el.html($data.find(self.super.options.ajaxContentSelector).html());
-                self.super.showPage(self.url).hideLoader();
+            if ($data.find(self.uber.options.ajaxContentSelector).length) {
+                self.$el.html($data.find(self.uber.options.ajaxContentSelector).html());
+                self.uber.showPage(self.url).hideLoader();
             } else {
-                self.super.onError(new Error('No content found'));
+                self.uber.onError(new Error('No content found'));
             }
         });
 
         call.error(function () {
-            self.super.onError(arguments);
+            self.uber.onError.apply(self.uber, arguments);
         });
 
 
@@ -497,13 +497,13 @@ var SERLO = SERLO || {};
     * @param {array} array The array to search in
     * @return true or false
     */
-    var elementExistsInArray = function(element, array) {
-        var i = 0,
-            length = array.length,
+    function elementExistsInArray(element, array) {
+        var i,
+            length,
             exists = false;
 
-        for(; i < length; i += 1) {
-            if(array[i] === element) {
+        for (i = 0, length = array.length; i < length; i += 1) {
+            if (array[i] === element) {
                 exists = true;
                 break;
             }
